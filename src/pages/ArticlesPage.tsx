@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import SumateSection from '../components/SumateSection'
 import { articles } from '../data/articles'
 import { asset } from '../utils/asset'
@@ -9,8 +7,7 @@ import './ArticlesPage.css'
 function ArticlesPage() {
   return (
     <>
-      <Header />
-      <main className="articles-page">
+      <div className="articles-page">
         <section className="articles-page-hero" aria-label="Blog de artículos">
           <div className="articles-page-hero-frame">
             <div className="articles-page-hero-banner">
@@ -59,9 +56,8 @@ function ArticlesPage() {
             <span className="articles-page-cta-arrow" aria-hidden="true" />
           </Link>
         </div>
-      </main>
+      </div>
       <SumateSection />
-      <Footer />
     </>
   )
 }

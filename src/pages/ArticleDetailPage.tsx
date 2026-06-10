@@ -1,5 +1,4 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
-import Header from '../components/Header'
 import { articles, getArticleBySlug } from '../data/articles'
 import { asset } from '../utils/asset'
 import './ArticleDetailPage.css'
@@ -16,8 +15,7 @@ function ArticleDetailPage() {
 
   return (
     <>
-      <Header compact />
-      <main className="article-detail-page">
+      <div className="article-detail-page">
         <div className="article-detail-shell">
           <Link to="/articulos" className="article-detail-back">← Volver a artículos</Link>
 
@@ -51,7 +49,7 @@ function ArticleDetailPage() {
             </div>
           </section>
         </div>
-      </main>
+      </div>
     </>
   )
 }
