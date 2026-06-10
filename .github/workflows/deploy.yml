@@ -1,8 +1,10 @@
 name: Deploy
 
-# Deploy de gavilano a vps2 (juandediosgavilano.com), estilo edwards, INLINE.
-# (gavilano es público y no puede usar el reusable privado de platform; por eso va inline.)
-# Cada push a main: build (base '/') + rsync de dist/ al docroot que sirve nginx en vps2.
+# Deploy de gavilano a vps2 (juandediosgavilano.com), INLINE (repo público: no puede usar el
+# reusable privado de platform). El runner (vps2-gavilano-runner) corre EN vps2, así que el rsync
+# al docroot es LOCAL (sin red). CI (ci.yml) ya valida lint+build en el PR; acá solo se hace el
+# build del merge commit + rsync. Optimizado: sin lint redundante y sin cache:npm (en self-hosted
+# el ~/.npm del runner ya persiste local; el cache de Actions sería un round-trip lento a GitHub).
 on:
   push:
     branches: [main]
@@ -14,24 +16,23 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, gavilano]   # runner vps2-gavilano-runner
+    runs-on: [self-hosted, gavilano]   # runner vps2-gavilano-runner (corre EN vps2)
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
+      # Node 20 (misma versión que CI). A propósito SIN `cache: npm`: ver nota de arriba.
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
-      - name: Install + lint + build
+      - name: Build
         run: |
           set -euo pipefail
-          npm ci
-          npm run lint
-          npm run build              # base '/' por default (dominio raíz)
+          npm ci --prefer-offline --no-audit --no-fund   # install desde el ~/.npm local (sin red)
+          npm run build                                   # base '/' por default (dominio raíz)
 
-      - name: Guard dist + rsync a vps2
+      - name: Guard dist + rsync local al docroot
         run: |
           set -euo pipefail
           DOCROOT=/srv/nexus-containers/gavilano/public
