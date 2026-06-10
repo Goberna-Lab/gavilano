@@ -1,0 +1,31 @@
+.breadcrumb {
+  padding: 12px 48px;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.breadcrumb-item {
+  display: inline;
+}
+
+.breadcrumb-separator {
+  color: #9ca3af;
+  margin: 0 4px;
+}
+
+.breadcrumb-link {
+  color: #EC6726;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+.breadcrumb-current {
+  color: #374151;
+  font-weight: 500;
+}
