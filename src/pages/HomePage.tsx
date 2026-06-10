@@ -5,7 +5,7 @@ import ImageSection from '../components/ImageSection'
 import AporteSection from '../components/AporteSection'
 import HistoriasSection from '../components/HistoriasSection'
 import PropuestasSection from '../components/PropuestasSection'
-import PropuestasDetalleSection from '../components/PropuestasDetalleSection'
+
 import ArticulosSection from '../components/ArticulosSection'
 import SumateSection from '../components/SumateSection'
 
@@ -19,7 +19,6 @@ function HomePage() {
       <AporteSection />
       <HistoriasSection />
       <PropuestasSection />
-      <PropuestasDetalleSection />
       <ArticulosSection />
       <SumateSection />
     </>
