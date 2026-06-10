@@ -1,9 +1,9 @@
 name: CI
 
-# Gate de CI para PRs: corre lint + typecheck + build en cada Pull Request, ANTES de mergear.
-# Así un PR roto se ve en rojo acá y no llega a main (que deploya a GitHub Pages).
-# Corre en ubuntu-latest (GitHub-hosted): gavilano no tiene runner self-hosted y no lo necesita.
-# (En push a main NO corre: el build/deploy a Pages lo hace deploy-pages.yml, evitamos doble build.)
+# Gate de CI para PRs: corre lint + build en cada Pull Request, ANTES de mergear.
+# Así un PR roto se ve en rojo acá y no llega a main (que deploya a vps2 / juandediosgavilano.com).
+# Corre en ubuntu-latest (GitHub-hosted, efímero): acá `cache: npm` SÍ conviene.
+# (En push a main NO corre: el deploy lo hace deploy.yml — build + rsync a vps2.)
 on:
   pull_request:
 
@@ -25,7 +25,7 @@ jobs:
           cache: npm
 
       - name: Install deps
-        run: npm ci
+        run: npm ci --prefer-offline --no-audit --no-fund
 
       - name: Lint
         run: npm run lint
