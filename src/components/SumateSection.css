@@ -3,50 +3,52 @@
   width: 100%;
   max-width: 1920px;
   min-height: 958px;
-  background: transparent;
+  background: #EC6726;
   margin-top: -6px;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 60px 20px;
+  padding: 120px 124px;
   box-sizing: border-box;
 }
 
-.sumate-parallax {
-  position: absolute;
-  inset: 0;
+.sumate-inner {
+  position: relative;
+  z-index: 2;
   width: 100%;
-  height: 100%;
-  background: transparent url('/images/parallax.png') 50% 50% no-repeat padding-box;
-  background-size: cover;
-  background-position: center;
-  opacity: 1;
-  pointer-events: none;
-  z-index: 0;
+  max-width: 1672px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.sumate-left {
+  flex: 0 1 715px;
+  min-width: 0;
 }
 
 .sumate-heading {
   position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 715px;
   text-align: left;
   font: normal normal 600 24px/29px Montserrat;
   letter-spacing: 1.92px;
   color: #FFFFFF;
   text-transform: uppercase;
-  margin: 0 0 16px 0;
+  margin: 0 0 24px 0;
   white-space: nowrap;
 }
 
+/* El kicker hereda una línea naranja de index.css (pensada para secciones de
+   fondo blanco); sobre el naranja queda invisible → la pasamos a blanca. */
+.sumate-section .sumate-heading::before {
+  background: rgba(255, 255, 255, 0.6);
+}
+
 .sumate-subtitle-block {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 715px;
   text-align: left;
-  margin: 0 0 32px 0;
+  margin: 0 0 40px 0;
 }
 
 .sumate-subtitle-line {
@@ -74,12 +76,8 @@
 }
 
 .sumate-desc-block {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 516px;
   text-align: left;
-  margin: 0 0 40px 0;
+  max-width: 516px;
 }
 
 .sumate-desc-title {
@@ -87,157 +85,124 @@
   letter-spacing: 0px;
   color: #FFFFFF;
   margin: 0 0 8px 0;
-  white-space: normal;
 }
+
+.sumate-desc-text {
+  text-align: left;
+  font: normal normal normal 22px/32px Montserrat;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/* ---------- Tarjeta blanca con el formulario ---------- */
 
 .sumate-white-box {
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 710px;
+  flex: 0 0 auto;
+  width: 710px;
+  max-width: 100%;
   background: #FFFFFF;
   opacity: 1;
   animation: sumateWhiteBoxEnter 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
   will-change: opacity, transform;
-  padding: 40px 46px;
+  padding: 48px 52px;
   box-sizing: border-box;
   border-radius: 12px;
 }
 
-.sumate-box-label {
-  position: absolute;
-  width: auto;
-  height: 16px;
+.sumate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 26px;
+}
+
+.sumate-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.sumate-field--full {
+  grid-column: 1 / -1;
+}
+
+.sumate-field-label {
   text-align: left;
   font: normal normal normal 13px/16px Montserrat;
   letter-spacing: 1.04px;
-  color: #1B1F28;
+  color: #6B7280;
   text-transform: uppercase;
   margin: 0;
-  white-space: nowrap;
   cursor: pointer;
 }
 
-.sumate-box-divider {
-  position: absolute;
-  top: 130px;
-  height: 1px;
-  background: rgba(192, 193, 199, 0.5);
-}
-
-.sumate-box-label-sm {
-  position: absolute;
-  width: auto;
-  height: 15px;
-  text-align: left;
-  font: normal normal normal 12px/15px Montserrat;
-  letter-spacing: 0.96px;
-  color: #1B1F28;
-  text-transform: uppercase;
-  margin: 0;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.sumate-box-value {
-  position: absolute;
-  width: auto;
-  height: 16px;
-  text-align: left;
-  font: normal normal normal 13px/16px Montserrat;
-  letter-spacing: 1.04px;
-  color: #1B1F28;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.sumate-box-placeholder-sm {
-  position: absolute;
-  width: auto;
-  height: 16px;
-  text-align: left;
-  font: normal normal normal 13px/16px Montserrat;
-  letter-spacing: 1.04px;
-  color: #1B1F2899;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.sumate-box-placeholder {
-  position: absolute;
-  width: auto;
-  height: 16px;
-  text-align: left;
-  font: normal normal normal 13px/16px Montserrat;
-  letter-spacing: 1.04px;
-  color: #1B1F2899;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.sumate-box-placeholder::placeholder,
-.sumate-box-placeholder-sm::placeholder,
-.sumate-box-textarea::placeholder {
-  color: #1B1F2899;
-  text-transform: uppercase;
-}
-
-.sumate-box-placeholder,
-.sumate-box-placeholder-sm,
-.sumate-box-value {
+.sumate-field-input {
+  width: 100%;
   border: none;
+  border-bottom: 1px solid rgba(27, 31, 40, 0.25);
   background: transparent;
   outline: none;
-  padding: 0;
+  padding: 6px 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  text-transform: none;
+  font-size: 15px;
+  line-height: 20px;
+  color: #1B1F28;
+  box-sizing: border-box;
   cursor: text;
+  transition: border-color 0.2s ease;
 }
 
-.sumate-box-select {
-  cursor: pointer;
-}
-
-.sumate-box-textarea {
-  height: 96px;
-  resize: none;
-  overflow: hidden;
-  white-space: normal;
-  line-height: 16px;
-}
-
-.sumate-box-placeholder:focus-visible,
-.sumate-box-placeholder-sm:focus-visible,
-.sumate-box-value:focus-visible {
-  outline: 2px solid rgba(217, 11, 42, 0.22);
-  outline-offset: 4px;
-}
-
-.sumate-box-select:required:invalid {
+.sumate-field-input::placeholder {
   color: #1B1F2899;
 }
 
-.sumate-box-select option {
+.sumate-field-input:focus-visible {
+  border-bottom-color: #1B1F28;
+}
+
+.sumate-field-select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%236B7280' stroke-width='1.5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  padding-right: 24px;
+}
+
+.sumate-field-select:required:invalid {
+  color: #1B1F2899;
+}
+
+.sumate-field-select option {
   color: #1B1F28;
+}
+
+.sumate-field-textarea {
+  min-height: 88px;
+  resize: none;
+  line-height: 20px;
 }
 
 .sumate-box-button-icon {
   width: 17px;
   height: 15px;
   object-fit: contain;
-  margin-left: 10px;
   transition: transform 0.3s ease;
 }
 
 .sumate-box-button {
-  position: absolute;
-  top: 620px;
-  left: 46px;
+  margin-top: 36px;
   width: 320px;
+  max-width: 100%;
   height: 64px;
-  background: #1B1F28;
+  background: #2A3A5C;
   border: none;
   border-radius: 6px;
   color: #FFFFFF;
@@ -251,7 +216,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+  transition: background 0.2s ease;
+}
+
+.sumate-box-button:hover {
+  background: #1F2C47;
 }
 
 .sumate-box-button:hover .sumate-box-button-icon {
@@ -280,14 +250,62 @@
   }
 }
 
-.sumate-desc-text {
-  position: absolute;
-  top: 96px;
-  left: 0;
-  width: 516px;
-  text-align: left;
-  font: normal normal normal 22px/32px Montserrat;
-  letter-spacing: 0px;
-  color: #FFFFFF;
-  margin: 0;
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1023px) {
+  .sumate-section {
+    min-height: 0;
+    padding: 64px 24px;
+  }
+
+  .sumate-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 48px;
+  }
+
+  .sumate-left {
+    flex: 1 1 auto;
+  }
+
+  .sumate-heading {
+    white-space: normal;
+  }
+
+  .sumate-subtitle-line,
+  .sumate-subtitle-italic {
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.96px;
+    white-space: normal;
+  }
+
+  .sumate-desc-title,
+  .sumate-desc-text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .sumate-white-box {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .sumate-grid {
+    grid-template-columns: 1fr;
+    row-gap: 22px;
+  }
+
+  .sumate-subtitle-line,
+  .sumate-subtitle-italic {
+    font-size: 40px;
+  }
+
+  .sumate-box-button {
+    width: 100%;
+  }
 }
