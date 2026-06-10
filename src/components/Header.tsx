@@ -1,41 +1,30 @@
+import { Link } from 'react-router-dom'
 import logo from '/images/logo-gavilano.svg'
 import './Header.css'
 
 const navItems = [
-  { label: 'BIOGRAFIA', href: '#biografia' },
-  { label: 'EXPERIENCIA', href: '#experiencia' },
-  { label: 'MI APORTE', href: '#mi-aporte' },
-  { label: 'PROPUESTAS', href: '#propuestas' },
-  { label: 'ARTICULOS', href: '#articulos' },
+  { label: 'BIOGRAFIA', to: '/biografia' },
+  { label: 'EXPERIENCIA', to: '/experiencia' },
+  { label: 'MI APORTE', to: '/mi-aporte' },
+  { label: 'PROPUESTAS', to: '/propuestas' },
+  { label: 'ARTICULOS', to: '/articulos' },
 ]
 
 function Header() {
-  const irASeccion = (href: string) => {
-    const targetId = href.replace('#', '')
-    const target = document.getElementById(targetId)
-
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      window.history.pushState(null, '', href)
-    }
-  }
-
   return (
     <header className="header">
-      <img src={logo} className="header-logo" alt="Gavilano" />
+      <Link to="/">
+        <img src={logo} className="header-logo" alt="Gavilano" />
+      </Link>
       <nav className="header-nav">
         {navItems.map((item) => (
-          <a
+          <Link
             key={item.label}
-            href={item.href}
+            to={item.to}
             className="header-nav-item"
-            onClick={(event) => {
-              event.preventDefault()
-              irASeccion(item.href)
-            }}
           >
             {item.label}
-          </a>
+          </Link>
         ))}
       </nav>
     </header>

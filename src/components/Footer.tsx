@@ -1,31 +1,22 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 import { asset } from '../utils/asset'
 
 const linkColumns = [
   [
-    { label: 'biografía', href: '#biografia' },
-    { label: 'experiencia', href: '#experiencia' },
-    { label: 'mi aporte', href: '#mi-aporte' },
+    { label: 'biografía', to: '/biografia' },
+    { label: 'experiencia', to: '/experiencia' },
+    { label: 'mi aporte', to: '/mi-aporte' },
   ],
   [
-    { label: 'propuestas', href: '#propuestas' },
-    { label: 'artículos', href: '#articulos' },
+    { label: 'propuestas', to: '/propuestas' },
+    { label: 'artículos', to: '/articulos' },
   ],
 ]
 
 function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  const irASeccion = (href: string) => {
-    const targetId = href.replace('#', '')
-    const target = document.getElementById(targetId)
-
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      window.history.pushState(null, '', href)
-    }
   }
 
   return (
@@ -41,16 +32,12 @@ function Footer() {
             key={`footer-column-${index}`}
           >
             {column.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
-                onClick={(event) => {
-                  event.preventDefault()
-                  irASeccion(item.href)
-                }}
+                to={item.to}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         ))}
