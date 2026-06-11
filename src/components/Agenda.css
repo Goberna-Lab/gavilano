@@ -69,6 +69,10 @@
   z-index: 2;
 }
 
+.agenda-quote-mobile {
+  display: none;
+}
+
 .agenda-right-text-block {
   position: absolute;
   top: 284px;

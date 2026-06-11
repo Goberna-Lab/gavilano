@@ -118,7 +118,7 @@ function AporteSection() {
           <p className="aporte-description-connector">y</p>
         </div>
         <p className="aporte-description-text">
-          programas que dejaron huella en Carmen de la Legua Reynoso.
+          programas que dejaron huella en Carmen de <br className="aporte-description-mobile-break" />la Legua Reynoso.
         </p>
         <p className="aporte-description-note">Estos son solo algunos,</p>
       </div>

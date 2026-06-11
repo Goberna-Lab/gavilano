@@ -9,7 +9,11 @@ function Agenda() {
         <p className="agenda-subtitle-italic">IMPROVISAR.</p>
       </div>
       <div className="agenda-bar" />
-      <p className="agenda-quote">Gobernar no es solo prometer. Gobernar es escuchar, tomar desiciones y cumplir</p>
+      <p className="agenda-quote agenda-quote-desktop">Gobernar no es solo prometer. Gobernar es escuchar, tomar decisiones y cumplir.</p>
+      <p className="agenda-quote agenda-quote-mobile">
+        <span>Gobernar no es solo prometer. Gobernar es</span>
+        <span>escuchar, tomar decisiones y cumplir.</span>
+      </p>
       <div className="agenda-right-text-block">
         <p className="agenda-right-title">Conozco la gestión municipal desde adentro.</p>
         <p className="agenda-right-text">Mi trayectoria como Alcalde en Carmen de la Legua Reynoso, asesor en municipalidades y diferentes entidades del Estado me permite saber cómo funciona la administración pública y desde dónde empezar a ordenar nuestro distrito desde el primer día.</p>
