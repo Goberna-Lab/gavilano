@@ -55,6 +55,7 @@
   letter-spacing: 0;
   color: #ffffff;
   text-transform: capitalize;
+  z-index: 2;
 }
 
 .footer-links-label {
@@ -116,6 +117,8 @@
   font: inherit;
   line-height: 32px;
   opacity: 0.5;
+  cursor: pointer;
+  pointer-events: auto;
   transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
 }
 

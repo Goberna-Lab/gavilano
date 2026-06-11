@@ -2,14 +2,17 @@ import { Link } from 'react-router-dom'
 import './Footer.css'
 import { asset } from '../utils/asset'
 
-const linkColumns = [
+type FooterLink =
+  | { label: string; to: string; preventNavigation?: boolean }
+
+const linkColumns: FooterLink[][] = [
   [
     { label: 'biografía', to: '/biografia' },
     { label: 'experiencia', to: '/experiencia' },
     { label: 'mi aporte', to: '/mi-aporte' },
   ],
   [
-    { label: 'propuestas', to: '/propuestas' },
+    { label: 'propuestas', to: '/propuestas', preventNavigation: true },
     { label: 'artículos', to: '/articulos' },
   ],
 ]
@@ -32,12 +35,22 @@ function Footer() {
             key={`footer-column-${index}`}
           >
             {column.map((item) => (
-              <Link
-                key={item.label}
-                to={item.to}
-              >
-                {item.label}
-              </Link>
+              item.preventNavigation ? (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  onClick={(event) => event.preventDefault()}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </div>
         ))}
