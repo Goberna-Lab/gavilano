@@ -133,6 +133,10 @@
   margin: 0;
 }
 
+.aporte-description-mobile-break {
+  display: none;
+}
+
 .aporte-description-note {
   position: absolute;
   top: 160px;

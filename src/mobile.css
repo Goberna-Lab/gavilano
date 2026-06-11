@@ -277,7 +277,7 @@
     position: static;
     width: 100%;
     height: auto;
-    margin-top: 24px;
+    margin-top: 34px;
     display: flex;
     flex-direction: column;
   }
@@ -978,9 +978,14 @@
   .about-button {
     width: min(320px, 100%);
     height: 64px;
-    margin: 28px 0 0;
+    margin: 28px auto 0;
     font-size: 15px;
     letter-spacing: 0;
+  }
+
+  .about-stat-mobile-card:nth-child(2) .about-stat-mobile-desc {
+    max-width: 92px;
+    text-align: center;
   }
 
   .about-image {
@@ -1031,7 +1036,7 @@
 
   .agenda-bar {
     width: 8px;
-    height: 94px;
+    height: 76px;
     margin: 34px 16px 0 0;
     float: left;
   }
@@ -1039,51 +1044,121 @@
   .agenda-quote {
     width: auto;
     min-height: 94px;
-    margin: 34px 0 0;
+    margin: 49px 0 0;
     text-align: left;
     font-size: 19px;
     line-height: 28px;
   }
 
+  .agenda-quote-desktop {
+    display: none;
+  }
+
+  .agenda-quote-mobile {
+    display: block;
+    max-width: 381px;
+    padding-left: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  .agenda-quote-mobile span {
+    display: block;
+    white-space: nowrap;
+  }
+
   .agenda-stats-container {
     clear: both;
     width: 100%;
-    height: auto;
+    height: 124px;
     margin-top: 42px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr);
     background: #EC6726;
   }
 
   .agenda-stats-col {
-    min-height: 128px;
+    min-height: 0;
     align-items: center;
-    padding: 24px 16px;
+    justify-content: center;
+    padding: 16px 5px;
+    text-align: center;
+  }
+
+  .agenda-stats-divider {
+    width: 1px;
+    height: 82px;
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+    border-top: none;
+    align-self: center;
+  }
+
+  .agenda-stat-number-row {
+    justify-content: center;
   }
 
   .agenda-stat-number,
   .agenda-stat-plus {
-    font-size: clamp(72px, 22vw, 98px);
+    font-size: clamp(38px, 11.5vw, 48px);
     line-height: 0.95;
+    letter-spacing: -0.8px;
+  }
+
+  .agenda-stat-plus {
+    width: auto;
+    margin-right: 1px;
   }
 
   .agenda-stat-label {
     width: auto;
-    margin-top: 8px;
-    font-size: 15px;
-    line-height: 18px;
+    max-width: 96px;
+    margin-top: 6px;
+    font-size: 8px;
+    line-height: 10px;
+    letter-spacing: 0.6px;
+    text-align: center;
   }
 
   .image-section {
+    display: flex;
+    flex-direction: column;
     min-height: 0;
     padding: 72px 16px 64px;
     background-attachment: scroll;
     background-position: center;
   }
 
+  .image-section::before {
+    content: 'UNA VIDA DE SERVICIO';
+    position: absolute;
+    top: 73px;
+    left: 0;
+    z-index: 3;
+    padding-left: 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 1.8px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background: linear-gradient(#FFFFFF, #FFFFFF) left center / 38px 1px no-repeat;
+    pointer-events: none;
+  }
+
   .image-section-portrait {
+    order: 2;
     width: min(100%, 390px);
-    margin: 0 auto 44px;
+    margin: 168px auto 12px;
+  }
+
+  .image-section-copy {
+    order: 1;
+    transform: translate(15px, 118px);
   }
 
   .image-section-copy,
@@ -1099,6 +1174,7 @@
   }
 
   .image-section-kicker {
+    display: none;
     padding-left: 52px;
     margin-bottom: 34px;
     font-size: 15px;
@@ -1150,11 +1226,17 @@
   }
 
   .aporte-subtitle-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: 34px;
   }
 
   .aporte-subtitle-line,
   .aporte-subtitle-italic {
+    position: static;
+    width: auto;
+    height: auto;
     font-size: clamp(39px, 10.5vw, 52px);
     line-height: 1.02;
     letter-spacing: -0.8px;
@@ -1162,16 +1244,22 @@
 
   .aporte-subtitle-second-row {
     display: flex;
-    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
     gap: 8px;
+    white-space: nowrap;
   }
 
   .aporte-description-group {
     margin-bottom: 42px;
+    text-align: left;
   }
 
   .aporte-description-first-row {
-    display: inline;
+    display: block;
+    white-space: nowrap;
+    line-height: 24px;
   }
 
   .aporte-description,
@@ -1182,14 +1270,42 @@
     display: inline;
     width: auto;
     height: auto;
-    font-size: 19px;
-    line-height: 28px;
-    white-space: normal;
+    font-size: 17px;
+    line-height: 24px;
+    white-space: nowrap;
   }
 
   .aporte-description-note {
     display: block;
-    margin-top: 28px;
+    width: fit-content;
+    margin-top: 24px;
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .aporte-description-connector {
+    font-weight: 700;
+    margin-left: 5px;
+  }
+
+  .aporte-description-text {
+    display: block;
+    width: 100%;
+    margin-top: 0;
+    text-align: left;
+  }
+
+  .aporte-description-text br {
+    line-height: 24px;
+  }
+
+  .aporte-description-text br::after {
+    content: '';
+  }
+
+  .aporte-description-mobile-break {
+    display: inline;
   }
 
   .aporte-projects-nav {
@@ -1475,9 +1591,48 @@
     background-size: auto 660px;
   }
 
+  .hero-content {
+    top: 12px;
+    align-items: center;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(124px, 33.5vw, 166px);
+  }
+
+  .hero-subtitle2 {
+    font-size: clamp(94px, 24.5vw, 124px);
+  }
+
   .hero-mobile-portrait {
     height: 448px;
     background-size: auto 448px;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 467px;
+    width: 250px;
+    height: 64px;
+    background: #FFFFFF;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: 6px;
+    bottom: 3px;
+    width: 64px;
+    height: 64px;
+    background: url('/images/Grupo 28410.png') center / contain no-repeat;
+    pointer-events: none;
+    z-index: 30;
   }
 
   .hero-button {
