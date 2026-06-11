@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom'
 import logo from '/images/logo-gavilano.svg'
 import './Header.css'
 
-const navItems = [
+type NavItem =
+  | { label: string; to: string; preventNavigation?: boolean }
+
+const navItems: NavItem[] = [
   { label: 'BIOGRAFIA', to: '/biografia' },
   { label: 'EXPERIENCIA', to: '/experiencia' },
   { label: 'MI APORTE', to: '/mi-aporte' },
-  { label: 'PROPUESTAS', to: '/propuestas' },
+  { label: 'PROPUESTAS', to: '/propuestas', preventNavigation: true },
   { label: 'ARTICULOS', to: '/articulos' },
 ]
 
@@ -22,6 +25,7 @@ function Header() {
             key={item.label}
             to={item.to}
             className="header-nav-item"
+            onClick={item.preventNavigation ? (event) => event.preventDefault() : undefined}
           >
             {item.label}
           </Link>
