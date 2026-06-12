@@ -109,6 +109,16 @@
   transform: translateX(5px);
 }
 
+@media (min-width: 1025px) and (max-width: 1919px) {
+  .hero-content {
+    left: clamp(960px, 58vw, 1014px);
+  }
+
+  .hero-button {
+    left: clamp(960px, 58vw, 1018px);
+  }
+}
+
 @media (max-width: 1024px) {
   .hero {
     height: clamp(720px, calc(100svh - 76px), 852px);
