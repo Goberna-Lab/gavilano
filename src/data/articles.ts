@@ -11,7 +11,7 @@ export type Article = {
 export const articles: Article[] = [
   {
     slug: 'seguridad-serenazgo',
-    image: 'Imagen-174.png',
+    image: 'enmascarar.png',
     titleBefore: 'Seguridad como Cimiento del Desarrollo: ',
     titleBold: 'La historia del cuerpo de Serenazgo Municipal',
     excerpt: 'Es un error común pensar que la seguridad es un fin en sí mismo. En realidad, es el suelo sobre el cual se construye todo lo demás.',

@@ -9,7 +9,7 @@ const navItems: NavItem[] = [
   { label: 'BIOGRAFIA', to: '/biografia' },
   { label: 'EXPERIENCIA', to: '/experiencia' },
   { label: 'MI APORTE', to: '/mi-aporte' },
-  { label: 'PROPUESTAS', to: '/propuestas', preventNavigation: true },
+  //{ label: 'PROPUESTAS', to: '/propuestas', preventNavigation: true },
   { label: 'ARTICULOS', to: '/articulos' },
 ]
 

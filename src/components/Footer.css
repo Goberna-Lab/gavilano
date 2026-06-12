@@ -2,8 +2,10 @@
 
 .footer {
   position: relative;
-  left: 0.2974853515625px;
-  width: 1918px;
+  left: 0;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
   height: 240px;
   box-sizing: border-box;
   background: linear-gradient(90deg, #111827 0%, #0f172a 50%, #111827 100%) 0% 0% no-repeat padding-box;

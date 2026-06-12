@@ -12,7 +12,7 @@ const linkColumns: FooterLink[][] = [
     { label: 'mi aporte', to: '/mi-aporte' },
   ],
   [
-    { label: 'propuestas', to: '/propuestas', preventNavigation: true },
+    //{ label: 'propuestas', to: '/propuestas', preventNavigation: true },
     { label: 'artículos', to: '/articulos' },
   ],
 ]
