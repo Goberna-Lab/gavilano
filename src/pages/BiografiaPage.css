@@ -32,14 +32,13 @@
 
 .biografia-page-hero-title {
   position: absolute;
-  top: 197px;
-  left: 390px;
-  width: 964px;
-  height: 104px;
+  top: 33.6%;
+  left: 22.4%;
+  width: 55.3%;
   margin: 0;
   text-align: center;
-  font: normal normal 800 86px/104px Inter, Arial, sans-serif;
-  letter-spacing: -1.72px;
+  font: normal normal 800 clamp(40px, 4.48vw, 86px)/1.21 Inter, Arial, sans-serif;
+  letter-spacing: -0.04em;
   color: #FFFFFF;
   text-transform: uppercase;
   white-space: nowrap;
@@ -48,14 +47,13 @@
 
 .biografia-page-hero-subtitle {
   position: absolute;
-  top: 297px;
-  left: 266px;
-  width: 1212px;
-  height: 92px;
+  top: 50.7%;
+  left: 15.3%;
+  width: 69.5%;
   margin: 0;
   text-align: center;
-  font: italic normal 900 76px/92px Inter, Arial, sans-serif;
-  letter-spacing: -1.52px;
+  font: italic normal 900 clamp(36px, 3.96vw, 76px)/1.21 Inter, Arial, sans-serif;
+  letter-spacing: -0.04em;
   color: #FFFFFF;
   text-transform: uppercase;
   white-space: nowrap;

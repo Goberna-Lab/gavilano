@@ -16,8 +16,6 @@ type Proyecto = {
   tituloSuffixLines?: string[]
   tituloBreakAfterPrefix?: boolean
   ocultarDescripcion?: boolean
-  tituloTop?: number
-  tituloWidth?: number
 }
 
 const proyectos: Proyecto[] = [
@@ -26,8 +24,6 @@ const proyectos: Proyecto[] = [
     nombre: 'Casa del Adulto Mayor',
     titulo: '',
     tituloCompleto: 'Un espacio digno para cuidar, acompañar y reconocer a quienes hicieron historia en Carmen de la Legua Reynoso.',
-    tituloTop: 48,
-    tituloWidth: 611,
     imagen: asset('personas/senoras.png'),
     navClass: 'aporte-projects-nav-item-casa',
   },
@@ -41,8 +37,6 @@ const proyectos: Proyecto[] = [
     descripcion: '',
     imagen: asset('SKATE.png'),
     navClass: 'aporte-projects-nav-item-skate',
-    tituloTop: 86,
-    tituloWidth: 640,
   },
   {
     id: 3,
@@ -53,8 +47,6 @@ const proyectos: Proyecto[] = [
     descripcion: '',
     imagen: asset('Imagen 876.png'),
     navClass: 'aporte-projects-nav-item-festirock',
-    tituloTop: 48,
-    tituloWidth: 576,
   },
   {
     id: 4,
@@ -65,8 +57,6 @@ const proyectos: Proyecto[] = [
     descripcion: '',
     imagen: asset('Imagen 007.png'),
     navClass: 'aporte-projects-nav-item-boulevard',
-    tituloTop: 48,
-    tituloWidth: 607,
   },
   {
     id: 5,
@@ -145,10 +135,6 @@ function AporteSection() {
           <div className="aporte-project-description aporte-project-content-transition" key={`description-${proyectoActivo.id}`}>
             <p
               className={`aporte-project-description-text ${(proyectoActivo.tituloPrefix || proyectoActivo.tituloCompleto) ? 'aporte-project-description-text-normal' : ''}`}
-              style={{
-                top: proyectoActivo.tituloTop ?? 0,
-                width: proyectoActivo.tituloWidth ?? 556,
-              }}
             >
               {proyectoActivo.tituloCompleto ? (
                 <>

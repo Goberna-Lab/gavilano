@@ -9,7 +9,6 @@
   height: 240px;
   box-sizing: border-box;
   background: linear-gradient(90deg, #111827 0%, #0f172a 50%, #111827 100%) 0% 0% no-repeat padding-box;
-  border-top: 24px solid #f26532;
   overflow: hidden;
 }
 

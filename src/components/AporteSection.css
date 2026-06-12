@@ -245,18 +245,18 @@
 
 .aporte-project-description {
   position: absolute;
-  top: 158px;
+  top: 0;
   left: 125px;
   width: 607px;
-  height: 188px;
+  height: 503px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .aporte-project-description-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 607px;
-  height: 44px;
+  width: 100%;
+  height: auto;
   text-align: left;
   font: normal normal bold 36px/48px Montserrat;
   letter-spacing: 0px;
@@ -277,16 +277,14 @@
 }
 
 .aporte-project-description-subtext {
-  position: absolute;
-  top: 58px;
-  left: 0;
-  width: 607px;
-  height: 188px;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
   text-align: left;
   font: normal normal 36px/48px Montserrat;
   letter-spacing: 0px;
   color: #1B1F28;
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .aporte-project-content-transition {
