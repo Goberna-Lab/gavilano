@@ -19,10 +19,10 @@ jobs:
     runs-on: [self-hosted, gavilano]   # runner vps2-gavilano-runner (corre EN vps2)
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # Node 20 (misma versión que CI). A propósito SIN `cache: npm`: ver nota de arriba.
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 20
 
