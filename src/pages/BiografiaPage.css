@@ -5,12 +5,14 @@
 }
 
 .biografia-page-hero-container {
+  position: relative;
   width: 1744px;
   max-width: 100%;
   height: 586px;
   background: transparent url('/images/Grupo 28345.png') 0% 0% no-repeat padding-box;
   background-size: 100% auto;
   opacity: 1;
+  overflow: hidden;
 }
 
 .biografia-page-hero-image {
@@ -18,6 +20,376 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 1;
+}
+
+.biografia-page-hero-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.biografia-page-hero-title {
+  position: absolute;
+  top: 197px;
+  left: 390px;
+  width: 964px;
+  height: 104px;
+  margin: 0;
+  text-align: center;
+  font: normal normal 800 86px/104px Inter, Arial, sans-serif;
+  letter-spacing: -1.72px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.biografia-page-hero-subtitle {
+  position: absolute;
+  top: 297px;
+  left: 266px;
+  width: 1212px;
+  height: 92px;
+  margin: 0;
+  text-align: center;
+  font: italic normal 900 76px/92px Inter, Arial, sans-serif;
+  letter-spacing: -1.52px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+.biografia-roots-card {
+  position: relative;
+  width: 1446px;
+  max-width: calc(100vw - 48px);
+  min-height: 624px;
+  margin: 170px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 80px 70px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 20px;
+  opacity: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.biografia-roots-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: #D80E2B 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.biografia-roots-copy {
+  flex: 0 1 641px;
+  min-width: 0;
+}
+
+.biografia-roots-icon {
+  display: block;
+  width: 57px;
+  height: 57px;
+  margin-bottom: 8px;
+}
+
+.biografia-roots-title {
+  margin: 0 0 34px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.biografia-roots-title span:first-child {
+  display: block;
+  font: normal normal 900 45px/50px Inter, Arial, sans-serif;
+  letter-spacing: -0.9px;
+  color: #1B1F28;
+}
+
+.biografia-roots-title span + span {
+  display: block;
+  font: italic normal 900 45px/50px Inter, Arial, sans-serif;
+  letter-spacing: -0.9px;
+  color: #EC6726;
+}
+
+.biografia-roots-text {
+  max-width: 620px;
+  margin: 0;
+  text-align: left;
+  font: normal normal normal 20px/34px Montserrat, Arial, sans-serif;
+  letter-spacing: 0px;
+  color: #1B1F28;
+}
+
+.biografia-roots-image {
+  display: block;
+  flex: 0 0 auto;
+  width: 554px;
+  height: 464px;
+  object-fit: cover;
+  opacity: 1;
+}
+
+.biografia-formation-card {
+  position: relative;
+  width: 1446px;
+  max-width: calc(100vw - 48px);
+  min-height: 704px;
+  margin: 24px auto 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 80px 70px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 20px;
+  opacity: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.biografia-formation-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: #D80E2B 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.biografia-formation-copy {
+  flex: 0 1 641px;
+  min-width: 0;
+}
+
+.biografia-formation-icon {
+  display: block;
+  width: 64px;
+  height: 63px;
+  margin-bottom: 8px;
+}
+
+.biografia-formation-title {
+  margin: 0 0 34px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.biografia-formation-title span:first-child {
+  display: block;
+  font: normal normal 900 45px/50px Inter, Arial, sans-serif;
+  letter-spacing: -0.9px;
+  color: #1B1F28;
+}
+
+.biografia-formation-title span + span {
+  display: block;
+  font: italic normal 900 45px/50px Inter, Arial, sans-serif;
+  letter-spacing: -0.9px;
+  color: #EC6726;
+}
+
+.biografia-formation-text {
+  width: 605px;
+  max-width: 100%;
+  min-height: 346px;
+  margin: 0;
+  text-align: left;
+  font: normal normal normal 20px/32px Montserrat, Arial, sans-serif;
+  letter-spacing: 0px;
+  color: #111727;
+  opacity: 1;
+}
+
+.biografia-formation-image {
+  display: block;
+  flex: 0 0 auto;
+  width: 554px;
+  height: 464px;
+  object-fit: cover;
+  border-radius: 20px;
+  opacity: 1;
+}
+
+.biografia-service-card {
+  position: relative;
+  width: 1446px;
+  max-width: calc(100vw - 48px);
+  min-height: 624px;
+  margin: 24px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 80px 70px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 20px;
+  opacity: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.biografia-service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: #D80E2B 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.biografia-service-copy {
+  flex: 0 1 641px;
+  min-width: 0;
+}
+
+.biografia-service-icon {
+  display: block;
+  width: 40px;
+  height: 60px;
+  margin-bottom: 8px;
+}
+
+.biografia-service-title {
+  margin: 0 0 34px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.biografia-service-title span:first-child {
+  display: block;
+  font: normal normal 900 45px/50px Inter, Arial, sans-serif;
+  letter-spacing: -0.9px;
+  color: #1B1F28;
+}
+
+.biografia-service-title span + span {
+  display: block;
+  font: italic normal 900 45px/50px Inter, Arial, sans-serif;
+  letter-spacing: -0.9px;
+  color: #EC6726;
+}
+
+.biografia-service-text {
+  width: 605px;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  font: normal normal normal 20px/32px Montserrat, Arial, sans-serif;
+  letter-spacing: 0px;
+  color: #111727;
+  opacity: 1;
+}
+
+.biografia-service-image {
+  display: block;
+  flex: 0 0 auto;
+  width: 554px;
+  height: 464px;
+  object-fit: cover;
+  border-radius: 20px;
+  opacity: 1;
+}
+
+.biografia-results-card {
+  position: relative;
+  width: 1446px;
+  max-width: calc(100vw - 48px);
+  min-height: 624px;
+  margin: 24px auto 170px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 80px 70px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 20px;
+  opacity: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.biografia-results-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: #D80E2B 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.biografia-results-copy {
+  flex: 0 1 641px;
+  min-width: 0;
+}
+
+.biografia-results-icon {
+  display: block;
+  width: 64px;
+  height: 60px;
+  margin-bottom: 8px;
+}
+
+.biografia-results-title {
+  margin: 0 0 34px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.biografia-results-title span:first-child {
+  display: block;
+  font: normal normal 900 45px/50px Inter, Arial, sans-serif;
+  letter-spacing: -0.9px;
+  color: #1B1F28;
+}
+
+.biografia-results-title span + span {
+  display: block;
+  font: italic normal 900 45px/50px Inter, Arial, sans-serif;
+  letter-spacing: -0.9px;
+  color: #EC6726;
+}
+
+.biografia-results-text {
+  width: 605px;
+  max-width: 100%;
+  min-height: 274px;
+  margin: 0;
+  text-align: left;
+  font: normal normal normal 20px/34px Montserrat, Arial, sans-serif;
+  letter-spacing: 0px;
+  color: #111727;
+  opacity: 1;
+}
+
+.biografia-results-image {
+  display: block;
+  flex: 0 0 auto;
+  width: 554px;
+  height: 464px;
+  object-fit: cover;
+  border-radius: 20px;
   opacity: 1;
 }
 
@@ -32,4 +404,72 @@
     height: auto;
     aspect-ratio: 1744 / 586;
   }
+
+  .biografia-page-hero-title {
+    top: 34%;
+    left: 5%;
+    width: 90%;
+    height: auto;
+    font-size: clamp(30px, 7vw, 86px);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+  }
+
+  .biografia-page-hero-subtitle {
+    top: 51%;
+    left: 4%;
+    width: 92%;
+    height: auto;
+    font-size: clamp(28px, 6vw, 76px);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+  }
+
+  .biografia-roots-card,
+  .biografia-formation-card,
+  .biografia-service-card,
+  .biografia-results-card {
+    max-width: calc(100vw - 32px);
+    min-height: auto;
+    margin-top: 48px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+    padding: 32px 24px;
+  }
+
+  .biografia-roots-title span,
+  .biografia-formation-title span,
+  .biografia-service-title span,
+  .biografia-results-title span {
+    height: auto;
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .biografia-roots-title,
+  .biografia-formation-title,
+  .biografia-service-title,
+  .biografia-results-title {
+    margin: 0 0 32px;
+  }
+
+  .biografia-roots-text,
+  .biografia-formation-text,
+  .biografia-service-text,
+  .biografia-results-text {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .biografia-roots-image,
+  .biografia-formation-image,
+  .biografia-service-image,
+  .biografia-results-image {
+    width: 100%;
+    height: auto;
+  }
+
 }
