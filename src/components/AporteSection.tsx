@@ -25,7 +25,7 @@ const proyectos: Proyecto[] = [
     id: 1,
     nombre: 'Casa del Adulto Mayor',
     titulo: '',
-    tituloCompleto: 'Un espacio digno para cuidar, acompañar y reconocer a quienes hicieron historia en Carmen.',
+    tituloCompleto: 'Un espacio digno para cuidar, acompañar y reconocer a quienes hicieron historia en Carmen de la Legua Reynoso.',
     tituloTop: 48,
     tituloWidth: 611,
     imagen: asset('personas/senoras.png'),

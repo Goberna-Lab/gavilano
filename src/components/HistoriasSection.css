@@ -7,13 +7,13 @@
   z-index: 2;
 }
 
-.historias-image {
+.historias-video {
   position: absolute;
   top: 261px;
   left: 342px;
   width: 1237px;
   height: 675px;
-  background: transparent url('/images/grupo.png') 0% 0% no-repeat padding-box;
+  border: none;
 }
 
 .historias-text {

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Hero.css'
 import { asset } from '../utils/asset'
 
@@ -11,10 +12,10 @@ function Hero() {
         <p className="hero-subtitle">PARA</p>
         <p className="hero-subtitle2">SERVIR</p>
       </div>
-      <a className="hero-button" href="#biografia">
+      <Link className="hero-button" to="/biografia">
         <span className="hero-button-text">CONOCE MI HISTORIA</span>
         <img src={asset('Trazado88.png')} alt="" className="hero-button-icon" />
-      </a>
+      </Link>
     </section>
   )
 }

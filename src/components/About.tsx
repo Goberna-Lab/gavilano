@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './About.css'
 import { asset } from '../utils/asset'
 
@@ -49,10 +50,10 @@ function About() {
             </div>
           ))}
         </div>
-        <a className="about-button" href="#biografia">
+        <Link className="about-button" to="/biografia">
           <span className="about-button-text">CONOCE MI HISTORIA</span>
           <img src={asset('Trazado88.png')} alt="" className="about-button-icon" />
-        </a>
+        </Link>
       </div>
       <img src={asset('IMG_0040.png')} alt="" className="about-image" />
     </section>
