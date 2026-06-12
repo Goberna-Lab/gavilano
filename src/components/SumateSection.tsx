@@ -9,7 +9,7 @@ function SumateSection() {
         <div className="sumate-left">
           <p className="sumate-heading">SÚMATE</p>
           <div className="sumate-subtitle-block">
-            <p className="sumate-subtitle-line">EL DISTRITO SE</p>
+            <p className="sumate-subtitle-line">EL DISTRITO </p>
             <p className="sumate-subtitle-line sumate-subtitle-line-2">CONSTRUYE</p>
             <p className="sumate-subtitle-italic">CONTIGO.</p>
           </div>

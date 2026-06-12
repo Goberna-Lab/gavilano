@@ -25,11 +25,12 @@ function ArticulosSection() {
       {featuredArticles.map((article, i) => {
         const base = cardBases[i]
         const stackedTitle = true
+        const image = i === 0 ? 'capturita.png' : article.image
         return (
           <div key={i}>
             {i !== 1 ? <div className="articulos-divider" style={{ top: i === 2 ? base - 50 : base - 20 }} /> : null}
             <div className="articulos-card-bg" style={{ top: base }} />
-            <div className="articulos-image" style={{ top: base, backgroundImage: `url(${asset(article.image)})` }} />
+            <div className="articulos-image" style={{ top: base, backgroundImage: `url(${asset(image)})` }} />
             <p className="articulos-analisis" style={{ top: base + 63 }}>ANÁLISIS</p>
             <p className="articulos-title" style={{ top: base + (i === 1 ? -6 : i === 2 ? -31 : 0) }}>
               <span className="articulos-title-red">{article.titleBefore}</span>

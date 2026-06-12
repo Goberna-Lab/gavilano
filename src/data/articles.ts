@@ -1,6 +1,8 @@
 export type Article = {
   slug: string
   image: string
+  imageWidth: number
+  imageHeight: number
   titleBefore: string
   titleBold: string
   excerpt: string
@@ -12,6 +14,8 @@ export const articles: Article[] = [
   {
     slug: 'seguridad-serenazgo',
     image: 'enmascarar.png',
+    imageWidth: 1720,
+    imageHeight: 723,
     titleBefore: 'Seguridad como Cimiento del Desarrollo: ',
     titleBold: 'La historia del cuerpo de Serenazgo Municipal',
     excerpt: 'Es un error común pensar que la seguridad es un fin en sí mismo. En realidad, es el suelo sobre el cual se construye todo lo demás.',
@@ -25,6 +29,8 @@ export const articles: Article[] = [
   {
     slug: 'educacion-tecnologia',
     image: 'alcalde..png',
+    imageWidth: 347,
+    imageHeight: 210,
     titleBefore: 'Educación y Tecnología: ',
     titleBold: 'Apostando por el futuro de los estudiantes carmelinos',
     excerpt: 'En un distrito como el nuestro, Carmen de la Legua Reynoso, la escuela no puede ser solo un lugar de tránsito; debe ser el centro de una transformación real.',
@@ -38,6 +44,8 @@ export const articles: Article[] = [
   {
     slug: 'seguridad-digital',
     image: 'trazado.png',
+    imageWidth: 347,
+    imageHeight: 210,
     titleBefore: 'Seguridad Digital: ',
     titleBold: 'El Cimiento Tecnológico que Transformó Carmen de la Legua Reynoso',
     excerpt: 'Hubo un tiempo en que hablar de "Internet inalámbrico" en una plaza pública parecía una idea extraída de una novela de ciencia ficción, especialmente para un distrito con los desafíos de Carmen de la Legua Reynoso.',
@@ -51,6 +59,8 @@ export const articles: Article[] = [
   {
     slug: 'limpieza-urbana',
     image: 'municipalidad.png',
+    imageWidth: 564,
+    imageHeight: 350,
     titleBefore: 'Gestión Sanitaria y Limpieza: ',
     titleBold: 'Los Pilares de un Distrito Saludable y Ordenado',
     excerpt: 'En Carmen de la Legua Reynoso, entendimos que vivir en un entorno limpio no es un lujo. La limpieza pública es un servicio esencial para la salud pública, el orden de la ciudad y el bienestar de cada vecino.',
@@ -64,6 +74,8 @@ export const articles: Article[] = [
   {
     slug: 'cercania-vecinal',
     image: 'alcaldegavi.png',
+    imageWidth: 564,
+    imageHeight: 350,
     titleBefore: 'Nutrición y Solidaridad: ',
     titleBold: 'El Legado de los Programas Alimentarios en Carmen de la Legua Reynoso',
     excerpt: 'Durante mi gestión, entendimos que un niño mal alimentado no aprende con libertad ni puede desarrollar todo su potencial.',
@@ -77,6 +89,8 @@ export const articles: Article[] = [
   {
     slug: 'parques-vida',
     image: 'capturaa.png',
+    imageWidth: 564,
+    imageHeight: 350,
     titleBefore: 'Sanidad Ambiental: ',
     titleBold: 'Un Compromiso con nuestro Distrito',
     excerpt: 'Nuestra visión fue transformar la cara del distrito desde lo más básico: limpieza, cuidado del ambiente y orden en cada barrio.',
