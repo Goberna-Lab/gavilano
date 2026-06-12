@@ -48,7 +48,6 @@ body {
   min-width: 0;
   margin: 0 auto;
   min-height: 100svh;
-  overflow-x: hidden;
 }
 
 @media (max-width: 1023px) {
