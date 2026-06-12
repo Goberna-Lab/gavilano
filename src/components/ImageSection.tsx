@@ -8,6 +8,7 @@ function ImageSection() {
         src={asset('gavilanoo.png')}
         alt="Gavilano"
         className="image-section-portrait"
+        loading="lazy"
       />
 
       <div className="image-section-copy">

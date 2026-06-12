@@ -27,7 +27,7 @@ function BiografiaPage() {
             toda la vida, donde he pasado más de 50 años compartiendo sueños y desafíos con nuestra gente.
           </p>
         </div>
-        <img className="biografia-roots-image" src="/images/Enmascarargrupo36.png" alt="Juan de Dios Gavilano" />
+        <img className="biografia-roots-image" src="/images/Enmascarargrupo36.png" alt="Juan de Dios Gavilano" loading="lazy" />
       </section>
 
       <section className="biografia-formation-card" aria-labelledby="biografia-formation-title">
@@ -45,7 +45,7 @@ function BiografiaPage() {
             Vecinal N° 3, convencido de que el deporte es la mejor herramienta de transformación social.
           </p>
         </div>
-        <img className="biografia-formation-image" src="/images/02.png" alt="Formación y compromiso con la juventud" />
+        <img className="biografia-formation-image" src="/images/02.png" alt="Formación y compromiso con la juventud" loading="lazy" />
       </section>
 
       <section className="biografia-service-card" aria-labelledby="biografia-service-title">
@@ -62,7 +62,7 @@ function BiografiaPage() {
             pueblo, en apoyo a las herramientas legales.
           </p>
         </div>
-        <img className="biografia-service-image" src="/images/03.png" alt="Trayectoria política y vocación de servicio" />
+        <img className="biografia-service-image" src="/images/03.png" alt="Trayectoria política y vocación de servicio" loading="lazy" />
       </section>
 
       <section className="biografia-results-card" aria-labelledby="biografia-results-title">
@@ -79,7 +79,7 @@ function BiografiaPage() {
             constante es la única vía para seguir entregando los <strong>RESULTADOS</strong> que nuestra comunidad merece.
           </p>
         </div>
-        <img className="biografia-results-image" src="/images/04.png" alt="Una visión de resultados para el futuro" />
+        <img className="biografia-results-image" src="/images/04.png" alt="Una visión de resultados para el futuro" loading="lazy" />
       </section>
 
    

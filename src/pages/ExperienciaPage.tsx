@@ -18,6 +18,7 @@ function ExperienciaPage() {
               className="experiencia-timeline-image experiencia-timeline-image--large"
               src="/images/19990--2002.png"
               alt="Juan Diego Gavilano sosteniendo un diploma"
+              loading="lazy"
             />
           </article>
 
@@ -33,6 +34,7 @@ function ExperienciaPage() {
               className="experiencia-timeline-image experiencia-timeline-image--component"
               src="/images/componente14-2.png"
               alt="Experiencia profesional como abogado"
+              loading="lazy"
             />
           </article>
 
@@ -47,6 +49,7 @@ function ExperienciaPage() {
               className="experiencia-timeline-image experiencia-timeline-image--component"
               src="/images/2015--2017.png"
               alt="Reunión de trabajo en instituciones del Estado"
+              loading="lazy"
             />
           </article>
 
@@ -60,6 +63,7 @@ function ExperienciaPage() {
               className="experiencia-timeline-image experiencia-timeline-image--component"
               src="/images/2011--2014.png"
               alt="Consejero regional del Callao"
+              loading="lazy"
             />
           </article>
 
@@ -73,6 +77,7 @@ function ExperienciaPage() {
               className="experiencia-timeline-image experiencia-timeline-image--component"
               src="/images/2007--2010.png"
               alt="Gestión como alcalde distrital de Carmen de la Legua Reynoso"
+              loading="lazy"
             />
           </article>
 
@@ -86,6 +91,7 @@ function ExperienciaPage() {
               className="experiencia-timeline-image experiencia-timeline-image--component"
               src="/images/2003--2006.png"
               alt="Fiscalización como regidor distrital de Carmen de la Legua Reynoso"
+              loading="lazy"
             />
           </article>
 
@@ -100,6 +106,7 @@ function ExperienciaPage() {
               className="experiencia-timeline-image experiencia-timeline-image--component"
               src="/images/componente15--.png"
               alt="Experiencia como gestor público municipal en Los Olivos"
+              loading="lazy"
             />
           </article>
 
@@ -113,6 +120,7 @@ function ExperienciaPage() {
               className="experiencia-timeline-image experiencia-timeline-image--component"
               src="/images/1996--1998.png"
               alt="Liderazgo como alcalde distrital de Carmen de la Legua Reynoso"
+              loading="lazy"
             />
           </article>
 
@@ -127,6 +135,7 @@ function ExperienciaPage() {
               className="experiencia-timeline-image experiencia-timeline-image--component"
               src="/images/1994--1995.png"
               alt="Alcaldía distrital de Carmen de la Legua Reynoso"
+              loading="lazy"
             />
           </article>
 
@@ -141,6 +150,7 @@ function ExperienciaPage() {
               className="experiencia-timeline-image experiencia-timeline-image--component"
               src="/images/1993--1994.png"
               alt="Inicio como teniente alcalde de Carmen de la Legua Reynoso"
+              loading="lazy"
             />
           </article>
         </div>

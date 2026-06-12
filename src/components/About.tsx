@@ -55,7 +55,7 @@ function About() {
           <img src={asset('Trazado88.png')} alt="" className="about-button-icon" />
         </Link>
       </div>
-      <img src={asset('IMG_0040.png')} alt="" className="about-image" />
+      <img src={asset('IMG_0040.png')} alt="" className="about-image" loading="lazy" />
     </section>
   )
 }

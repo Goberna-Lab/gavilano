@@ -59,12 +59,12 @@ function Footer() {
 
         <div className="footer-qr" aria-label="QR code">
           <div className="footer-qr-box">
-            <img src={asset('qr.png')} alt="QR" className="footer-qr-image" />
+            <img src={asset('qr.png')} alt="QR" className="footer-qr-image" loading="lazy" />
           </div>
         </div>
 
         <button className="scroll-top" type="button" onClick={scrollToTop} aria-label="Volver arriba">
-          <img src={asset('flechaaup.png')} alt="" className="scroll-top-image" />
+          <img src={asset('flechaaup.png')} alt="" className="scroll-top-image" loading="lazy" />
         </button>
       </div>
     </footer>

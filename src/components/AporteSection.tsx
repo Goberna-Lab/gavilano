@@ -194,6 +194,7 @@ function AporteSection() {
           key={`image-mobile-${proyectoActivo.id}`}
           src={proyectoActivo.imagen}
           alt={proyectoActivo.nombre}
+          loading="lazy"
         />
         <button className="aporte-project-arrow aporte-project-arrow-right" type="button" aria-label="Proyecto siguiente" onClick={irSiguiente}>
           <span className="aporte-project-arrow-icon aporte-project-arrow-icon-right" />

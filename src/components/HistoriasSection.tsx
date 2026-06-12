@@ -10,6 +10,7 @@ function HistoriasSection() {
         title="Historias que construyen futuro"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
+        loading="lazy"
       />
     </section>
   )
