@@ -27,7 +27,7 @@ function ArticulosSection() {
         const stackedTitle = true
         return (
           <div key={i}>
-            <div className="articulos-divider" style={{ top: i === 2 ? base - 50 : base - 20 }} />
+            {i !== 1 ? <div className="articulos-divider" style={{ top: i === 2 ? base - 50 : base - 20 }} /> : null}
             <div className="articulos-card-bg" style={{ top: base }} />
             <div className="articulos-image" style={{ top: base, backgroundImage: `url(${asset(article.image)})` }} />
             <p className="articulos-analisis" style={{ top: base + 63 }}>ANÁLISIS</p>
@@ -46,7 +46,7 @@ function ArticulosSection() {
               <span className="articulos-nota-arrow" aria-hidden="true" />
             </Link>
             {i === 0 ? <div className="articulos-divider" style={{ top: base + 263 }} /> : null}
-            {(i === 0 || i === 2) ? <div className="articulos-divider" style={{ top: base + 246 }} /> : null}
+            {i === 2 ? <div className="articulos-divider" style={{ top: base + 246 }} /> : null}
           </div>
         )
       })}
