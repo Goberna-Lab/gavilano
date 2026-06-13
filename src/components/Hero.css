@@ -108,7 +108,7 @@
 
 .hero-button {
   align-self: flex-start;
-  margin-top: 24px;
+  margin-top: 14px;
   width: var(--hero-button-width);
   height: var(--hero-button-height);
   min-height: var(--hero-button-min-height);
