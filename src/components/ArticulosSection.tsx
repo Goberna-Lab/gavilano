@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom'
 import { asset } from '../utils/asset'
 import { articles } from '../data/articles'
 
-const cardBases = [520, 819, 1118]
+const cardBases = [520, 790, 1060]
+const dividerStart = cardBases[0] - 20
+const dividerGap = 270
+const descOffsets = [95, 98, 89]
 const featuredArticles = articles.slice(0, cardBases.length)
 
 function ArticulosSection() {
@@ -31,15 +34,17 @@ function ArticulosSection() {
 
       {featuredArticles.map((article, i) => {
         const base = cardBases[i]
+        const dividerTop = dividerStart + i * dividerGap
+        const nextDividerTop = dividerStart + (i + 1) * dividerGap
         const stackedTitle = true
         const image = i === 0 ? 'capturita.png' : article.image
         return (
           <div key={i} className={`articulos-card-wrapper ${i > 0 ? 'articulos-card-hidden-mobile' : ''}`}>
-            {i !== 1 ? <div className="articulos-divider" style={{ top: i === 2 ? base - 50 : base - 20 }} /> : null}
+            {i === 0 ? <div className="articulos-divider" style={{ top: dividerTop }} /> : null}
             <div className="articulos-card-bg" style={{ top: base }} />
             <div className={`articulos-image ${i === 0 ? 'articulos-image-first' : ''}`} style={{ top: base, backgroundImage: `url(${asset(image)})` }} />
-            <p className="articulos-analisis" style={{ top: base + 63 }}>ANÁLISIS</p>
-            <p className={`articulos-title ${i === 0 ? 'articulos-title-first' : ''}`} style={{ top: base + (i === 1 ? -6 : i === 2 ? -31 : 0) }}>
+            <p className="articulos-analisis" style={{ top: base + 92 }}>ANÁLISIS</p>
+            <p className={`articulos-title ${i === 0 ? 'articulos-title-first' : ''}`} style={{ top: base + (i === 0 ? 5 : i === 1 ? -6 : 0) }}>
               <span className="articulos-title-red">{article.titleBefore}</span>
               {stackedTitle ? <br /> : null}
               <strong className="articulos-title-bold-dark">{article.titleBold}</strong>
@@ -49,15 +54,14 @@ function ArticulosSection() {
               <span className="articulos-date-mobile">30 MAYO 2026</span>
             </p>
             <p className="articulos-min" style={{ top: base + 45 + (i >= 1 ? 14 : 0) }}>6 MIN</p>
-            <p className="articulos-desc" style={{ top: base + 65 + (i === 1 ? 23 : i === 2 ? -1 : 0) }}>
+            <p className="articulos-desc" style={{ top: base + descOffsets[i] }}>
               {article.excerpt}
             </p>
             <Link to={`/articulos/${article.slug}`} className="articulos-nota" style={{ top: base + 150 + (i >= 1 ? 14 : 0) }} aria-label={`Leer nota completa: ${article.titleBold}`}>
               LEER NOTA COMPLETA
               <span className="articulos-nota-arrow" aria-hidden="true" />
             </Link>
-            {i === 0 ? <div className="articulos-divider" style={{ top: base + 263 }} /> : null}
-            {i === 2 ? <div className="articulos-divider" style={{ top: base + 246 }} /> : null}
+            <div className="articulos-divider" style={{ top: nextDividerTop }} />
           </div>
         )
       })}
