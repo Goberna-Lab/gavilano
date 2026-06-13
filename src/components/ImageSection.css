@@ -7,6 +7,17 @@
   overflow: visible;
 }
 
+.image-section-bg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 740px;
+  background: #ec6726;
+  z-index: 0;
+}
+
 .image-section-portrait {
   position: absolute;
   top: 108px;

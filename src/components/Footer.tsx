@@ -9,7 +9,7 @@ const linkColumns: FooterLink[][] = [
   [
     { label: 'biografía', to: '/biografia' },
     { label: 'experiencia', to: '/experiencia' },
-    { label: 'mi aporte', to: '/mi-aporte' },
+    { label: 'propuestas', to: '/propuestas' },
   ],
   [
     //{ label: 'propuestas', to: '/propuestas', preventNavigation: true },
