@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Panel — Juan de Dios Gavilano</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+  <body>
+    <!-- Shell del panel de Bravo. El bundle UMD central lee window.__BRAVO__ y
+         monta la SPA del admin en #bravo-admin. Es un archivo estático (public/),
+         servido por nginx directo en /panel — NO pasa por el router del SPA. -->
+    <div id="bravo-admin"></div>
+    <script>
+      window.__BRAVO__ = {
+        tenant: "gavilano",
+        apiUrl: "https://bravo.goberna.us",
+        panelBundleUrl: "https://bravo.goberna.us/bravo-admin.umd.js",
+        articleUrlPattern: "https://juandediosgavilano.com/articulos/{slug}",
+        stylesheetUrl: "https://juandediosgavilano.com/panel-preview.css",
+        siteUrl: "https://juandediosgavilano.com"
+      };
+    </script>
+    <script src="https://bravo.goberna.us/bravo-admin.umd.js"></script>
+  </body>
+</html>
