@@ -9,14 +9,14 @@
   --hero-content-padding: 0;
   --hero-content-align: flex-start;
   --hero-content-text-align: left;
-  --hero-title-size: 160px;
+  --hero-title-size: clamp(80px, 8.33vw, 160px);
   --hero-title-line-height: 0.98;
   --hero-title-letter-spacing: -3.2px;
-  --hero-subtitle-size: 385px;
+  --hero-subtitle-size: clamp(180px, 20vw, 385px);
   --hero-subtitle-line-height: 0.78;
   --hero-subtitle-letter-spacing: 1.93px;
   --hero-subtitle-margin-top: -8px;
-  --hero-subtitle2-size: 279px;
+  --hero-subtitle2-size: clamp(130px, 14.5vw, 279px);
   --hero-subtitle2-line-height: 0.88;
   --hero-subtitle2-letter-spacing: 1.4px;
   --hero-subtitle2-margin-top: -18px;
@@ -108,7 +108,7 @@
 
 .hero-button {
   align-self: flex-start;
-  margin-top: 60px;
+  margin-top: 24px;
   width: var(--hero-button-width);
   height: var(--hero-button-height);
   min-height: var(--hero-button-min-height);
