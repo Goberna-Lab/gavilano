@@ -1,5 +1,5 @@
 .hero {
-  --hero-height: 980px;
+  --hero-height: min(980px, calc(100dvh - 100px));
   --hero-bg-position: center;
   --hero-bg-size: cover;
   --hero-content-top: 71px;
@@ -20,7 +20,6 @@
   --hero-subtitle2-line-height: 0.88;
   --hero-subtitle2-letter-spacing: 1.4px;
   --hero-subtitle2-margin-top: -18px;
-  --hero-button-left: 700px;
   --hero-button-bottom: 83px;
   --hero-button-width: 312px;
   --hero-button-height: 90px;
@@ -108,10 +107,8 @@
 }
 
 .hero-button {
-  position: absolute;
-  top: auto;
-  bottom: var(--hero-button-bottom);
-  left: var(--hero-button-left);
+  align-self: flex-start;
+  margin-top: 60px;
   width: var(--hero-button-width);
   height: var(--hero-button-height);
   min-height: var(--hero-button-min-height);
@@ -184,7 +181,6 @@
     --hero-subtitle2-size: clamp(92px, 25vw, 128px);
     --hero-subtitle2-line-height: 0.86;
     --hero-subtitle2-margin-top: 0;
-    --hero-button-left: 0;
     --hero-button-bottom: 0px;
     --hero-button-width: min(320px, calc(100% - 64px));
     --hero-button-height: 70px;
@@ -195,6 +191,17 @@
     --hero-portrait-display: block;
     --hero-portrait-height: clamp(340px, 53svh, 450px);
     background: #FFFFFF;
+  }
+
+  .hero-content {
+    bottom: 0;
+    height: auto;
+  }
+
+  .hero-button {
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: 0;
   }
 
   .hero .hero-button:hover {

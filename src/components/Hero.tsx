@@ -11,11 +11,11 @@ function Hero() {
         <h1 className="hero-title">EXPERIENCIA</h1>
         <p className="hero-subtitle">PARA</p>
         <p className="hero-subtitle2">SERVIR</p>
+        <Link className="hero-button" to="/biografia">
+          <span className="hero-button-text">CONOCE MI HISTORIA</span>
+          <img src={asset('Trazado88.png')} alt="" className="hero-button-icon" />
+        </Link>
       </div>
-      <Link className="hero-button" to="/biografia">
-        <span className="hero-button-text">CONOCE MI HISTORIA</span>
-        <img src={asset('Trazado88.png')} alt="" className="hero-button-icon" />
-      </Link>
     </section>
   )
 }
