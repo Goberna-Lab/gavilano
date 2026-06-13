@@ -151,7 +151,7 @@
     position: static;
     width: min(100%, 560px);
     height: auto;
-    display: block;
+    display: none;
     margin: 28px auto 0;
   }
 
@@ -367,8 +367,8 @@
 
   .propuestas-text::before {
     display: block;
-    left: 0;
-    width: 41px;
+    left: -16px;
+    width: 57px;
   }
 
   .propuestas-subtitle-block {
@@ -524,6 +524,20 @@
     margin-bottom: 16px;
   }
 
+  .articulos-intro {
+    display: block;
+    position: static;
+    width: 100%;
+    margin: 0 0 18px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .articulos-intro span {
+    white-space: normal;
+  }
+
   .articulos-subtitle-line,
   .articulos-subtitle-italic {
     position: static;
@@ -540,12 +554,28 @@
   .articulos-subtitle-italic {
     margin-top: 8px;
     font-size: clamp(34px, 10vw, 58px);
+    white-space: nowrap;
   }
 
   .articulos-view-all {
     position: static;
     width: fit-content;
     margin: 8px 0 8px auto;
+  }
+
+  .articulos-view-all:hover,
+  .articulos-view-all-link:hover {
+    color: #EC6726;
+  }
+
+  .articulos-view-all:hover .articulos-view-all-arrow,
+  .articulos-view-all-link:hover .articulos-view-all-arrow {
+    background-color: #EC6726;
+    transform: translateX(6px);
+  }
+
+  .articulos-card-hidden-mobile {
+    display: none;
   }
 
   .articulos-section > div:not(.articulos-subtitle-block) {
@@ -583,11 +613,19 @@
     background-position: center;
   }
 
+  .articulos-image-first {
+    background-image: url('/images/enmascarar.png') !important;
+  }
+
   .articulos-analisis {
     margin-top: 12px;
-    font-size: 14px;
-    line-height: 1.2;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #F28A4B;
     text-align: left;
+    font-style: normal;
   }
 
   .articulos-title {
@@ -596,14 +634,50 @@
     line-height: 1.25;
   }
 
+  .articulos-title-first .articulos-title-red {
+    display: inline-block;
+    font-size: clamp(14px, 3.8vw, 18px);
+    line-height: 1.2;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .articulos-date-desktop {
+    display: none;
+  }
+
+  .articulos-date-mobile {
+    display: inline;
+  }
+
   .articulos-date,
   .articulos-min {
     display: inline-block;
-    width: auto;
+    width: auto !important;
     margin-top: 8px;
-    margin-right: 12px;
     font-size: 12px;
     line-height: 1.2;
+  }
+
+  .articulos-section > div:not(.articulos-subtitle-block) > .articulos-date,
+  .articulos-section > div:not(.articulos-subtitle-block) > .articulos-min {
+    display: inline-block !important;
+    width: auto !important;
+    vertical-align: top;
+  }
+
+  .articulos-date {
+    position: relative !important;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid rgba(192, 193, 199, 0.45);
+    background: linear-gradient(#D80E2B, #D80E2B) left bottom / 44px 2px no-repeat;
+    padding-bottom: 6px;
+  }
+
+  .articulos-min {
+    margin-right: 0;
   }
 
   .articulos-desc {
@@ -613,9 +687,13 @@
   }
 
   .articulos-nota {
-    margin-top: 12px;
+    margin-top: 42px;
     font-size: 13px;
     line-height: 1.2;
+  }
+
+  .articulos-nota:hover .articulos-nota-arrow {
+    transform: translateX(6px);
   }
 
   .footer {
@@ -649,6 +727,7 @@
     width: min(100%, 220px);
     height: auto;
     align-items: stretch;
+    gap: 10px;
     margin-bottom: 10px;
   }
 
@@ -660,7 +739,7 @@
   .footer-links a {
     align-self: stretch;
     width: 100%;
-    line-height: 28px;
+    line-height: 20px;
     text-align: center;
   }
 
@@ -784,8 +863,8 @@
     content: '';
     position: absolute;
     top: 50%;
-    left: 0;
-    width: 41px;
+    left: -16px;
+    width: 57px;
     height: 1px;
     background: rgba(236, 103, 38, 0.75);
     transform: translateY(-50%);
@@ -868,7 +947,7 @@
   }
 
   .about-image {
-    display: block;
+    display: none;
     width: min(100%, 398px);
     margin: 48px auto 0;
   }
@@ -1011,9 +1090,15 @@
     display: flex;
     flex-direction: column;
     min-height: 0;
-    padding: 72px 16px 64px;
+    padding: 72px 16px 32px;
+    background: transparent;
     background-attachment: scroll;
     background-position: center;
+  }
+
+  .image-section-bg {
+    display: block;
+    height: 740px;
   }
 
   .image-section::before {
@@ -1022,7 +1107,7 @@
     top: 73px;
     left: 0;
     z-index: 3;
-    padding-left: 48px;
+    padding-left: 64px;
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     font-weight: 600;
@@ -1031,14 +1116,22 @@
     color: #FFFFFF;
     text-transform: uppercase;
     white-space: nowrap;
-    background: linear-gradient(#FFFFFF, #FFFFFF) left center / 38px 1px no-repeat;
+    background: linear-gradient(#FFFFFF, #FFFFFF) left center / 54px 1px no-repeat;
     pointer-events: none;
   }
 
   .image-section-portrait {
     order: 2;
     width: min(100%, 390px);
-    margin: 168px auto 12px;
+    margin: 168px auto 0;
+  }
+
+  .image-section-picture {
+    order: 2;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: block;
   }
 
   .image-section-copy {
@@ -1091,9 +1184,14 @@
   }
 
   .aporte-section {
+    margin-top: -80px;
     padding-top: 72px;
     padding-bottom: 64px;
     height: auto;
+  }
+
+  .aporte-projects-nav-item-active::after {
+    border-top-color: transparent;
   }
 
   .aporte-subtitle-block,
@@ -1197,7 +1295,7 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    margin: 0 0 38px;
+    margin: 0;
   }
 
   .aporte-projects-nav-baseline {
@@ -1228,7 +1326,7 @@
   }
 
   .aporte-projects-content {
-    display: grid;
+    display: none;
     grid-template-columns: 44px minmax(0, 1fr) 44px;
     gap: 18px 10px;
     align-items: center;
@@ -1325,11 +1423,26 @@
     margin-bottom: 24px;
   }
 
+  .articulos-intro {
+    margin-bottom: 26px;
+    text-align: left;
+  }
+
+  .articulos-intro span {
+    display: block;
+    white-space: nowrap;
+  }
+
   .articulos-subtitle-line,
   .articulos-subtitle-italic {
     font-size: clamp(39px, 10.5vw, 52px);
     line-height: 1.02;
     letter-spacing: -0.8px;
+  }
+
+  .articulos-subtitle-italic {
+    font-size: clamp(34px, 9vw, 52px);
+    white-space: nowrap;
   }
 
   .articulos-view-all {
@@ -1350,9 +1463,17 @@
     border-radius: 6px;
   }
 
+  .articulos-image-first {
+    background-image: url('/images/enmascarar.png') !important;
+  }
+
   .articulos-title {
     font-size: 22px;
     line-height: 1.24;
+  }
+
+  .articulos-title-first .articulos-title-red {
+    font-size: clamp(14px, 3.8vw, 18px);
   }
 
   .articulos-desc {

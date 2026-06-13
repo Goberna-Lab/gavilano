@@ -15,6 +15,13 @@ function ArticulosSection() {
         <p className="articulos-subtitle-italic">NUESTRO DISTRITO</p>
       </div>
 
+      <p className="articulos-intro">
+        <span><strong>Quiero una Carmen donde los vecinos</strong></span>
+        <span><strong>vivan</strong> tranquilos, donde la municipalidad</span>
+        <span>funcione y donde cada familia sienta que</span>
+        <span>el distrito vuelve a avanzar.</span>
+      </p>
+
       <p className="articulos-view-all">
         <Link to="/articulos" className="articulos-view-all-link">
           <span className="articulos-view-all-text">VER TODOS</span>
@@ -27,17 +34,26 @@ function ArticulosSection() {
         const stackedTitle = article.titleBefore.trim().length > 0
         const image = article.source === 'local' && i === 0 ? asset('capturita.png') : coverSrc(article)
         return (
-          <div key={i}>
+          <div key={i} className={`articulos-card-wrapper ${i > 0 ? 'articulos-card-hidden-mobile' : ''}`}>
             {i !== 1 ? <div className="articulos-divider" style={{ top: i === 2 ? base - 50 : base - 20 }} /> : null}
             <div className="articulos-card-bg" style={{ top: base }} />
-            <div className="articulos-image" style={{ top: base, backgroundImage: `url(${image})` }} />
+            <div className={`articulos-image ${i === 0 ? 'articulos-image-first' : ''}`} style={{ top: base, backgroundImage: `url(${image})` }} />
             <p className="articulos-analisis" style={{ top: base + 63 }}>ANÁLISIS</p>
-            <p className="articulos-title" style={{ top: base + (i === 1 ? -6 : i === 2 ? -31 : 0) }}>
+            <p className={`articulos-title ${i === 0 ? 'articulos-title-first' : ''}`} style={{ top: base + (i === 1 ? -6 : i === 2 ? -31 : 0) }}>
               <span className="articulos-title-red">{article.titleBefore}</span>
               {stackedTitle ? <br /> : null}
               <strong className="articulos-title-bold-dark">{article.titleBold}</strong>
             </p>
-            <p className="articulos-date" style={{ top: base + (i >= 1 ? 14 : 0) }}>{article.publishedAt ? formatDateUpper(article.publishedAt) : '23 MAYO 2026'}</p>
+            <p className="articulos-date" style={{ top: base + (i >= 1 ? 14 : 0) }}>
+              {article.publishedAt ? (
+                formatDateUpper(article.publishedAt)
+              ) : (
+                <>
+                  <span className="articulos-date-desktop">23 MAYO 2026</span>
+                  <span className="articulos-date-mobile">30 MAYO 2026</span>
+                </>
+              )}
+            </p>
             <p className="articulos-min" style={{ top: base + 45 + (i >= 1 ? 14 : 0) }}>{article.source === 'bravo' ? `${readingMinutes(article)} MIN` : '6 MIN'}</p>
             <p className="articulos-desc" style={{ top: base + 65 + (i === 1 ? 23 : i === 2 ? -1 : 0) }}>
               {article.excerpt}

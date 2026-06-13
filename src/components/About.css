@@ -168,6 +168,10 @@
   transform: translateX(5px);
 }
 
+.about-mobile-image {
+  display: none;
+}
+
 .about-image {
   position: absolute;
   top: 163px;
@@ -192,5 +196,19 @@
 @media (prefers-reduced-motion: reduce) {
   .about-image {
     animation: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-image {
+    display: none;
+  }
+
+  .about-mobile-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    transform: translateY(25px);
   }
 }

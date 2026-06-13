@@ -75,12 +75,22 @@
   transition: color 0.25s ease;
 }
 
+.articulos-intro {
+  display: none;
+}
+
+.articulos-intro span {
+  display: block;
+  white-space: nowrap;
+}
+
 .articulos-view-all-link {
   display: flex;
   align-items: center;
   gap: 8px;
   color: inherit;
   text-decoration: none;
+  transition: color 0.25s ease;
 }
 
 .articulos-view-all-text {
@@ -99,11 +109,13 @@
   transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
-.articulos-view-all:hover {
+.articulos-view-all:hover,
+.articulos-view-all-link:hover {
   color: #E8A15A;
 }
 
-.articulos-view-all:hover .articulos-view-all-arrow {
+.articulos-view-all:hover .articulos-view-all-arrow,
+.articulos-view-all-link:hover .articulos-view-all-arrow {
   background-color: #D80E2B;
   transform: translateX(5px);
 }
@@ -234,6 +246,10 @@
 .articulos-nota:hover .articulos-nota-arrow {
   background-color: #D80E2B;
   transform: translateX(5px);
+}
+
+.articulos-date-mobile {
+  display: none;
 }
 
 .articulos-desc {

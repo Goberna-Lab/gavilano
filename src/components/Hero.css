@@ -196,10 +196,11 @@
   .hero-content {
     bottom: 0;
     height: auto;
+    padding-left: 0;
   }
 
   .hero-button {
-    align-self: center;
+    align-self: flex-start;
     margin-top: auto;
     margin-bottom: 0;
   }
