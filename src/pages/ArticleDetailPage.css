@@ -172,6 +172,74 @@
   margin-top: 40px;
 }
 
+/* Cuerpo HTML de los artículos de Bravo (TipTap). Hereda el offset que despeja
+   el solape negativo del panel, pero estila sus propios elementos internos. */
+.article-detail-body-html {
+  width: 100%;
+  margin-top: 120px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  line-height: 35px;
+  font-weight: 400;
+  text-align: left;
+  color: #1B1F28;
+}
+
+.article-detail-body-html > *:first-child {
+  margin-top: 0;
+}
+
+.article-detail-body-html p {
+  margin: 0 0 24px;
+}
+
+.article-detail-body-html h2 {
+  margin: 44px 0 16px;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.article-detail-body-html h3 {
+  margin: 32px 0 12px;
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.article-detail-body-html ul,
+.article-detail-body-html ol {
+  margin: 0 0 24px;
+  padding-left: 24px;
+}
+
+.article-detail-body-html li {
+  margin: 0 0 8px;
+}
+
+.article-detail-body-html a {
+  color: #C40018;
+  text-decoration: underline;
+}
+
+.article-detail-body-html strong {
+  font-weight: 700;
+}
+
+.article-detail-body-html img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 24px 0;
+}
+
+.article-detail-body-html blockquote {
+  margin: 24px 0;
+  padding-left: 20px;
+  border-left: 4px solid #C40018;
+  font-style: italic;
+}
+
 .article-detail-bottom-container {
   display: flex;
   align-items: flex-start;
@@ -367,6 +435,12 @@
   }
 
   .article-detail-content-body {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .article-detail-body-html {
+    margin-top: 0;
     font-size: 16px;
     line-height: 28px;
   }
