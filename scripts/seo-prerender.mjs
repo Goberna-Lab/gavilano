@@ -57,9 +57,12 @@ const esc = (s) =>
 function readBravoArticles() {
   try {
     const txt = readFileSync(GENERATED, 'utf8')
-    const start = txt.indexOf('[')
+    // Anclar en la asignación: el `[` del tipo (`BravoPublicArticle[]`) aparece ANTES
+    // del `=` y arruinaría el slice. Buscamos el `[` que abre el array LITERAL.
+    const eq = txt.indexOf('=', txt.indexOf('bravoArticlesRaw'))
+    const start = txt.indexOf('[', eq)
     const end = txt.lastIndexOf(']')
-    if (start === -1 || end === -1) return []
+    if (eq === -1 || start === -1 || end === -1 || end < start) return []
     const arr = JSON.parse(txt.slice(start, end + 1))
     return Array.isArray(arr) ? arr : []
   } catch {
