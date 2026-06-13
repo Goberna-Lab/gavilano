@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import SumateSection from '../components/SumateSection'
-import { articles } from '../data/articles'
+import { displayArticles, coverSrc, formatDate, readingMinutes } from '../data/articleSource'
 import { asset } from '../utils/asset'
 import './ArticlesPage.css'
 
@@ -26,19 +26,19 @@ function ArticlesPage() {
         </section>
 
         <section className="articles-grid" aria-label="Listado de artículos">
-          {articles.map((article) => (
+          {displayArticles.map((article) => (
             <article className="articles-card" key={article.slug}>
-              <img src={asset(article.image)} alt={article.titleBold} className="articles-card-image" />
+              <img src={coverSrc(article)} alt={article.titleBold} className="articles-card-image" />
               <div className="articles-card-content">
-                <p className="articles-card-label">ANÁLISIS</p>
+                <p className="articles-card-label">{article.category || 'ANÁLISIS'}</p>
                 <h2 className="articles-card-title">
                   <span className="articles-card-title-before">{article.titleBefore}</span>
                   <span className="articles-card-title-bold">{article.titleBold}</span>
                 </h2>
                 <div className="articles-card-meta">
-                  <span className="articles-card-meta-date">30 Mayo 2026</span>
+                  <span className="articles-card-meta-date">{article.publishedAt ? formatDate(article.publishedAt) : '30 Mayo 2026'}</span>
                   <span className="articles-card-meta-divider" aria-hidden="true" />
-                  <span className="articles-card-meta-time">6 min</span>
+                  <span className="articles-card-meta-time">{article.source === 'bravo' ? `${readingMinutes(article)} min` : '6 min'}</span>
                 </div>
                 <p className="articles-card-excerpt">{article.excerpt}</p>
                 <Link to={`/articulos/${article.slug}`} className="articles-card-link">
