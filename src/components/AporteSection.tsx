@@ -2,6 +2,10 @@ import { useState } from 'react'
 import './AporteSection.css'
 import { asset } from '../utils/asset'
 
+type AporteSectionProps = {
+  className?: string
+}
+
 type Proyecto = {
   id: number
   nombre: string
@@ -68,7 +72,7 @@ const proyectos: Proyecto[] = [
   },
 ]
 
-function AporteSection() {
+function AporteSection({ className = '' }: AporteSectionProps) {
   const [proyectoActivo, setProyectoActivo] = useState(proyectos[0])
 
   const irAlProyecto = (proyectoId: number) => {
@@ -93,7 +97,7 @@ function AporteSection() {
   }
 
   return (
-    <section className="aporte-section" id="mi-aporte">
+    <section className={`aporte-section${className ? ` ${className}` : ''}`} id="mi-aporte">
       <p className="aporte-heading">MI APORTE AL DISTRITO</p>
       <div className="aporte-subtitle-block">
         <p className="aporte-subtitle-line aporte-subtitle-line-first">PROYECTOS QUE</p>

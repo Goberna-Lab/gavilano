@@ -6,6 +6,29 @@
   background: #FFFFFF;
 }
 
+@media (min-width: 1025px) {
+  .aporte-section-page {
+    height: 1344px;
+  }
+
+  .aporte-section-page .aporte-heading {
+    top: 72px;
+  }
+
+  .aporte-section-page .aporte-subtitle-block,
+  .aporte-section-page .aporte-description-group {
+    top: 149px;
+  }
+
+  .aporte-section-page .aporte-projects-nav {
+    top: 498px;
+  }
+
+  .aporte-section-page .aporte-projects-content {
+    top: 701px;
+  }
+}
+
 .aporte-heading {
   position: absolute;
   top: 281px;
@@ -29,7 +52,7 @@
 
 .aporte-subtitle-line {
   text-align: left;
-  font: italic normal 900 88px/86px Inter;
+  font: normal normal 900 88px/86px Inter;
   letter-spacing: -1.76px;
   color: #1B1F28;
   text-transform: uppercase;
