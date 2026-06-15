@@ -1,3 +1,4 @@
+import Breadcrumb from '../components/Breadcrumb'
 import SumateSection from '../components/SumateSection'
 import './ExperienciaPage.css'
 
@@ -171,6 +172,9 @@ function ExperienciaPage() {
         </section>
       </section>
 
+      <div className="breadcrumb-mobile-only">
+        <Breadcrumb items={[{ label: 'Inicio', to: '/' }, { label: 'Experiencia' }]} />
+      </div>
       <SumateSection />
     </>
   )

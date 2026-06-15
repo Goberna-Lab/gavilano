@@ -29,3 +29,13 @@
   color: #374151;
   font-weight: 500;
 }
+
+.breadcrumb-mobile-only {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .breadcrumb-mobile-only {
+    display: block;
+  }
+}
