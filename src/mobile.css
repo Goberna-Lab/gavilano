@@ -796,23 +796,19 @@
   .header {
     position: sticky;
     top: 0;
-    height: 80px;
-    padding: 0 20px;
+    height: auto;
+    padding: 12px 20px;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: center;
     gap: 18px;
     background: #FFFFFF;
+    z-index: 1000;
   }
 
-  .header::before {
-    content: '';
-    width: 30px;
-    height: 22px;
-    flex: 0 0 auto;
-    background:
-      linear-gradient(#EC6726, #EC6726) 0 0 / 30px 2px no-repeat,
-      linear-gradient(#EC6726, #EC6726) 0 10px / 30px 2px no-repeat,
-      linear-gradient(#EC6726, #EC6726) 0 20px / 30px 2px no-repeat;
+  .header-hamburger {
+    display: flex;
   }
 
   .header-logo {
@@ -820,8 +816,76 @@
     height: auto;
   }
 
+  .header-divider {
+    display: none;
+    width: 100%;
+    height: 1px;
+    background: rgba(192, 193, 199, 0.25);
+    margin: 0;
+  }
+
+  .header--menu-open .header-divider {
+    display: block;
+  }
+
   .header-nav {
     display: none;
+    width: 100vw;
+    margin-left: -20px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 12px 20px 20px;
+    background: #FFFFFF;
+    border-top: 1px solid rgba(192, 193, 199, 0.2);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+
+  .header-nav--open {
+    display: flex;
+  }
+
+  .header-nav-item {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 1.2px;
+    text-align: left;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+
+  .header-nav-item:hover {
+    background: rgba(236, 103, 38, 0.06);
+    color: #EC6726;
+    font-style: normal;
+    transform: none;
+  }
+
+  .header-nav-hablemos {
+    width: 100%;
+    margin-top: 16px;
+    padding: 10px 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #EC6726;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1.5px solid rgba(236, 103, 38, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .header-nav-hablemos:hover {
+    background: rgba(236, 103, 38, 0.06);
+    border-color: #EC6726;
   }
 
   .about-button,
@@ -1614,6 +1678,17 @@
     padding: 0 18px;
   }
 
+  .header-nav {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .header-nav-item {
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
   .header-logo {
     width: min(232px, calc(100vw - 86px));
   }
@@ -1663,6 +1738,11 @@
   .header {
     padding: 0 14px;
     gap: 14px;
+  }
+
+  .header-nav {
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .header::before {

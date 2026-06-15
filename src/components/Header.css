@@ -6,6 +6,41 @@ body {
   box-sizing: border-box;
 }
 
+.header-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1100;
+  flex-shrink: 0;
+}
+
+.header-hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #EC6726;
+  border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header--menu-open .header-hamburger-line:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.header--menu-open .header-hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.header--menu-open .header-hamburger-line:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
 .header {
   position: sticky;
   top: 0;
