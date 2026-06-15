@@ -50,6 +50,17 @@ body {
   min-height: 100svh;
 }
 
+@media (min-width: 1025px) {
+  #root {
+    max-width: none;
+    margin: 0;
+  }
+  main {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 1023px) {
   html {
     scroll-padding-top: 88px;
