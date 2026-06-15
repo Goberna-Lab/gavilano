@@ -1,7 +1,7 @@
 .hero {
   --hero-height: min(980px, calc(100dvh - 100px));
-  --hero-bg-position: clamp(96px, 7.5vw, 156px) top;
-  --hero-bg-size: auto 96%;
+  --hero-bg-position: center top -20px;
+  --hero-bg-size: cover;
   --hero-content-top: clamp(42px, 5.6dvh, 60px);
   --hero-content-left: clamp(700px, 46vw, 860px);
   --hero-content-right: auto;
@@ -30,7 +30,9 @@
   --hero-portrait-display: none;
   --hero-portrait-height: 0px;
   position: relative;
-  width: 100%;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(-50vw + 50%);
   height: var(--hero-height);
   background: #FFFFFF;
   overflow: hidden;
@@ -237,7 +239,7 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero {
-    --hero-bg-position: right 240px top;
+  --hero-bg-position: center top -20px;
   }
 }
 
