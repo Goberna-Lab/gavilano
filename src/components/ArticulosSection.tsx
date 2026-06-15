@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { asset } from '../utils/asset'
 import { displayArticles, coverSrc, formatDateUpper, readingMinutes } from '../data/articleSource'
 
-const cardBases = [520, 790, 1060]
+const cardGap = 250
+const cardBases = [520, 520 + cardGap, 520 + cardGap * 2]
 const dividerStart = cardBases[0] - 20
-const dividerGap = 270
+const dividerGap = cardGap
 const descOffsets = [95, 98, 89]
 const featuredArticles = displayArticles.slice(0, cardBases.length)
 
