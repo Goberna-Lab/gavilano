@@ -54,7 +54,7 @@ function About() {
           <span className="about-button-text">CONOCE MI HISTORIA</span>
           <img src={asset('Trazado88.png')} alt="" className="about-button-icon" />
         </Link>
-        <img src={asset('IMG_0040.png')} alt="" className="about-mobile-image" loading="lazy" />
+        <img src={asset('IMG_0040-mobile.png')} alt="" className="about-mobile-image" loading="lazy" />
       </div>
       <img src={asset('IMG_0040.png')} alt="" className="about-image" loading="lazy" />
     </section>

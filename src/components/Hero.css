@@ -21,12 +21,12 @@
   --hero-subtitle2-letter-spacing: 1.4px;
   --hero-subtitle2-margin-top: -18px;
   --hero-button-bottom: 83px;
-  --hero-button-width: 312px;
-  --hero-button-height: 90px;
+  --hero-button-width: 298px;
+  --hero-button-height: 72px;
   --hero-button-min-height: 0;
   --hero-button-radius: 6px;
-  --hero-button-font-size: 16px;
-  --hero-button-letter-spacing: 2.8px;
+  --hero-button-font-size: 20px;
+  --hero-button-letter-spacing: 0;
   --hero-portrait-display: none;
   --hero-portrait-height: 0px;
   position: relative;
@@ -108,7 +108,7 @@
 
 .hero-button {
   align-self: flex-start;
-  margin-top: 14px;
+  margin-top: 12px;
   width: var(--hero-button-width);
   height: var(--hero-button-height);
   min-height: var(--hero-button-min-height);
@@ -133,6 +133,12 @@
 
 .hero-button:hover {
   background: #333844;
+}
+
+@media (min-width: 1025px) {
+  .hero-button {
+    font-weight: normal;
+  }
 }
 
 .hero::before,
