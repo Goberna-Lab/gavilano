@@ -56,7 +56,7 @@ function About() {
         </Link>
         <img src={asset('IMG_0040-mobile.png')} alt="" className="about-mobile-image" loading="lazy" />
       </div>
-      <img src={asset('IMG_0040.png')} alt="" className="about-image" loading="lazy" />
+      <img src={asset('IMG_0040.png?v=hq-3ca2fa9')} alt="" className="about-image" loading="lazy" />
     </section>
   )
 }
