@@ -28,7 +28,7 @@
   font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 88px;
-  line-height: 106px;
+  line-height: 88px;
   letter-spacing: -1.76px;
   color: #1B1F28;
   text-transform: uppercase;
@@ -36,9 +36,9 @@
 }
 
 .agenda-subtitle-italic {
-  font: italic normal 900 88px/106px Inter;
+  font: italic normal 900 88px/88px Inter;
   font-size: 88px;
-  line-height: 106px;
+  line-height: 88px;
   letter-spacing: -1.76px;
   color: #EC6726;
   text-transform: uppercase;

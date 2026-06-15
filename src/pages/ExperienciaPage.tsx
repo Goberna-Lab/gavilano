@@ -172,7 +172,9 @@ function ExperienciaPage() {
         </section>
       </section>
 
-      <Breadcrumb items={[{ label: 'Inicio', to: '/' }, { label: 'Experiencia' }]} />
+      <div className="breadcrumb-mobile-only">
+        <Breadcrumb items={[{ label: 'Inicio', to: '/' }, { label: 'Experiencia' }]} />
+      </div>
       <SumateSection />
     </>
   )

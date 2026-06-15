@@ -4,8 +4,10 @@ import AporteSection from '../components/AporteSection'
 function MiAportePage() {
   return (
     <>
-      <Breadcrumb items={[{ label: 'Inicio', to: '/' }, { label: 'Mi Aporte' }]} />
-      <AporteSection />
+      <div className="breadcrumb-mobile-only">
+        <Breadcrumb items={[{ label: 'Inicio', to: '/' }, { label: 'Mi Aporte' }]} />
+      </div>
+      <AporteSection className="aporte-section-page" />
     </>
   )
 }

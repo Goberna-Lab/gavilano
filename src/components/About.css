@@ -28,7 +28,7 @@
   font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: 88px;
-  line-height: 106px;
+  line-height: 92px;
   letter-spacing: -1.76px;
   color: #1B1F28;
   text-transform: uppercase;
@@ -36,9 +36,9 @@
 }
 
 .about-name-last {
-  font: italic normal 900 119px/144px Inter;
+  font: italic normal 900 119px/122px Inter;
   font-size: 119px;
-  line-height: 144px;
+  line-height: 122px;
   letter-spacing: -2.38px;
   color: #EC6726;
   text-transform: uppercase;
