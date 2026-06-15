@@ -60,6 +60,10 @@
   opacity: 1;
 }
 
+.biografia-page-hero-subtitle span {
+  display: inline;
+}
+
 .biografia-roots-card {
   position: relative;
   width: 1446px;
@@ -403,26 +407,41 @@
     aspect-ratio: 1744 / 586;
   }
 
+  .biografia-page-hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(4px, 1.2vw, 10px);
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
   .biografia-page-hero-title {
-    top: 34%;
-    left: 5%;
-    width: 90%;
+    position: static;
+    width: 100%;
     height: auto;
-    font-size: clamp(30px, 7vw, 86px);
-    line-height: 1.1;
+    font-size: clamp(22px, 6vw, 58px);
+    line-height: 1;
     letter-spacing: -0.04em;
     white-space: nowrap;
   }
 
   .biografia-page-hero-subtitle {
-    top: 51%;
-    left: 4%;
-    width: 92%;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     height: auto;
-    font-size: clamp(28px, 6vw, 76px);
-    line-height: 1.1;
+    font-size: clamp(21px, 6vw, 56px);
+    line-height: 1;
     letter-spacing: -0.04em;
     white-space: nowrap;
+  }
+
+  .biografia-page-hero-subtitle span {
+    display: block;
   }
 
   .biografia-roots-card,

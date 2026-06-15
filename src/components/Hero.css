@@ -1,24 +1,24 @@
 .hero {
   --hero-height: min(980px, calc(100dvh - 100px));
-  --hero-bg-position: center;
-  --hero-bg-size: cover;
-  --hero-content-top: 71px;
-  --hero-content-left: 1014px;
+  --hero-bg-position: clamp(96px, 7.5vw, 156px) top;
+  --hero-bg-size: auto 96%;
+  --hero-content-top: clamp(42px, 5.6dvh, 60px);
+  --hero-content-left: clamp(700px, 46vw, 860px);
   --hero-content-right: auto;
-  --hero-content-width: auto;
+  --hero-content-width: min(760px, calc(100vw - var(--hero-content-left) - 32px));
   --hero-content-padding: 0;
-  --hero-content-align: flex-start;
-  --hero-content-text-align: left;
-  --hero-title-size: clamp(80px, 8.33vw, 160px);
+  --hero-content-align: center;
+  --hero-content-text-align: center;
+  --hero-title-size: clamp(64px, 6.66vw, 128px);
   --hero-title-line-height: 0.98;
-  --hero-title-letter-spacing: -3.2px;
-  --hero-subtitle-size: clamp(180px, 20vw, 385px);
+  --hero-title-letter-spacing: -2.56px;
+  --hero-subtitle-size: clamp(144px, 16vw, 308px);
   --hero-subtitle-line-height: 0.78;
-  --hero-subtitle-letter-spacing: 1.93px;
+  --hero-subtitle-letter-spacing: 1.54px;
   --hero-subtitle-margin-top: -8px;
-  --hero-subtitle2-size: clamp(130px, 14.5vw, 279px);
+  --hero-subtitle2-size: clamp(104px, 11.6vw, 223px);
   --hero-subtitle2-line-height: 0.88;
-  --hero-subtitle2-letter-spacing: 1.4px;
+  --hero-subtitle2-letter-spacing: 1.12px;
   --hero-subtitle2-margin-top: -18px;
   --hero-button-bottom: 83px;
   --hero-button-width: 298px;
@@ -106,8 +106,12 @@
   margin-top: var(--hero-subtitle2-margin-top);
 }
 
+.hero-serve-group {
+  display: contents;
+}
+
 .hero-button {
-  align-self: flex-start;
+  align-self: center;
   margin-top: 12px;
   width: var(--hero-button-width);
   height: var(--hero-button-height);
@@ -136,8 +140,22 @@
 }
 
 @media (min-width: 1025px) {
+  .hero-content {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hero-serve-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .hero-button {
+    align-self: flex-start;
     font-weight: normal;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
