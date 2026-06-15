@@ -23,8 +23,11 @@ function About() {
         <h2 className="about-heading">CONÓCEME</h2>
         <p className="about-name-first">JUAN DE DIOS</p>
         <p className="about-name-last">GAVILANO</p>
-        <p className="about-desc-line1">Vecino chalaco, abogado y servidor público.</p>
-        <p className="about-desc-line2">He dedicado mi vida a trabajar por Carmen de la Legua Reynoso y el Perú.</p>
+        <p className="about-desc-line1">Vecino chalaco, abogado y servidor<br />público.</p>
+        <p className="about-desc-line2">
+          <span>He dedicado mi vida a trabajar por Carmen</span>
+          <span>de la Legua Reynoso y el Perú.</span>
+        </p>
         <div className="about-stats">
           {stats.map((stat, i) => (
             <img key={`icon-${i}`} src={stat.icon} alt="" className="about-stat-icon" style={{ gridRow: 1, gridColumn: i * 2 + 1, width: iconSizes[i].width, height: iconSizes[i].height }} />
