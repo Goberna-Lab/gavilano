@@ -70,7 +70,13 @@
   align-items: var(--hero-content-align);
   text-align: var(--hero-content-text-align);
   box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 120ms ease;
   z-index: 15;
+}
+
+.hero--font-ready .hero-content {
+  opacity: 1;
 }
 
 .hero-title {
