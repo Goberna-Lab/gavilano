@@ -9,7 +9,10 @@ function BiografiaPage() {
           <img className="biografia-page-hero-image" src="/images/grupo325.png" alt="" />
           <div className="biografia-page-hero-copy">
             <p className="biografia-page-hero-title">UNA VIDA DEDICADA A</p>
-            <p className="biografia-page-hero-subtitle">CARMEN DE LA LEGUA REYNOSO</p>
+            <p className="biografia-page-hero-subtitle">
+              <span>CARMEN DE LA</span>
+              <span>LEGUA REYNOSO</span>
+            </p>
           </div>
         </div>
       </section>
