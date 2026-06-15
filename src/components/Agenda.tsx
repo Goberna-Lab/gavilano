@@ -21,7 +21,7 @@ function Agenda() {
       <div className="agenda-stats-container">
         <div className="agenda-stats-col">
           <span className="agenda-stat-number">22</span>
-          <span className="agenda-stat-label">AÑOS DE SERVICIO PÚBLICO</span>
+          <span className="agenda-stat-label">AÑOS DE SERVICIO<br />PÚBLICO</span>
         </div>
         <div className="agenda-stats-divider" />
         <div className="agenda-stats-col">
@@ -29,12 +29,12 @@ function Agenda() {
             <span className="agenda-stat-plus">+</span>
             <span className="agenda-stat-number">30</span>
           </div>
-          <span className="agenda-stat-label">OBRAS DE IMPACTO</span>
+          <span className="agenda-stat-label">OBRAS DE<br />IMPACTO</span>
         </div>
         <div className="agenda-stats-divider" />
         <div className="agenda-stats-col">
           <span className="agenda-stat-number">03</span>
-          <span className="agenda-stat-label">GESTIONES EXITOSAS</span>
+          <span className="agenda-stat-label">GESTIONES<br />EXITOSAS</span>
         </div>
       </div>
     </section>
