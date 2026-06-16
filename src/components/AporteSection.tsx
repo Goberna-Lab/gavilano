@@ -121,7 +121,7 @@ function AporteSection({ className = '' }: AporteSectionProps) {
           <p className="aporte-description-line"><strong>Durante mi gestiòn, impulsamos espacios y</strong></p>
           <p className="aporte-description-line">Programas que dejaron huella en Carmen</p>
           <p className="aporte-description-line aporte-description-line-last">de la Legua Reynoso.</p>
-          <p className="aporte-description-line">Estos son solo algunos,</p>
+          <p className="aporte-description-line aporte-description-line-note">Estos son solo algunos,</p>
         </div>
       </div>
       <nav className="aporte-projects-nav" aria-label="Proyectos destacados">
