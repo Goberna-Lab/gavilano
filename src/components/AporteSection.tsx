@@ -107,14 +107,21 @@ function AporteSection({ className = '' }: AporteSectionProps) {
         </div>
       </div>
       <div className="aporte-description-group">
-        <div className="aporte-description-first-row">
-          <p className="aporte-description">Durante mi gestión, impulsamos espacios</p>
-          <p className="aporte-description-connector">y</p>
+        <div className="aporte-description-desktop">
+          <div className="aporte-description-first-row">
+            <p className="aporte-description">Durante mi gestión, impulsamos espacios</p>
+            <p className="aporte-description-connector">y</p>
+          </div>
+          <p className="aporte-description-text">
+            programas que dejaron huella en Carmen de <br className="aporte-description-mobile-break" />la Legua Reynoso.
+          </p>
+          <p className="aporte-description-note">Estos son solo algunos,</p>
         </div>
-        <p className="aporte-description-text">
-          programas que dejaron huella en Carmen de <br className="aporte-description-mobile-break" />la Legua Reynoso.
-        </p>
-        <p className="aporte-description-note">Estos son solo algunos,</p>
+        <div className="aporte-description-mobile-only">
+          <p className="aporte-description-line"><strong>Durante mi gestiòn, impulsamos espacios y</strong></p>
+          <p className="aporte-description-line">Programas que dejaron huella en Carmen</p>
+          <p className="aporte-description-line aporte-description-line-last">de la Legua Reynoso.</p>
+        </div>
       </div>
       <nav className="aporte-projects-nav" aria-label="Proyectos destacados">
         {proyectos.map((proyecto) => {

@@ -160,6 +160,22 @@
   display: none;
 }
 
+.aporte-description-mobile-only {
+  display: none;
+}
+
+.aporte-description-line {
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 40px;
+  letter-spacing: 0px;
+  color: #1B1F28;
+  margin: 0;
+  white-space: nowrap;
+}
+
 .aporte-description-note {
   position: absolute;
   top: 160px;
@@ -463,6 +479,30 @@
     text-align: center;
   }
 
+  .aporte-description-desktop {
+    display: none;
+  }
+
+  .aporte-description-mobile-only {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .aporte-description-line {
+    white-space: nowrap;
+    font-size: clamp(20px, 2.6vw, 28px);
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  .aporte-description-line-last {
+    text-align: left;
+    align-self: flex-start;
+    padding-left: 8px;
+  }
+
   .aporte-description-first-row {
     position: static;
     top: auto;
@@ -674,7 +714,8 @@
   .aporte-description,
   .aporte-description-connector,
   .aporte-description-text,
-  .aporte-description-note {
+  .aporte-description-note,
+  .aporte-description-line {
     font-size: clamp(18px, 4.2vw, 22px);
     line-height: 1.35;
   }
