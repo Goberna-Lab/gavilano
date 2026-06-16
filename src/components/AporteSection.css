@@ -408,8 +408,7 @@
   .aporte-heading {
     position: static;
     margin: 0 0 20px;
-    text-align: left;
-    padding-left: 8px;
+    text-align: center;
   }
 
   .aporte-subtitle-block {
@@ -417,6 +416,7 @@
     width: min(100vw, 760px);
     height: auto;
     margin: 0 auto 32px;
+    text-align: left;
   }
 
   .aporte-subtitle-line {
@@ -425,7 +425,7 @@
     height: auto;
     font-size: clamp(48px, 7vw, 72px);
     line-height: 0.95;
-    text-align: center;
+    text-align: left;
     white-space: normal;
   }
 
@@ -438,7 +438,7 @@
     top: auto;
     left: auto;
     margin-top: 8px;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 12px;
     flex-wrap: wrap;
   }
@@ -452,7 +452,7 @@
     height: auto;
     font-size: clamp(48px, 7vw, 72px);
     line-height: 0.95;
-    text-align: center;
+    text-align: left;
   }
 
   .aporte-description-group {
