@@ -120,6 +120,18 @@ function metaFor(route) {
     `<meta property="og:description" content="${esc(route.description)}">`,
     `<meta property="og:url" content="${esc(canonical)}">`,
     `<meta property="og:image" content="${esc(ogImage)}">`,
+    `<meta property="og:image:secure_url" content="${esc(ogImage)}">`,
+    `<meta property="og:image:alt" content="${esc(route.title)}">`,
+    // Dimensiones/tipo explícitos: WhatsApp suele NO renderizar la tarjeta sin
+    // estos tags. Solo los emitimos para la OG por defecto (1200x630 jpeg);
+    // las portadas de artículos tienen tamaño desconocido.
+    ...(ogImage === DEFAULT_OG
+      ? [
+          `<meta property="og:image:type" content="image/jpeg">`,
+          `<meta property="og:image:width" content="1200">`,
+          `<meta property="og:image:height" content="630">`,
+        ]
+      : []),
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:title" content="${esc(route.title)}">`,
     `<meta name="twitter:description" content="${esc(route.description)}">`,
