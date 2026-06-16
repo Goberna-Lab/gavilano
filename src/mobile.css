@@ -1326,7 +1326,6 @@
 
   .aporte-description-first-row {
     display: block;
-    white-space: nowrap;
     line-height: 24px;
   }
 
@@ -1340,7 +1339,6 @@
     height: auto;
     font-size: 17px;
     line-height: 24px;
-    white-space: nowrap;
   }
 
   .aporte-description-note {

@@ -145,17 +145,17 @@ function AporteSection({ className = '' }: AporteSectionProps) {
                   <span className="aporte-project-description-title-strong">
                     {proyectoActivo.tituloCompleto.split(',')[0]},
                   </span>
-                  <br />
+                  {' '}<br className="aporte-project-break" />
                   {proyectoActivo.tituloCompleto.slice(proyectoActivo.tituloCompleto.indexOf(',') + 1).trim()}
                 </>
               ) : proyectoActivo.tituloPrefix ? (
                 <>
                   <span className="aporte-project-description-title-strong">{proyectoActivo.tituloPrefix}</span>
-                  {proyectoActivo.tituloBreakAfterPrefix ? <br /> : null}
+                  {proyectoActivo.tituloBreakAfterPrefix ? <>{' '}<br className="aporte-project-break" /></> : null}
                   {proyectoActivo.tituloSuffixLines ? (
                     proyectoActivo.tituloSuffixLines.map((line, index) => (
                       <span key={line}>
-                        {index > 0 ? <br /> : null}
+                        {index > 0 ? <>{' '}<br className="aporte-project-break" /></> : null}
                         {line}
                       </span>
                     ))

@@ -18,8 +18,9 @@ function ArticlesPage() {
 
           <div className="articles-page-copy-block">
             <h1 className="articles-page-title">
-              <span className="articles-page-title-main">UNA GESTIÓN PARA </span>
-              <span className="articles-page-title-accent">LOS CARMELINOS</span>
+              <span className="articles-page-title-main">UNA GESTIÓN{' '}<br className="articles-mobile-break" />PARA LOS </span>
+              <br className="articles-mobile-break" />
+              <span className="articles-page-title-accent">CARMELINOS</span>
             </h1>
             <p className="articles-page-copy">Infórmate sobre lo que pasa en el distrito</p>
           </div>

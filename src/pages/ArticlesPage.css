@@ -79,6 +79,10 @@
   font-style: italic;
 }
 
+.articles-mobile-break {
+  display: none;
+}
+
 .articles-page-copy {
   margin: 16px 0 0;
   font-family: 'Montserrat', sans-serif;
@@ -284,18 +288,31 @@
     width: calc(100vw - 32px);
   }
 
+  .articles-page-breadcrumb {
+    display: none;
+  }
+
+  .articles-page-hero-frame {
+    margin-bottom: 0;
+  }
+
   .articles-page-hero-banner {
     height: 220px;
   }
 
   .articles-page-copy-block {
     width: 100%;
-    margin-top: 34px;
+    margin-top: 0;
+  }
+
+  .articles-mobile-break {
+    display: block;
   }
 
   .articles-page-title {
     font-size: clamp(28px, 8vw, 44px);
     letter-spacing: -1px;
+    white-space: normal;
   }
 
   .articles-page-copy {
