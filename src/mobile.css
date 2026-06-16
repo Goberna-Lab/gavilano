@@ -1704,6 +1704,11 @@
     padding-left: 52px;
   }
 
+  .aporte-subtitle-line,
+  .aporte-subtitle-italic {
+    font-size: clamp(32px, 9vw, 46px);
+  }
+
   .sumate-white-box {
     grid-template-columns: 1fr;
   }
