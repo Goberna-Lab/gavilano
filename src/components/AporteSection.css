@@ -696,7 +696,7 @@
   }
 
   .aporte-subtitle-block {
-    width: min(100vw, 620px);
+    width: min(100%, 620px);
     margin-bottom: 24px;
   }
 
@@ -706,7 +706,7 @@
   }
 
   .aporte-description-group {
-    width: min(100vw, 620px);
+    width: min(100%, 620px);
     margin-bottom: 28px;
   }
 
@@ -717,10 +717,11 @@
   .aporte-description-line {
     font-size: clamp(18px, 4.2vw, 22px);
     line-height: 1.35;
+    white-space: normal;
   }
 
   .aporte-projects-nav {
-    width: min(100vw, 620px);
+    width: min(100%, 620px);
     gap: 10px 16px;
     margin-bottom: 28px;
   }
@@ -730,7 +731,7 @@
   }
 
   .aporte-projects-content {
-    width: min(100vw, 620px);
+    width: min(100%, 620px);
     grid-template-columns: 36px minmax(0, 1fr) 36px;
     column-gap: 8px;
     row-gap: 16px;
