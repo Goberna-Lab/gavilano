@@ -473,7 +473,7 @@
 
   .aporte-description-group {
     position: static;
-    width: 100%;
+    width: min(100vw, 760px);
     height: auto;
     margin: 0 auto 36px;
     text-align: center;
@@ -488,7 +488,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
-    padding-left: 12px;
   }
 
   .aporte-description-line {
@@ -707,7 +706,7 @@
   }
 
   .aporte-description-group {
-    width: 100%;
+    width: min(100vw, 620px);
     margin-bottom: 28px;
   }
 
