@@ -497,11 +497,6 @@
     text-align: left;
   }
 
-  .aporte-description-line-last {
-    text-align: left;
-    align-self: flex-start;
-    padding-left: 8px;
-  }
 
   .aporte-description-line-note {
     margin-top: 20px;
