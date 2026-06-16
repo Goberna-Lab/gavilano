@@ -242,6 +242,15 @@
     margin-left: 0;
   }
 
+  .experiencia-timeline-item--image-left .experiencia-timeline-image,
+  .experiencia-timeline-item--image-right .experiencia-timeline-image {
+    justify-self: center;
+  }
+
+  .experiencia-timeline-copy {
+    width: 100%;
+  }
+
   .experiencia-timeline-item + .experiencia-timeline-item {
     margin-top: 40px;
   }
@@ -272,14 +281,18 @@
 
   .experiencia-timeline-intro {
     width: 100%;
-    font-size: 30px;
-    line-height: 36px;
+    max-width: 100%;
+    font: normal normal 800 35px/42px Montserrat, Arial, sans-serif;
+    word-break: break-word;
   }
 
   .experiencia-timeline-intro-highlight {
-    margin-top: 12px;
-    font-size: 34px;
-    line-height: 38px;
+    display: inline;
+    width: auto;
+    max-width: 100%;
+    margin-top: 0;
+    margin-left: 6px;
+    font: italic normal 800 35px/42px Montserrat, Arial, sans-serif;
   }
 
   .experiencia-desktop-break {
@@ -296,6 +309,11 @@
     aspect-ratio: 582 / 546;
   }
 
+  .experiencia-timeline-copy {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .experiencia-timeline-year {
     font-size: 48px;
     line-height: 54px;
@@ -307,14 +325,20 @@
   }
 
   .experiencia-timeline-role {
+    width: 100%;
+    max-width: 100%;
     margin-top: 18px;
     font-size: 20px;
     line-height: 28px;
+    word-break: break-word;
   }
 
   .experiencia-timeline-description {
+    width: 100%;
+    max-width: 100%;
     font-size: 16px;
     line-height: 26px;
+    word-break: break-word;
   }
 
   .experiencia-summary {

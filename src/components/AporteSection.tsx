@@ -27,7 +27,7 @@ const proyectos: Proyecto[] = [
     id: 1,
     nombre: 'Casa del Adulto Mayor',
     titulo: '',
-    tituloCompleto: 'Un espacio digno para cuidar, acompañar y reconocer a quienes hicieron historia en Carmen de la Legua Reynoso.',
+    tituloCompleto: 'Un espacio digno para cuidar, acompañar y reconocer a quienes hicieron historia en Carmen.',
     imagen: asset('personas/senoras.png'),
     navClass: 'aporte-projects-nav-item-casa',
   },
@@ -142,8 +142,11 @@ function AporteSection({ className = '' }: AporteSectionProps) {
             >
               {proyectoActivo.tituloCompleto ? (
                 <>
-                  <span className="aporte-project-description-title-strong">{proyectoActivo.tituloCompleto.split(',')[0]}</span>
-                  {proyectoActivo.tituloCompleto.slice(proyectoActivo.tituloCompleto.indexOf(','))}
+                  <span className="aporte-project-description-title-strong">
+                    {proyectoActivo.tituloCompleto.split(',')[0]},
+                  </span>
+                  <br />
+                  {proyectoActivo.tituloCompleto.slice(proyectoActivo.tituloCompleto.indexOf(',') + 1).trim()}
                 </>
               ) : proyectoActivo.tituloPrefix ? (
                 <>

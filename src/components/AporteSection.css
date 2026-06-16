@@ -558,6 +558,7 @@
     grid-column: 1 / -1;
     grid-row: 1;
     justify-self: center;
+    padding: 0 20px 40px;
   }
 
   .aporte-project-description-text {
@@ -566,10 +567,10 @@
     left: auto;
     width: 100%;
     height: auto;
-    font-size: clamp(22px, 3.2vw, 34px);
-    line-height: 1.35;
+    font-size: clamp(18px, 2.8vw, 28px);
+    line-height: 1.5;
     white-space: normal;
-    text-align: center;
+    text-align: left;
   }
 
   .aporte-project-description-text-normal {
@@ -583,9 +584,9 @@
     width: 100%;
     height: auto;
     margin-top: 12px;
-    font-size: clamp(18px, 2.6vw, 26px);
-    line-height: 1.4;
-    text-align: center;
+    font-size: clamp(15px, 2.2vw, 22px);
+    line-height: 1.5;
+    text-align: left;
   }
 
   .aporte-project-image {
@@ -596,9 +597,10 @@
     display: block;
     grid-column: 2;
     grid-row: 2;
-    width: 100%;
-    height: auto;
+    width: auto;
     max-width: 100%;
+    height: auto;
+    margin: 0 auto;
     border: 1px solid #C0C1C7;
     border-radius: 10px;
     object-fit: cover;
@@ -682,10 +684,20 @@
   }
 
   .aporte-project-description-text {
-    font-size: clamp(20px, 5.6vw, 28px);
+    font-size: clamp(17px, 4.2vw, 24px);
+    line-height: 1.5;
+    text-align: left;
   }
 
   .aporte-project-description-subtext {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .aporte-project-description {
+    padding: 0 14px 32px;
   }
 }

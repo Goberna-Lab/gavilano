@@ -8,7 +8,7 @@ function Agenda() {
         <p className="agenda-subtitle">NO VENGO A</p>
         <p className="agenda-subtitle-italic">IMPROVISAR.</p>
       </div>
-      <div className="agenda-bar">
+      <div className="agenda-bar" />
       <p className="agenda-quote agenda-quote-desktop">Gobernar no es solo prometer. Gobernar es escuchar, tomar decisiones y cumplir.</p>
       <p className="agenda-quote agenda-quote-mobile">
         <span>Gobernar no es solo prometer. Gobernar es</span>
@@ -35,7 +35,6 @@ function Agenda() {
         <div className="agenda-stats-col">
           <span className="agenda-stat-number">03</span>
           <span className="agenda-stat-label">GESTIONES<br />EXITOSAS</span>
-        </div>
         </div>
       </div>
     </section>

@@ -11,11 +11,11 @@ function ExperienciaPage() {
         <div className="experiencia-timeline" aria-label="Línea de tiempo">
           <article className="experiencia-timeline-item experiencia-timeline-item--intro">
             <p className="experiencia-timeline-intro">
-              Toda una vida recorriendo
-              <br className="experiencia-desktop-break" />
-              nuestras calles,
-              <br className="experiencia-desktop-break" />
-              trabajando codo a codo
+Toda una vida recorriendo{' '}
+<br className="experiencia-desktop-break" />
+nuestras calles,{' '}
+<br className="experiencia-desktop-break" />
+trabajando codo a codo
               <span className="experiencia-timeline-intro-highlight">
                 contigo por el bienestar
                 <br className="experiencia-desktop-break" />
