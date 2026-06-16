@@ -20,7 +20,7 @@ const GENERATED = join(ROOT, 'src/data/bravo-articles.generated.ts')
 
 const SITE = 'https://juandediosgavilano.com'
 const NAME = 'Juan de Dios Gavilano'
-const DEFAULT_OG = `${SITE}/images/alcaldegavi.png`
+const DEFAULT_OG = `${SITE}/images/og-gavilano.jpg`
 const DEFAULT_DESC =
   'Juan de Dios Gavilano, candidato a la Alcaldía de Carmen de la Legua Reynoso 2026. Experiencia, propuestas y trabajo por el distrito.'
 
