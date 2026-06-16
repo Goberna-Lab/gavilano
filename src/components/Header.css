@@ -88,7 +88,7 @@ body {
 
 .header-logo {
   width: 285px;
-  height: 40px;
+  height: auto;
 }
 
 .header-nav {

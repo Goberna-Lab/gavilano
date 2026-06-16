@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '/images/logo-gavilano.svg'
+import logo from '/images/logo-gavilano-2027.png'
 import './Header.css'
 
 type NavItem =
