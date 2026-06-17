@@ -1,170 +1,170 @@
-.agenda {
-  position: relative;
-  height: 982px;
-  background: #F0F1F5 0% 0% no-repeat padding-box;
-  overflow: hidden;
-}
+  .agenda {
+    position: relative;
+    height: 982px;
+    background: #F0F1F5 0% 0% no-repeat padding-box;
+    overflow: hidden;
+  }
 
-.agenda-content {
-  position: absolute;
-  top: 209px;
-  left: 124px;
-  z-index: 2;
-}
+  .agenda-content {
+    position: absolute;
+    top: 209px;
+    left: 124px;
+    z-index: 2;
+  }
 
-.agenda-heading {
-  position: relative;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-  letter-spacing: 1.92px;
-  color: #111727;
-  text-transform: uppercase;
-  margin: 0 0 40px 0;
-}
+  .agenda-heading {
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 1.92px;
+    color: #111727;
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+  }
 
-.agenda-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-  font-size: 88px;
-  line-height: 88px;
-  letter-spacing: -1.76px;
-  color: #1B1F28;
-  text-transform: uppercase;
-  margin: 0;
-}
+  .agenda-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 88px;
+    line-height: 88px;
+    letter-spacing: -1.76px;
+    color: #1B1F28;
+    text-transform: uppercase;
+    margin: 0;
+  }
 
-.agenda-subtitle-italic {
-  font: italic normal 900 88px/88px Inter;
-  font-size: 88px;
-  line-height: 88px;
-  letter-spacing: -1.76px;
-  color: #EC6726;
-  text-transform: uppercase;
-  margin: 0;
-}
+  .agenda-subtitle-italic {
+    font: italic normal 900 88px/88px Inter;
+    font-size: 88px;
+    line-height: 88px;
+    letter-spacing: -1.76px;
+    color: #EC6726;
+    text-transform: uppercase;
+    margin: 0;
+  }
 
-.agenda-bar {
-  position: absolute;
-  top: 634px;
-  left: 124px;
-  width: 13px;
-  height: 100px;
-  background: #D80E2B 0% 0% no-repeat padding-box;
-  z-index: 2;
-}
+  .agenda-bar {
+    position: absolute;
+    top: 634px;
+    left: 124px;
+    width: 13px;
+    height: 100px;
+    background: #D80E2B 0% 0% no-repeat padding-box;
+    z-index: 2;
+  }
 
-.agenda-quote {
-  position: absolute;
-  top: 650px;
-  left: 159px;
-  width: 586px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 40px;
-  color: #1B1F28;
-  margin: 0;
-  z-index: 2;
-}
+  .agenda-quote {
+    position: absolute;
+    top: 650px;
+    left: 159px;
+    width: 586px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 40px;
+    color: #1B1F28;
+    margin: 0;
+    z-index: 2;
+  }
 
-.agenda-quote-mobile {
-  display: none;
-}
+  .agenda-quote-mobile {
+    display: none;
+  }
 
-.agenda-right-text-block {
-  position: absolute;
-  top: 284px;
-  left: 985px;
-  width: 853px;
-  height: 234px;
-  text-align: center;
-  letter-spacing: 0;
-  color: #1B1F28;
-  z-index: 2;
-}
+  .agenda-right-text-block {
+    position: absolute;
+    top: 284px;
+    left: 985px;
+    width: 800px;
+    height: 280px;
+    text-align: left;
+    letter-spacing: 0;
+    color: #1B1F28;
+    z-index: 2;
+  }
 
-.agenda-right-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 40px;
-  letter-spacing: 0;
-  color: #1B1F28;
-  white-space: nowrap;
-  margin: 0;
-}
+  .agenda-right-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: 0;
+    color: #1B1F28;
+    white-space: nowrap;
+    margin: 0;
+  }
 
-.agenda-right-text {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 40px;
-  letter-spacing: 0;
-  color: #1B1F28;
-  margin: 0;
-}
+  .agenda-right-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: 0;
+    color: #1B1F28;
+    margin: 0;
+  }
 
-.agenda-stats-container {
-  position: absolute;
-  top: 588px;
-  left: 985px;
-  width: 935px;
-  height: 182px;
-  background: #EC6726;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  z-index: 2;
-}
+  .agenda-stats-container {
+    position: absolute;
+    top: 588px;
+    left: 985px;
+    width: 935px;
+    height: 182px;
+    background: #EC6726;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    z-index: 2;
+  }
 
-.agenda-stats-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
+  .agenda-stats-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 
-.agenda-stats-divider {
-  height: 128px;
-  border-left: 1px solid #FFFFFF;
-  align-self: center;
-}
+  .agenda-stats-divider {
+    height: 128px;
+    border-left: 1px solid #FFFFFF;
+    align-self: center;
+  }
 
-.agenda-stat-number-row {
-  display: flex;
-  align-items: center;
-}
+  .agenda-stat-number-row {
+    display: flex;
+    align-items: center;
+  }
 
-.agenda-stat-plus {
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-  font-size: 97px;
-  line-height: 109px;
-  letter-spacing: 3.1px;
-  color: #FFFFFF;
-  width: 67px;
-}
+  .agenda-stat-plus {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 97px;
+    line-height: 109px;
+    letter-spacing: 3.1px;
+    color: #FFFFFF;
+    width: 67px;
+  }
 
-.agenda-stat-number {
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-  font-size: 109px;
-  line-height: 109px;
-  letter-spacing: -2.18px;
-  color: #FFFFFF;
-  white-space: nowrap;
-}
+  .agenda-stat-number {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 109px;
+    line-height: 109px;
+    letter-spacing: -2.18px;
+    color: #FFFFFF;
+    white-space: nowrap;
+  }
 
-.agenda-stat-label {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 20px;
-  letter-spacing: 1.44px;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  margin-top: 4px;
-  text-align: center;
-}
+  .agenda-stat-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 1.44px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin-top: 4px;
+    text-align: center;
+  }
