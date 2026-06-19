@@ -2,7 +2,8 @@
 // Fuente única de artículos para el sitio.
 // El sitio debe respetar los artículos locales definidos en articles.ts.
 import { articles as localArticles, type Article } from './articles'
-import type { DisplayArticle } from './bravoTypes'
+import { mapBravoToDisplay, type DisplayArticle } from './bravoTypes'
+import { bravoArticlesRaw } from './bravo-articles.generated'
 import { asset } from '../utils/asset'
 
 const DEFAULT_COVER = 'alcaldegavi.png'
@@ -23,8 +24,14 @@ function mapLocalToDisplay(a: Article): DisplayArticle {
   }
 }
 
-/** Lista activa local, con títulos partidos y fechas fijas en los componentes. */
-export const displayArticles: DisplayArticle[] = localArticles.map(mapLocalToDisplay)
+/**
+ * Lista activa de artículos. Prioriza los artículos publicados en Bravo
+ * (horneados en build por scripts/fetch-articles.mjs); si no hay ninguno
+ * horneado, cae a los artículos locales de articles.ts.
+ */
+const bravoArticles: DisplayArticle[] = bravoArticlesRaw.map(mapBravoToDisplay)
+export const displayArticles: DisplayArticle[] =
+  bravoArticles.length > 0 ? bravoArticles : localArticles.map(mapLocalToDisplay)
 
 export function getDisplayArticleBySlug(slug: string | undefined): DisplayArticle | null {
   if (!slug) return null
