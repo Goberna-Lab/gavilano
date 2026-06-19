@@ -115,3 +115,48 @@
   white-space: nowrap;
   margin-top: -10px;
 }
+
+.image-section-button {
+  position: absolute;
+  top: 760px;
+  left: 1022px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 312px;
+  height: 90px;
+  background: #1b1f28 0% 0% no-repeat padding-box;
+  border-radius: 6px;
+  border: none;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.image-section-button:hover {
+  background: #333844;
+}
+
+.image-section-button-text {
+  display: inline-block;
+}
+
+.image-section-button-icon {
+  display: block;
+  width: 17px;
+  height: 15px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.image-section-button:hover .image-section-button-icon {
+  transform: translateX(5px);
+}

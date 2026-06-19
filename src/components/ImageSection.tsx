@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './ImageSection.css'
 import { asset } from '../utils/asset'
 
@@ -25,6 +26,10 @@ function ImageSection() {
           </span>
           <span className="image-section-title-subtitle">En gestión municipal</span>
         </h2>
+        <Link className="image-section-button" to="/experiencia">
+          <span className="image-section-button-text">EXPERIENCIA</span>
+          <img src={asset('Trazado88.png')} alt="" className="image-section-button-icon" />
+        </Link>
       </div>
     </section>
   )
