@@ -99,6 +99,38 @@
   gap: 64px 44px;
 }
 
+/* Contenedor colapsable de las tarjetas extra: anima alto (0fr→1fr) + opacidad
+   para una transición suave al desplegar/plegar con "VER TODO" / "VER MENOS". */
+.articles-grid-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  margin-top: 0;
+  transition: grid-template-rows 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.45s ease, margin-top 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.articles-grid-collapse.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 64px;
+}
+
+.articles-grid-collapse-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.articles-grid.articles-grid--extra {
+  margin-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .articles-grid-collapse {
+    transition: none;
+  }
+}
+
 .articles-page-cta-wrap {
   width: min(1744px, calc(100vw - 176px));
   margin: 56px auto 0;
@@ -114,7 +146,11 @@
   min-width: 142px;
   height: 48px;
   padding: 0 18px;
+  border: none;
   border-radius: 6px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
   background: #1b1f28;
   color: #ffffff;
   font-family: Helvetica, Arial, sans-serif;
@@ -144,6 +180,14 @@
 
 .articles-page-cta:hover .articles-page-cta-arrow {
   transform: translateX(5px);
+}
+
+.articles-page-cta-arrow--up {
+  transform: rotate(180deg);
+}
+
+.articles-page-cta:hover .articles-page-cta-arrow--up {
+  transform: rotate(180deg) translateX(5px);
 }
 
 .articles-card {
@@ -323,6 +367,10 @@
     margin-top: 32px;
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+
+  .articles-grid-collapse.is-open {
+    margin-top: 28px;
   }
 
   .articles-page-cta-wrap {
