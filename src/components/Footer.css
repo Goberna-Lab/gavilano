@@ -84,14 +84,34 @@
   left: 1036px;
 }
 
-.footer-links-label:hover {
+.footer-contact-label {
+  position: absolute;
+  top: 43px;
+  /* safe unused gap between the logo (ends ~398px) and the Enlaces column (starts 882px) */
+  left: 460px;
+  height: auto;
+  padding-bottom: 4px;
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+  font: normal normal normal 14px/32px 'Open Sans', Helvetica, Arial, sans-serif;
+  letter-spacing: 0;
+  color: #ffffff;
+  text-transform: capitalize;
+  opacity: 0.5;
+  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+}
+
+.footer-links-label:hover,
+.footer-contact-label:hover {
   opacity: 1;
   color: #FF6B2C;
   font-style: italic;
   transform: translateY(-5px);
 }
 
-.footer-links-label::after {
+.footer-links-label::after,
+.footer-contact-label::after {
   content: '';
   position: absolute;
   left: 0;
@@ -103,7 +123,8 @@
   transition: opacity 0.2s ease;
 }
 
-.footer-links-label:hover::after {
+.footer-links-label:hover::after,
+.footer-contact-label:hover::after {
   opacity: 1;
 }
 
@@ -123,14 +144,60 @@
   transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
 }
 
-.footer-links a:hover {
+.footer-links--primary {
+  left: 882px;
+}
+
+.footer-links--secondary {
+  left: 1036px;
+}
+
+.footer-contact {
+  position: absolute;
+  top: 90px;
+  /* safe unused gap between the logo (ends ~398px) and the Enlaces column (starts 882px) */
+  left: 460px;
+  width: 380px;
+  height: 83px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  font: normal normal normal 14px/32px 'Open Sans', Helvetica, Arial, sans-serif;
+  letter-spacing: 0;
+  color: #ffffff;
+  text-transform: none;
+  z-index: 2;
+}
+
+.footer-contact a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  width: fit-content;
+  padding-bottom: 4px;
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+  line-height: 20px;
+  opacity: 0.5;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
   opacity: 1;
   color: #FF6B2C;
   font-style: italic;
   transform: translateY(-5px);
 }
 
-.footer-links a::after {
+.footer-links a::after,
+.footer-contact a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -142,16 +209,15 @@
   transition: opacity 0.2s ease;
 }
 
-.footer-links a:hover::after {
+.footer-links a:hover::after,
+.footer-contact a:hover::after {
   opacity: 1;
 }
 
-.footer-links--primary {
-  left: 882px;
-}
-
-.footer-links--secondary {
-  left: 1036px;
+.footer-contact a svg {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
 }
 
 .footer-qr {
@@ -235,8 +301,21 @@
     gap: 10px;
   }
 
-  .footer-links-label {
+  .footer-links-label,
+  .footer-contact-label {
     display: none;
+  }
+
+  .footer-contact {
+    position: static;
+    width: auto;
+    height: auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-contact a {
+    justify-content: center;
   }
 
   .footer-group-icon {

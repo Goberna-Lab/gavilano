@@ -28,6 +28,7 @@ function Footer() {
         <div className="footer-group-icon" aria-hidden="true" />
         <p className="footer-links-label footer-links-label--primary" aria-hidden="true">Enlaces</p>
         <p className="footer-links-label footer-links-label--secondary" aria-hidden="true">Enlaces</p>
+        <p className="footer-contact-label" aria-hidden="true">Contacto</p>
 
         {linkColumns.map((column, index) => (
           <div
@@ -54,6 +55,22 @@ function Footer() {
             ))}
           </div>
         ))}
+
+        <div className="footer-contact">
+          <a href="tel:+51997091206">
+            <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" fill="none" strokeWidth="1.8" aria-hidden="true">
+              <path d="M3.5 2.5h2.2l1 2.6-1.3 1.2a8 8 0 0 0 4.3 4.3l1.2-1.3 2.6 1v2.2c0 .7-.6 1.3-1.3 1.2C7.3 13.3 2.7 8.7 2.3 3.8c-.1-.7.5-1.3 1.2-1.3z" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            +51 997 091 206
+          </a>
+          <a href="mailto:alcaldecdlr@juandediosgavilano.com">
+            <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" fill="none" strokeWidth="1.8" aria-hidden="true">
+              <rect x="2" y="3.5" width="12" height="9" rx="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M2.5 4.2 8 8.5l5.5-4.3" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            alcaldecdlr@juandediosgavilano.com
+          </a>
+        </div>
 
         <div className="footer-component-icon" aria-hidden="true" />
 

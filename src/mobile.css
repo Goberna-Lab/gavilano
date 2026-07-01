@@ -720,7 +720,8 @@
     background-size: contain;
   }
 
-  .footer-links-label {
+  .footer-links-label,
+  .footer-contact-label {
     display: none;
   }
 
@@ -742,6 +743,22 @@
     align-self: stretch;
     width: 100%;
     line-height: 20px;
+    text-align: center;
+  }
+
+  .footer-contact {
+    position: static;
+    width: min(100%, 220px);
+    height: auto;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .footer-contact a {
+    align-self: stretch;
+    width: 100%;
+    justify-content: center;
     text-align: center;
   }
 
