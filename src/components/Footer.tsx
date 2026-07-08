@@ -11,10 +11,6 @@ const linkColumns: FooterLink[][] = [
     { label: 'experiencia', to: '/experiencia' },
     { label: 'propuestas', to: '/propuestas' },
   ],
-  [
-    //{ label: 'propuestas', to: '/propuestas', preventNavigation: true },
-    { label: 'artículos', to: '/articulos' },
-  ],
 ]
 
 function Footer() {
@@ -26,13 +22,12 @@ function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-group-icon" aria-hidden="true" />
-        <p className="footer-links-label footer-links-label--primary" aria-hidden="true">Enlaces</p>
-        <p className="footer-links-label footer-links-label--secondary" aria-hidden="true">Enlaces</p>
+        <Link className="footer-links-label footer-links-label--primary" to="/" aria-label="Ir al inicio">Enlaces</Link>
         <p className="footer-contact-label" aria-hidden="true">Contacto</p>
 
         {linkColumns.map((column, index) => (
           <div
-            className={`footer-links ${index === 0 ? 'footer-links--primary' : 'footer-links--secondary'}`}
+            className="footer-links footer-links--primary"
             key={`footer-column-${index}`}
           >
             {column.map((item) => (

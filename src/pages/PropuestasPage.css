@@ -1,0 +1,440 @@
+.propuestas-page {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  height: min(645px, 33.59375cqw);
+  min-height: 300px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.propuestas-page-kicker {
+  position: absolute;
+  top: 4.6354cqw;
+  left: 6.4583cqw;
+  width: 22.5cqw;
+  height: 1.5104cqw;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25cqw;
+  font-weight: 600;
+  line-height: 1.5104cqw;
+  letter-spacing: 0.1cqw;
+  color: #111727;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.propuestas-page-kicker::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 13px);
+  width: 110px;
+  height: 1px;
+  background: rgba(236, 103, 38, 0.45);
+  transform: translateY(-50%);
+}
+
+.propuestas-page-title {
+  position: absolute;
+  top: 8.4375cqw;
+  left: 6.5104cqw;
+  width: 39.1146cqw;
+  height: 14.4792cqw;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 4.5833cqw;
+  font-weight: 900;
+  line-height: 4.4792cqw;
+  letter-spacing: -0.0917cqw;
+  color: #1b1f28;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.propuestas-page-title span,
+.propuestas-page-title em {
+  display: block;
+}
+
+.propuestas-page-title em {
+  color: #ec6726;
+  font-style: italic;
+}
+
+.propuestas-page-copy {
+  position: absolute;
+  top: 11.1458cqw;
+  left: 58.4375cqw;
+  width: 34.9479cqw;
+  height: 9.7917cqw;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.875cqw;
+  font-weight: 400;
+  line-height: 2.5cqw;
+  letter-spacing: 0;
+  color: #1b1f28;
+  text-align: left;
+}
+
+.propuestas-page-copy strong {
+  font-weight: 700;
+}
+
+@media (min-width: 1921px) {
+  .propuestas-page {
+    height: 645px;
+  }
+
+  .propuestas-page-kicker {
+    top: 89px;
+    left: 124px;
+    width: 432px;
+    height: 29px;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 1.92px;
+  }
+
+  .propuestas-page-title {
+    top: 162px;
+    left: 125px;
+    width: 751px;
+    height: 278px;
+    font-size: 88px;
+    line-height: 86px;
+    letter-spacing: -1.76px;
+  }
+
+  .propuestas-page-copy {
+    top: 214px;
+    left: 1122px;
+    width: 671px;
+    height: 188px;
+    font-size: 36px;
+    line-height: 48px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .propuestas-page {
+    height: auto;
+    min-height: 0;
+    padding: 72px 20px 80px;
+    overflow: visible;
+  }
+
+  .propuestas-page-kicker,
+  .propuestas-page-title,
+  .propuestas-page-copy {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .propuestas-page-kicker {
+    margin-bottom: 28px;
+    padding-left: 0;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1.4px;
+  }
+
+  .propuestas-page-kicker::before {
+    display: none;
+  }
+
+  .propuestas-page-title {
+    max-width: 720px;
+    font-size: clamp(46px, 11vw, 78px);
+    line-height: 0.98;
+    letter-spacing: -1px;
+  }
+
+  .propuestas-page-copy {
+    max-width: 680px;
+    margin-top: 34px;
+    font-size: clamp(20px, 5vw, 32px);
+    line-height: 1.3;
+  }
+}
+
+.propuestas-detail {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  height: max(520px, min(850px, 44.2708cqw));
+  margin-bottom: -8px;
+  background: #ffffff;
+  border-top: 1px solid rgba(236, 103, 38, 0.55);
+  overflow: hidden;
+}
+
+.propuestas-detail::after {
+  content: '';
+  position: absolute;
+  top: 4.1667cqw;
+  left: 69.0625cqw;
+  width: 27.3438cqw;
+  height: 34.9479cqw;
+  background: url('/images/WhatsApp Image 2026-07-08 at 10.46.25.jpeg') center / contain no-repeat;
+}
+
+.propuestas-detail-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 31.25cqw;
+  height: 44.2708cqw;
+  min-height: 520px;
+  background: #ec6726;
+}
+
+.propuestas-detail-nav-item {
+  display: grid;
+  grid-template-columns: 3.2292cqw minmax(0, 1fr);
+  align-items: center;
+  column-gap: 1.25cqw;
+  width: 31.25cqw;
+  height: 8.8542cqw;
+  min-height: 104px;
+  padding: 0 0 0 4.1667cqw;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+  background: #ec6726;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4063cqw;
+  font-weight: 600;
+  line-height: 1.5625cqw;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.propuestas-detail-nav-item--active {
+  background: #e04a01;
+}
+
+.propuestas-detail-nav-icon {
+  width: 3.2292cqw;
+  height: 3.2292cqw;
+  object-fit: contain;
+  justify-self: center;
+}
+
+.propuestas-detail-copy {
+  position: absolute;
+  top: 3.3333cqw;
+  left: 34.8958cqw;
+  width: 30.5208cqw;
+  margin: 0;
+}
+
+.propuestas-detail-title {
+  width: 21.1458cqw;
+  height: 1.5625cqw;
+  margin: 0 0 0.5208cqw;
+  color: #ec6726;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8229cqw;
+  font-weight: 900;
+  line-height: 1.6146cqw;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.propuestas-detail-lead {
+  width: 30.5208cqw;
+  min-height: 5.3646cqw;
+  margin: 0;
+  color: #1b1f28;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9375cqw;
+  font-weight: 400;
+  line-height: 1.5625cqw;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.propuestas-detail-lead strong,
+.propuestas-detail-body strong {
+  font-weight: 700;
+}
+
+.propuestas-detail-divider {
+  width: 30.5208cqw;
+  height: 1px;
+  margin: 2.3958cqw 0 2.0833cqw;
+  background: rgba(192, 193, 199, 0.75);
+}
+
+.propuestas-detail-body {
+  width: 30.5208cqw;
+  min-height: 22.8646cqw;
+  margin: 0;
+  color: #1b1f28;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8333cqw;
+  font-weight: 400;
+  line-height: 1.4583cqw;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+@media (min-width: 1921px) {
+  .propuestas-detail {
+    height: 850px;
+  }
+
+  .propuestas-detail::after {
+    top: 80px;
+    left: 1326px;
+    width: 525px;
+    height: 671px;
+  }
+
+  .propuestas-detail-nav {
+    width: 600px;
+    height: 850px;
+  }
+
+  .propuestas-detail-nav-item {
+    grid-template-columns: 62px minmax(0, 1fr);
+    column-gap: 24px;
+    width: 600px;
+    height: 170px;
+    padding-left: 80px;
+    font-size: 27px;
+    line-height: 30px;
+  }
+
+  .propuestas-detail-nav-icon {
+    width: 62px;
+    height: 62px;
+  }
+
+  .propuestas-detail-copy {
+    top: 64px;
+    left: 670px;
+    width: 586px;
+  }
+
+  .propuestas-detail-title {
+    width: 406px;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 35px;
+    line-height: 31px;
+  }
+
+  .propuestas-detail-lead {
+    width: 586px;
+    min-height: 103px;
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .propuestas-detail-divider {
+    width: 586px;
+    margin: 46px 0 40px;
+  }
+
+  .propuestas-detail-body {
+    width: 586px;
+    min-height: 439px;
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+}
+
+@media (max-width: 1024px) {
+  .propuestas-detail {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 0;
+    overflow: visible;
+  }
+
+  .propuestas-detail::after {
+    position: static;
+    display: block;
+    width: min(100% - 40px, 525px);
+    height: auto;
+    aspect-ratio: 525 / 671;
+    margin: 28px 20px 48px;
+  }
+
+  .propuestas-detail-nav,
+  .propuestas-detail-copy {
+    position: static;
+  }
+
+  .propuestas-detail-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    height: auto;
+    min-height: 0;
+  }
+
+  .propuestas-detail-nav-item {
+    grid-template-columns: 36px minmax(0, 1fr);
+    column-gap: 14px;
+    width: 100%;
+    height: 86px;
+    min-height: 0;
+    padding: 0 18px;
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .propuestas-detail-nav-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .propuestas-detail-copy {
+    width: min(100%, 640px);
+    padding: 36px 20px 0;
+  }
+
+  .propuestas-detail-title,
+  .propuestas-detail-lead,
+  .propuestas-detail-body {
+    width: 100%;
+    height: auto;
+  }
+
+  .propuestas-detail-title {
+    margin-bottom: 12px;
+    font-size: 24px;
+    line-height: 30px;
+    white-space: normal;
+  }
+
+  .propuestas-detail-lead,
+  .propuestas-detail-body {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .propuestas-detail-divider {
+    width: 100%;
+    margin: 24px 0;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .propuestas-detail-nav {
+    grid-template-columns: 1fr;
+  }
+}

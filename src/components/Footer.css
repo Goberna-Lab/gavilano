@@ -71,6 +71,7 @@
   font: normal normal normal 14px/32px 'Open Sans', Helvetica, Arial, sans-serif;
   letter-spacing: 0;
   color: #ffffff;
+  text-decoration: none;
   text-transform: capitalize;
   opacity: 0.5;
   transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
@@ -78,10 +79,6 @@
 
 .footer-links-label--primary {
   left: 882px;
-}
-
-.footer-links-label--secondary {
-  left: 1036px;
 }
 
 .footer-contact-label {
@@ -146,10 +143,6 @@
 
 .footer-links--primary {
   left: 882px;
-}
-
-.footer-links--secondary {
-  left: 1036px;
 }
 
 .footer-contact {

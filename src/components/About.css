@@ -178,29 +178,11 @@
 
 .about-image {
   position: absolute;
-  top: 163px;
-  left: 853px;
-  width: 1024px;
+  top: 150px;
+  left: 870px;
+  width: 980px;
   height: auto;
   z-index: 2;
-  animation: aboutImageFloat 7s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-@keyframes aboutImageFloat {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-12px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .about-image {
-    animation: none;
-  }
 }
 
 @media (max-width: 1024px) {
