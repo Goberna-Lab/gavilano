@@ -213,7 +213,7 @@ function AporteSection({ className = "" }: AporteSectionProps) {
             <strong>Durante mi gestiòn, impulsamos</strong>
           </p>
           <p className="aporte-description-line">
-            <strong>espacios y</strong> Programas que dejaron huella en
+            <strong>espacios y</strong> programas que dejaron huella en
           </p>
           <p className="aporte-description-line aporte-description-line-last">
             Carmen de la Legua Reynoso.
