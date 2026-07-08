@@ -45,9 +45,9 @@
 
 .footer-links {
   position: absolute;
-  top: 90px;
+  top: 66px;
   width: 110px;
-  height: 83px;
+  height: 110px;
   display: flex;
   flex-direction: column;
   gap: 10px;
