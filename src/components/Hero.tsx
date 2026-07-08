@@ -46,7 +46,13 @@ function Hero() {
 
   return (
     <section className={`hero ${fontReady ? 'hero--font-ready' : ''}`}>
-      <div className="hero-bg-overlay" />
+      <img
+        className="hero-bg-image"
+        src={asset('PT_WEB_01.png')}
+        alt=""
+        fetchPriority="high"
+        decoding="async"
+      />
       <div className="hero-mobile-portrait" aria-hidden="true" />
       <div className="hero-content">
         <h1 className="hero-title">EXPERIENCIA</h1>
