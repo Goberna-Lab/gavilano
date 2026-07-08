@@ -210,13 +210,13 @@ function AporteSection({ className = "" }: AporteSectionProps) {
         </div>
         <div className="aporte-description-mobile-only">
           <p className="aporte-description-line">
-            <strong>Durante mi gestiòn, impulsamos espacios y</strong>
+            <strong>Durante mi gestiòn, impulsamos</strong>
           </p>
           <p className="aporte-description-line">
-            Programas que dejaron huella en Carmen
+            <strong>espacios y</strong> Programas que dejaron huella en
           </p>
           <p className="aporte-description-line aporte-description-line-last">
-            de la Legua Reynoso.
+            Carmen de la Legua Reynoso.
           </p>
           <p className="aporte-description-line aporte-description-line-note">
             Estos son solo algunos,
