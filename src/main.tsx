@@ -22,8 +22,14 @@ function fitCanvas() {
   const root = document.getElementById('root')
   if (!root) return
   const vw = window.innerWidth
-  if (vw > 1024 && vw < 1920) root.style.setProperty('zoom', String(vw / 1920))
+  const z = vw > 1024 && vw < 1920 ? vw / 1920 : 1
+  if (z !== 1) root.style.setProperty('zoom', String(z))
   else root.style.removeProperty('zoom')
+  // Alto del viewport expresado en px del canvas 1920 (deshaciendo el zoom).
+  // Permite que el hero llene EXACTO la altura visible: dentro del contexto
+  // con `zoom`, `100dvh` resuelve al viewport físico y luego se re-escala, así
+  // que no sirve para llenar; esto sí. Ver .hero en Hero.css.
+  root.style.setProperty('--canvas-vh', `${window.innerHeight / z}px`)
 }
 fitCanvas()
 window.addEventListener('resize', fitCanvas)
