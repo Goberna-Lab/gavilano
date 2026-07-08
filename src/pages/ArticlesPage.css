@@ -91,6 +91,35 @@
   color: #5d5d5d;
 }
 
+/* Desktop: el banner de /articulos escala en bloque como el hero, para que se
+   vea idéntico a 100% a cualquier zoom/resolución (100/125/150%…).
+   - aspect-ratio 1744/722 (proporción de la imagen) => llena sin dejar huecos
+     blancos (antes tenía alto fijo 722px + object-fit:contain).
+   - container-type + cqw => el breadcrumb y los espacios escalan en proporción
+     al ancho del banner en vez de quedar fijos en px. Calibrado a 1744px (1cqw=17.44px). */
+@media (min-width: 1024px) {
+  .articles-page-hero {
+    container-type: inline-size;
+  }
+
+  .articles-page-hero-frame {
+    margin-bottom: 6.881cqw;
+  }
+
+  .articles-page-hero-banner {
+    height: auto;
+    aspect-ratio: 1744 / 722;
+  }
+
+  .articles-page-breadcrumb {
+    top: 34.461cqw;
+    left: 0.631cqw;
+    width: 4.931cqw;
+    height: 1.032cqw;
+    font-size: 0.803cqw;
+  }
+}
+
 .articles-grid {
   width: min(1744px, calc(100vw - 176px));
   margin: 72px auto 0;
