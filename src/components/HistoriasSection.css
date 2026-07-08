@@ -2,26 +2,29 @@
   position: relative;
   width: 100%;
   height: clamp(600px, 42.8125vw, 822px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(10px, 1.1vw, 22px);
+  padding-top: clamp(24px, 1.9vw, 36px);
+  box-sizing: border-box;
   background: #EC6726;
   overflow: visible;
   z-index: 2;
 }
 
 .historias-video {
-  position: absolute;
-  top: clamp(180px, 13.5938vw, 261px);
-  left: 50%;
+  display: block;
+  position: relative;
   width: min(64.4271vw, 1237px);
   aspect-ratio: 16 / 9;
   height: auto;
   border: none;
-  transform: translateX(-50%);
 }
 
 .historias-text {
-  position: absolute;
-  top: clamp(56px, 4.6354vw, 89px);
-  left: 50%;
+  position: relative;
   width: min(50.5208vw, 970px);
   height: auto;
   text-align: center;
@@ -30,5 +33,4 @@
   color: #FFFFFF;
   text-transform: uppercase;
   margin: 0;
-  transform: translateX(-50%);
 }

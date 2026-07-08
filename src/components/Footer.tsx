@@ -10,6 +10,7 @@ const linkColumns: FooterLink[][] = [
     { label: 'biografía', to: '/biografia' },
     { label: 'experiencia', to: '/experiencia' },
     { label: 'propuestas', to: '/propuestas' },
+    { label: 'artículos', to: '/articulos' },
   ],
 ]
 
@@ -22,7 +23,6 @@ function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-group-icon" aria-hidden="true" />
-        <Link className="footer-links-label footer-links-label--primary" to="/" aria-label="Ir al inicio">Enlaces</Link>
         <p className="footer-contact-label" aria-hidden="true">Contacto</p>
 
         {linkColumns.map((column, index) => (
