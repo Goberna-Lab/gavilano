@@ -360,6 +360,11 @@
   display: none;
 }
 
+/* Acordeón: solo mobile (oculto en desktop). */
+.aporte-accordion {
+  display: none;
+}
+
 .aporte-project-arrow {
   position: absolute;
   width: 44px;
@@ -757,5 +762,342 @@
 @media (max-width: 480px) {
   .aporte-project-description {
     padding: 0 14px 32px;
+  }
+}
+
+/* ── Mobile: acordeón desplegable (reemplaza nav + contenido) ── */
+@media (max-width: 1024px) {
+  .aporte-projects-nav,
+  .aporte-projects-content {
+    display: none;
+  }
+
+  .aporte-accordion {
+    display: block;
+    width: min(100%, 620px);
+    margin: 0 auto;
+    border-top: 1px solid rgba(192, 193, 199, 0.8);
+  }
+
+  .aporte-accordion-trigger {
+    display: block;
+    width: 100%;
+    padding: 18px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(192, 193, 199, 0.8);
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 4.4vw, 20px);
+    line-height: 1.2;
+    color: #1B1F28;
+    cursor: pointer;
+    transition: font-weight 0.2s ease, border-color 0.2s ease;
+  }
+
+  .aporte-accordion-trigger-active {
+    font-weight: 700;
+    border-bottom: 3px solid #D80E2B;
+  }
+
+  .aporte-accordion-panel {
+    padding: 22px 0 26px;
+  }
+
+  .aporte-accordion-desc .aporte-project-description-text {
+    font-size: clamp(17px, 4.4vw, 22px);
+    line-height: 1.5;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .aporte-accordion-desc .aporte-project-description-subtext {
+    margin-top: 12px;
+    font-size: clamp(15px, 3.8vw, 18px);
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .aporte-accordion-media {
+    position: relative;
+    margin-top: 20px;
+  }
+
+  .aporte-accordion-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #C0C1C7;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .aporte-accordion-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .aporte-accordion-arrow-left {
+    left: -8px;
+    background: #D9D9D9;
+  }
+
+  .aporte-accordion-arrow-right {
+    right: -8px;
+    background: #E91E3A;
+  }
+}
+
+/* Mobile limpio: estructura tipo acordeón, sin afectar el layout desktop. */
+@media (max-width: 1024px) {
+  section.aporte-section.aporte-section-page {
+    padding-top: 16px;
+  }
+
+  section.aporte-section {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    padding: 72px 16px 76px;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: #FFFFFF;
+  }
+
+  section.aporte-section .aporte-heading {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(100%, 430px);
+    height: auto;
+    margin: 0 auto 18px;
+    padding-left: 52px;
+    text-align: left;
+    font: normal normal 600 15px/18px Montserrat;
+    letter-spacing: 1.8px;
+    color: #111727;
+    white-space: normal;
+  }
+
+  section.aporte-section .aporte-subtitle-block {
+    position: static;
+    width: min(100%, 430px);
+    height: auto;
+    margin: 0 auto 24px;
+  }
+
+  section.aporte-section .aporte-subtitle-line,
+  section.aporte-section .aporte-subtitle-italic {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    font-size: clamp(34px, 10vw, 46px);
+    line-height: 0.96;
+    letter-spacing: -0.8px;
+    white-space: normal;
+  }
+
+  section.aporte-section .aporte-subtitle-second-row {
+    position: static;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: auto;
+    margin-top: 0;
+  }
+
+  section.aporte-section .aporte-description-group {
+    position: static;
+    width: min(100%, 430px);
+    height: auto;
+    margin: 0 auto 28px;
+  }
+
+  section.aporte-section .aporte-description-desktop {
+    display: none;
+  }
+
+  section.aporte-section .aporte-description-mobile-only {
+    display: block;
+  }
+
+  section.aporte-section .aporte-description-line {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    font-size: clamp(17px, 4.4vw, 20px);
+    line-height: 1.45;
+    color: #1B1F28;
+    white-space: normal;
+  }
+
+  section.aporte-section .aporte-description-line-note {
+    margin-top: 22px;
+  }
+
+  section.aporte-section .aporte-projects-nav,
+  section.aporte-section .aporte-projects-content {
+    display: none;
+  }
+
+  section.aporte-section .aporte-accordion {
+    display: block;
+    width: min(100%, 430px);
+    margin: 0 auto;
+    border-top: 1px solid rgba(192, 193, 199, 0.8);
+  }
+
+  section.aporte-section .aporte-accordion-item {
+    border-bottom: 1px solid rgba(192, 193, 199, 0.8);
+  }
+
+  section.aporte-section .aporte-accordion-item-open {
+    padding-bottom: 20px;
+  }
+
+  section.aporte-section .aporte-accordion-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    min-height: 58px;
+    padding: 16px 12px;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #1B1F28;
+    cursor: pointer;
+  }
+
+  section.aporte-section .aporte-accordion-trigger span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  section.aporte-section .aporte-accordion-trigger::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    flex: 0 0 auto;
+    border-right: 2px solid #EC6726;
+    border-bottom: 2px solid #EC6726;
+    transform: rotate(45deg);
+    transition: transform 180ms ease;
+  }
+
+  section.aporte-section .aporte-accordion-trigger-active {
+    margin: -1px 0 0;
+    border: 2px solid #EC6726;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+
+  section.aporte-section .aporte-accordion-trigger-active::after {
+    transform: rotate(225deg);
+  }
+
+  section.aporte-section .aporte-accordion-panel {
+    padding: 18px 0 0;
+  }
+
+  section.aporte-section .aporte-accordion-desc {
+    margin-bottom: 18px;
+  }
+
+  section.aporte-section .aporte-accordion-desc .aporte-project-description-text {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    font: normal normal normal clamp(19px, 5vw, 22px)/1.45 Montserrat;
+    color: #1B1F28;
+    white-space: normal;
+  }
+
+  section.aporte-section .aporte-accordion-desc .aporte-project-description-title-strong {
+    font-weight: 700;
+    white-space: normal;
+  }
+
+  section.aporte-section .aporte-accordion-desc .aporte-project-description-subtext {
+    width: 100%;
+    margin: 10px 0 0;
+    text-align: left;
+    font-size: clamp(16px, 4.2vw, 18px);
+    line-height: 1.45;
+    color: #1B1F28;
+  }
+
+  section.aporte-section .aporte-accordion-media {
+    position: relative;
+    width: 100%;
+  }
+
+  section.aporte-section .aporte-accordion-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    border: 1px solid #C0C1C7;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  section.aporte-section .aporte-accordion-arrow {
+    position: absolute;
+    top: 50%;
+    width: 42px;
+    height: 42px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  section.aporte-section .aporte-accordion-arrow-left {
+    left: -10px;
+    background: #D9D9D9;
+  }
+
+  section.aporte-section .aporte-accordion-arrow-right {
+    right: -10px;
+    background: #D80E2B;
+  }
+}
+
+@media (max-width: 380px) {
+  section.aporte-section {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  section.aporte-section .aporte-accordion-trigger {
+    padding-right: 10px;
+    padding-left: 10px;
   }
 }

@@ -77,28 +77,103 @@ const proyectos: Proyecto[] = [
   },
 ];
 
+function ProyectoDescripcion({ proyecto }: { proyecto: Proyecto }) {
+  return (
+    <>
+      <p
+        className={`aporte-project-description-text ${proyecto.tituloPrefix || proyecto.tituloCompleto ? "aporte-project-description-text-normal" : ""}`}
+      >
+        {proyecto.tituloCompleto ? (
+          <>
+            <span className="aporte-project-description-title-strong">
+              {proyecto.tituloCompleto.split(",")[0]},
+            </span>{" "}
+            <br className="aporte-project-break" />
+            {proyecto.tituloCompleto
+              .slice(proyecto.tituloCompleto.indexOf(",") + 1)
+              .trim()}
+          </>
+        ) : proyecto.tituloPrefix ? (
+          <>
+            <span className="aporte-project-description-title-strong">
+              {proyecto.tituloPrefix}
+            </span>
+            {proyecto.tituloBreakAfterPrefix ? (
+              <>
+                {" "}
+                <br className="aporte-project-break" />
+              </>
+            ) : null}
+            {proyecto.tituloSuffixLines
+              ? proyecto.tituloSuffixLines.map((line, index) => (
+                  <span key={line}>
+                    {index > 0 ? (
+                      <>
+                        {" "}
+                        <br className="aporte-project-break" />
+                      </>
+                    ) : null}
+                    {line}
+                  </span>
+                ))
+              : proyecto.tituloSuffix}
+          </>
+        ) : proyecto.titulo ? (
+          <strong>{proyecto.titulo}</strong>
+        ) : null}
+      </p>
+      {proyecto.descripcion ? (
+        <p className="aporte-project-description-subtext">
+          {proyecto.descripcionBold ? (
+            <strong>{proyecto.descripcion}</strong>
+          ) : (
+            proyecto.descripcion
+          )}
+        </p>
+      ) : null}
+    </>
+  );
+}
+
 function AporteSection({ className = "" }: AporteSectionProps) {
   const [proyectoActivo, setProyectoActivo] = useState(proyectos[0]);
+  const [proyectoAbiertoId, setProyectoAbiertoId] = useState<number | null>(
+    proyectos[0].id,
+  );
 
   const irAlProyecto = (proyectoId: number) => {
     const proyecto = proyectos.find((item) => item.id === proyectoId);
     if (proyecto) {
       setProyectoActivo(proyecto);
+      setProyectoAbiertoId(proyecto.id);
     }
   };
 
+  const alternarProyectoMobile = (proyectoId: number) => {
+    const proyecto = proyectos.find((item) => item.id === proyectoId);
+    if (!proyecto) return;
+
+    setProyectoActivo(proyecto);
+    setProyectoAbiertoId((actual) =>
+      actual === proyectoId ? null : proyectoId,
+    );
+  };
+
   const irAnterior = () => {
-    setProyectoActivo((actual) => {
-      const index = proyectos.findIndex((item) => item.id === actual.id);
-      return proyectos[(index - 1 + proyectos.length) % proyectos.length];
-    });
+    const index = proyectos.findIndex((item) => item.id === proyectoActivo.id);
+    const proyecto =
+      proyectos[(index - 1 + proyectos.length) % proyectos.length];
+
+    setProyectoActivo(proyecto);
+    setProyectoAbiertoId(proyecto.id);
   };
 
   const irSiguiente = () => {
-    setProyectoActivo((actual) => {
-      const index = proyectos.findIndex((item) => item.id === actual.id);
-      return proyectos[(index + 1) % proyectos.length];
-    });
+    const index = proyectos.findIndex((item) => item.id === proyectoActivo.id);
+    const proyecto = proyectos[(index + 1) % proyectos.length];
+
+    setProyectoActivo(proyecto);
+    setProyectoAbiertoId(proyecto.id);
   };
 
   return (
@@ -172,57 +247,7 @@ function AporteSection({ className = "" }: AporteSectionProps) {
             className="aporte-project-description aporte-project-content-transition"
             key={`description-${proyectoActivo.id}`}
           >
-            <p
-              className={`aporte-project-description-text ${proyectoActivo.tituloPrefix || proyectoActivo.tituloCompleto ? "aporte-project-description-text-normal" : ""}`}
-            >
-              {proyectoActivo.tituloCompleto ? (
-                <>
-                  <span className="aporte-project-description-title-strong">
-                    {proyectoActivo.tituloCompleto.split(",")[0]},
-                  </span>{" "}
-                  <br className="aporte-project-break" />
-                  {proyectoActivo.tituloCompleto
-                    .slice(proyectoActivo.tituloCompleto.indexOf(",") + 1)
-                    .trim()}
-                </>
-              ) : proyectoActivo.tituloPrefix ? (
-                <>
-                  <span className="aporte-project-description-title-strong">
-                    {proyectoActivo.tituloPrefix}
-                  </span>
-                  {proyectoActivo.tituloBreakAfterPrefix ? (
-                    <>
-                      {" "}
-                      <br className="aporte-project-break" />
-                    </>
-                  ) : null}
-                  {proyectoActivo.tituloSuffixLines
-                    ? proyectoActivo.tituloSuffixLines.map((line, index) => (
-                        <span key={line}>
-                          {index > 0 ? (
-                            <>
-                              {" "}
-                              <br className="aporte-project-break" />
-                            </>
-                          ) : null}
-                          {line}
-                        </span>
-                      ))
-                    : proyectoActivo.tituloSuffix}
-                </>
-              ) : proyectoActivo.titulo ? (
-                <strong>{proyectoActivo.titulo}</strong>
-              ) : null}
-            </p>
-            {proyectoActivo.descripcion ? (
-              <p className="aporte-project-description-subtext">
-                {proyectoActivo.descripcionBold ? (
-                  <strong>{proyectoActivo.descripcion}</strong>
-                ) : (
-                  proyectoActivo.descripcion
-                )}
-              </p>
-            ) : null}
+            <ProyectoDescripcion proyecto={proyectoActivo} />
           </div>
         ) : null}
         <button
@@ -253,6 +278,67 @@ function AporteSection({ className = "" }: AporteSectionProps) {
         >
           <span className="aporte-project-arrow-icon aporte-project-arrow-icon-right" />
         </button>
+      </div>
+
+      {/* Mobile: acordeón desplegable (una imagen por proyecto) */}
+      <div className="aporte-accordion">
+        {proyectos.map((proyecto) => {
+          const isOpen = proyectoAbiertoId === proyecto.id;
+
+          return (
+            <div
+              className={`aporte-accordion-item ${isOpen ? "aporte-accordion-item-open" : ""}`}
+              key={proyecto.id}
+            >
+              <button
+                type="button"
+                className={`aporte-accordion-trigger ${isOpen ? "aporte-accordion-trigger-active" : ""}`}
+                onClick={() => alternarProyectoMobile(proyecto.id)}
+                aria-expanded={isOpen}
+                aria-controls={`aporte-panel-${proyecto.id}`}
+              >
+                <span>{proyecto.nombre}</span>
+              </button>
+              {isOpen ? (
+                <div
+                  id={`aporte-panel-${proyecto.id}`}
+                  className="aporte-accordion-panel aporte-project-content-transition"
+                  key={`panel-${proyecto.id}`}
+                >
+                  {!proyecto.ocultarDescripcion ? (
+                    <div className="aporte-accordion-desc">
+                      <ProyectoDescripcion proyecto={proyecto} />
+                    </div>
+                  ) : null}
+                  <div className="aporte-accordion-media">
+                    <button
+                      type="button"
+                      className="aporte-accordion-arrow aporte-accordion-arrow-left"
+                      aria-label="Proyecto anterior"
+                      onClick={irAnterior}
+                    >
+                      <span className="aporte-project-arrow-icon aporte-project-arrow-icon-left" />
+                    </button>
+                    <img
+                      className="aporte-accordion-img"
+                      src={proyecto.imagen}
+                      alt={proyecto.nombre}
+                      loading="lazy"
+                    />
+                    <button
+                      type="button"
+                      className="aporte-accordion-arrow aporte-accordion-arrow-right"
+                      aria-label="Proyecto siguiente"
+                      onClick={irSiguiente}
+                    >
+                      <span className="aporte-project-arrow-icon aporte-project-arrow-icon-right" />
+                    </button>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          );
+        })}
       </div>
     </section>
   );
