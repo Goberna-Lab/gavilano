@@ -30,9 +30,12 @@
   --hero-portrait-display: none;
   --hero-portrait-height: 0px;
   position: relative;
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(-50vw + 50%);
+  /* Se queda dentro de #root/main (topeado a 1920px) en vez de escaparse a
+     100vw: así, en pantallas > 1920px el fondo no se sobre-escala (cabeza
+     gigante). Debajo de 1920px main ocupa todo el ancho, así que sigue full-bleed. */
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
   height: var(--hero-height);
   background: #FFFFFF;
   overflow: hidden;
@@ -148,6 +151,39 @@
 }
 
 @media (min-width: 1025px) {
+  .hero {
+    /* El hero es una "maqueta" de 1920×980 que escala en bloque:
+       - aspect-ratio fija la proporción => background:cover nunca recorta.
+       - container-type + unidades cqw hacen que TODO el interior (texto, botón,
+         posiciones) escale en proporción al ancho del hero.
+       Como el hero siempre mide min(viewport, 1920) (mismo ancho físico a
+       cualquier zoom), la composición se ve idéntica a 100% en 100/125/150%…
+       Los cqw están calibrados para dar los valores actuales a 1920px (1cqw=19.2px). */
+    height: auto;
+    aspect-ratio: 1920 / 980;
+    /* Nunca más alto que una pantalla (header sticky = 100px): header + hero =
+       100dvh. Cuando la ventana es más baja que la forma de la imagen, la altura
+       se topea acá y cover recorta un poco de ABAJO (nunca la cabeza, por el
+       anclado center top). Así no queda imagen sobrante debajo al scrollear. */
+    max-height: calc(100dvh - 100px);
+    container-type: inline-size;
+    --hero-bg-position: center top;
+    --hero-content-left: 44.79cqw;
+    --hero-content-width: 39.58cqw;
+    --hero-title-size: 5.677cqw;
+    --hero-title-letter-spacing: -0.1333cqw;
+    --hero-subtitle-size: 13.646cqw;
+    --hero-subtitle-letter-spacing: 0.0802cqw;
+    --hero-subtitle-margin-top: -0.4167cqw;
+    --hero-subtitle2-size: 9.896cqw;
+    --hero-subtitle2-letter-spacing: 0.0583cqw;
+    --hero-subtitle2-margin-top: -0.9375cqw;
+    --hero-button-width: 15.521cqw;
+    --hero-button-height: 3.75cqw;
+    --hero-button-radius: 0.3125cqw;
+    --hero-button-font-size: 1.0417cqw;
+  }
+
   .hero-content {
     top: 47%;
     transform: translateY(-50%);
@@ -162,8 +198,15 @@
   .hero-button {
     align-self: flex-start;
     font-weight: normal;
+    margin-top: 0.625cqw;
     margin-left: 0;
     margin-right: 0;
+    gap: 0.625cqw;
+  }
+
+  .hero-button-icon {
+    width: 0.885cqw;
+    height: 0.781cqw;
   }
 }
 

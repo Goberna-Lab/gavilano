@@ -224,6 +224,142 @@
   opacity: 1;
 }
 
+/* Desktop (≥1280px): la línea de tiempo escala en proporción al ancho del
+   contenedor (como el hero) con container-type + cqw, para que NO se rompa ni
+   desborde al subir el zoom/resolución (p.ej. 150% => viewport CSS ~1280px).
+   Calibrado a 1744px (1cqw = 17.44px) => a esa medida da los valores actuales.
+   Exclusivo de desktop: ≤1279px conserva su layout apilado sin tocar. */
+@media (min-width: 1280px) {
+  .experiencia-page-hero {
+    container-type: inline-size;
+  }
+
+  .experiencia-timeline {
+    margin-top: 5.619cqw;
+  }
+
+  .experiencia-timeline-item {
+    width: 63.532cqw;
+    margin-left: 19.553cqw;
+    grid-template-columns: 27.580cqw 33.372cqw;
+    column-gap: 2.580cqw;
+  }
+
+  .experiencia-timeline-item--intro {
+    width: 68.119cqw;
+    grid-template-columns: 32.167cqw 33.372cqw;
+    column-gap: 2.580cqw;
+  }
+
+  .experiencia-timeline-intro-divider {
+    width: 63.532cqw;
+    margin: 2.752cqw 0 2.752cqw 19.553cqw;
+  }
+
+  .experiencia-timeline-item + .experiencia-timeline-item {
+    margin-top: 1.950cqw;
+  }
+
+  .experiencia-timeline-intro {
+    width: 32.167cqw;
+    font-size: 2.294cqw;
+    line-height: 1.05;
+  }
+
+  .experiencia-timeline-intro-highlight {
+    width: 29.415cqw;
+    font-size: 2.294cqw;
+    line-height: 1.05;
+  }
+
+  .experiencia-timeline-copy {
+    width: 28.326cqw;
+  }
+
+  .experiencia-timeline-image--large {
+    width: 33.372cqw;
+    height: 31.307cqw;
+    border-radius: 0.573cqw;
+  }
+
+  .experiencia-timeline-image--component {
+    width: 27.580cqw;
+  }
+
+  .experiencia-timeline-year {
+    font-size: 3.670cqw;
+    line-height: 1.203;
+    letter-spacing: -0.0734cqw;
+  }
+
+  .experiencia-timeline-year--compact {
+    font-size: 3.326cqw;
+    line-height: 1.207;
+    letter-spacing: -0.0665cqw;
+  }
+
+  .experiencia-timeline-period {
+    min-height: 0.803cqw;
+    margin-top: 0.344cqw;
+    font-size: 0.631cqw;
+    line-height: 1.273;
+    letter-spacing: 0.050cqw;
+  }
+
+  .experiencia-timeline-period--boxed {
+    min-width: 5.734cqw;
+    height: 1.376cqw;
+    margin-top: 0.344cqw;
+    padding: 0 0.631cqw;
+  }
+
+  .experiencia-timeline-role {
+    max-width: 28.326cqw;
+    margin-top: 0.803cqw;
+    font-size: 1.147cqw;
+    line-height: 1.2;
+  }
+
+  .experiencia-timeline-period--boxed + .experiencia-timeline-role {
+    margin-top: 0.688cqw;
+  }
+
+  .experiencia-timeline-description {
+    max-width: 22.305cqw;
+    margin-top: 0.459cqw;
+    font-size: 0.917cqw;
+    line-height: 1.5;
+  }
+
+  .experiencia-summary {
+    width: 54.243cqw;
+    min-height: 14.908cqw;
+    margin-top: 3.211cqw;
+    padding: 3.899cqw 4.128cqw 2.752cqw 5.906cqw;
+    border-radius: 1.147cqw;
+  }
+
+  .experiencia-summary::before {
+    top: 4.358cqw;
+    left: 4.243cqw;
+    width: 0.459cqw;
+    height: 7.110cqw;
+  }
+
+  .experiencia-summary-title {
+    max-width: 36.927cqw;
+    font-size: 1.835cqw;
+    line-height: 1.219;
+  }
+
+  .experiencia-summary-text {
+    max-width: 44.209cqw;
+    margin-top: 0.573cqw;
+    font-size: 0.917cqw;
+    line-height: 1.75;
+  }
+}
+
 @media (max-width: 1279px) {
   .experiencia-timeline-item,
   .experiencia-timeline-item--intro {
