@@ -197,6 +197,30 @@
   line-height: 20px;
 }
 
+/* Honeypot — off-screen but still in the tab/layout flow so bots that only
+   check computed visibility (not position) still fill it in. */
+.sumate-field-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sumate-form-message {
+  margin: 20px 0 0 0;
+  font: normal normal 600 14px/20px Montserrat;
+}
+
+.sumate-form-message--error {
+  color: #B42318;
+}
+
+.sumate-form-message--success {
+  color: #067647;
+}
+
 .sumate-box-button-icon {
   width: 17px;
   height: 15px;
