@@ -222,6 +222,8 @@
   color: #1B1F28;
   cursor: pointer;
   white-space: nowrap;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
 }
 
@@ -242,6 +244,11 @@
 
 .aporte-projects-nav-item:hover {
   font-weight: 700;
+}
+
+.aporte-projects-nav-item:focus,
+.aporte-projects-nav-item:focus-visible {
+  outline: none;
 }
 
 .aporte-projects-nav-item-casa {

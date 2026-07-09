@@ -1,13 +1,12 @@
 .historias-section {
   position: relative;
   width: 100%;
-  min-height: clamp(560px, 42vw, 806px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: clamp(18px, 1.4vw, 28px);
-  padding: clamp(26px, 1.9vw, 36px) clamp(32px, 5vw, 96px) clamp(42px, 4vw, 78px);
+  padding: clamp(26px, 1.9vw, 36px) clamp(32px, 5vw, 96px) 0;
   box-sizing: border-box;
   background: #EC6726;
   overflow: visible;
@@ -17,18 +16,101 @@
 .historias-video {
   display: block;
   position: relative;
+  z-index: 2;
   width: min(100%, 884px);
   aspect-ratio: 16 / 9;
   height: auto;
+  margin-bottom: clamp(-104px, -7vw, -56px);
   border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.historias-video-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.historias-video-facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.historias-video-facade:focus,
+.historias-video-facade:focus-visible {
+  outline: none;
+}
+
+.historias-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.45) 65%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.historias-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(64px, 6vw, 92px);
+  height: clamp(64px, 6vw, 92px);
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.historias-video-play svg {
+  width: 34%;
+  height: 34%;
+  margin-left: 8%;
+}
+
+.historias-video-facade:hover .historias-video-play,
+.historias-video-facade:focus-visible .historias-video-play {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.historias-video-facade:hover .historias-video-overlay {
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(0, 0, 0, 0.4) 65%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
 }
 
 .historias-text {
   position: relative;
-  width: min(100%, 1040px);
-  height: auto;
+  width: min(100%, 970px);
+  height: 146px;
   text-align: center;
-  font: italic normal 900 64px/69px Inter;
+  /* Inter 18pt · Black Italic (Google sirve la instancia óptica 18pt por defecto) */
+  font: italic normal 900 64px/69px 'Inter', sans-serif;
   letter-spacing: 0px;
   color: #FFFFFF;
   text-transform: uppercase;
@@ -42,13 +124,12 @@
 
 @media (max-width: 1440px) and (min-width: 1025px) {
   .historias-section {
-    min-height: 596px;
-    padding: 26px 64px 56px;
+    padding: 26px 64px 0;
     gap: 18px;
   }
 
   .historias-text {
-    width: min(100%, 1040px);
+    width: min(100%, 970px);
     font-size: 62px;
     line-height: 1.05;
   }
@@ -60,7 +141,6 @@
 
 @media (max-width: 1180px) and (min-width: 1025px) {
   .historias-section {
-    min-height: 570px;
     padding-right: 48px;
     padding-left: 48px;
   }
