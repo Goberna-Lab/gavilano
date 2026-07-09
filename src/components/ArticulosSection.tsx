@@ -7,7 +7,6 @@ const cardGap = 250
 const cardBases = [520, 520 + cardGap, 520 + cardGap * 2]
 const dividerStart = cardBases[0] - 20
 const dividerGap = cardGap
-const descOffsets = [103, 120, 126]
 const featuredArticles = displayArticles.slice(0, cardBases.length)
 
 function ArticulosSection() {
@@ -44,9 +43,14 @@ function ArticulosSection() {
             <div className="articulos-card-bg" style={{ top: base }} />
             <div className={`articulos-image ${i === 0 ? 'articulos-image-first' : ''}`} style={{ top: base, backgroundImage: `url(${image})` }} />
             <p className="articulos-analisis" style={{ top: base + 92 }}>ANÁLISIS</p>
-            <p className={`articulos-title ${i === 0 ? 'articulos-title-first' : ''}`} style={{ top: base + (i === 0 ? 59 : i === 1 ? 48 : 54) }}>
-              <strong className="articulos-title-bold-dark">{article.titleBold}</strong>
-            </p>
+            <div className="articulos-text-block" style={{ top: base }}>
+              <p className={`articulos-title ${i === 0 ? 'articulos-title-first' : ''}`}>
+                <strong className="articulos-title-bold-dark">{article.titleBold}</strong>
+              </p>
+              <p className="articulos-desc">
+                {article.excerpt}
+              </p>
+            </div>
             <p className="articulos-date" style={{ top: base + (i >= 1 ? 14 : 0) }}>
               {article.publishedAt ? (
                 formatDateUpper(article.publishedAt)
@@ -58,9 +62,6 @@ function ArticulosSection() {
               )}
             </p>
             <p className="articulos-min" style={{ top: base + 45 + (i >= 1 ? 14 : 0) }}>{article.source === 'bravo' ? `${readingMinutes(article)} MIN` : '6 MIN'}</p>
-            <p className="articulos-desc" style={{ top: base + descOffsets[i] }}>
-              {article.excerpt}
-            </p>
             <Link to={`/articulos/${article.slug}`} className="articulos-nota" style={{ top: base + 150 + (i >= 1 ? 14 : 0) }} aria-label={`Leer nota completa: ${article.titleBold}`}>
               LEER NOTA COMPLETA
               <span className="articulos-nota-arrow" aria-hidden="true" />
