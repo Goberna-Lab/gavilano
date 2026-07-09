@@ -629,6 +629,22 @@
     font-style: normal;
   }
 
+  .articulos-text-block {
+    position: static !important;
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    gap: 0;
+  }
+
+  .articulos-section > div:not(.articulos-subtitle-block) .articulos-text-block > * {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
   .articulos-title {
     margin-top: 8px;
     font-size: 20px;

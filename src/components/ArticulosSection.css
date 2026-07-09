@@ -170,6 +170,24 @@
   white-space: nowrap;
 }
 
+/* Bloque título+párrafo: centrado vertical respecto a la foto (210px), gap 16px */
+.articulos-text-block {
+  position: absolute;
+  left: 691px;
+  width: 675px;
+  height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.articulos-text-block .articulos-title,
+.articulos-text-block .articulos-desc {
+  position: static;
+  height: auto;
+}
+
 .articulos-title {
   position: absolute;
   left: 692px;
