@@ -32,6 +32,18 @@
   z-index: 3;
 }
 
+/* Línea vertical punteada divisoria, a la derecha de la columna de categorías */
+.propuestas-detalle-left-column::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -20px;
+  border-left: 3px dotted #EC6726;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .propuestas-detalle-block {
   position: relative;
   width: 600px;
@@ -284,6 +296,10 @@
   .propuestas-detalle-left-column {
     max-width: 100%;
     min-height: 0;
+  }
+
+  .propuestas-detalle-left-column::before {
+    display: none;
   }
 
   .propuestas-detalle-block {

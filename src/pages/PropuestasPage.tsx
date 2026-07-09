@@ -2,11 +2,11 @@ import './PropuestasPage.css'
 import { asset } from '../utils/asset'
 
 const proposalItems = [
-  { label: 'EDUCACIÓN Y DESARROLLO', icon: asset('educacion.png') },
+  { label: 'EDUCACIÓN Y DESARROLLO', icon: asset('educacion.png'), active: true },
   { label: 'JUVENTUD Y OPORTUNIDADES', icon: asset('juventud.png') },
   { label: 'SEGURIDAD CIUDADANA', icon: asset('seguridad.png') },
   { label: 'DESARROLLO SOCIAL', icon: asset('desarrollo.png') },
-  { label: 'MODERNIZACIÓN TECNOLÓGICA', icon: asset('tecnologia.png'), active: true },
+  { label: 'MODERNIZACIÓN TECNOLÓGICA', icon: asset('tecnologia.png') },
 ]
 
 function PropuestasPage() {
@@ -27,18 +27,18 @@ function PropuestasPage() {
 
       <article className="propuestas-detail-copy">
         <h1 className="propuestas-detail-title" id="propuestas-detail-title">
-          MODERNIZACIÓN TECNOLÓGICA
+          EDUCACIÓN Y DESARROLLO
         </h1>
         <p className="propuestas-detail-lead">
-          <strong>Llevaremos la municipalidad hacia el futuro.</strong> Implementaremos conectividad e internet inalámbrico gratuito en espacios públicos, poniendo la tecnología y la digitalización de trámites al servicio real de cada vecino.
+          <strong>Estoy convencido de que la educación es la herramienta más poderosa</strong> para transformar nuestro distrito. Impulsaré el acceso formativo integral para que ningún niño ni joven carmelino se quede sin la oportunidad de superarse.
         </p>
         <div className="propuestas-detail-divider" />
         <p className="propuestas-detail-body">
-          <strong>El futuro ya llegó y Carmen de la Legua Reynoso</strong> no puede quedarse rezagada en el pasado. Se acabaron las colas interminables y los trámites lentos que solo le quitan tiempo valioso a los vecinos. Vamos a transformar la municipalidad en una institución ágil, transparente y tecnológica.
+          <strong>Durante mis años de servicio, he aprendido que el verdadero cemento de un distrito no está solo en las pistas,</strong> sino en la mente y el corazón de sus niños y jóvenes. La educación no puede ser un privilegio en Carmen de la Legua Reynoso; tiene que ser el motor que rompa los círculos de la pobreza y abra puertas que antes parecían cerradas.
           <br /><br />
-          <strong>Implementaremos una red de conectividad con internet inalámbrico gratuito</strong> en nuestras principales plazas, parques y espacios públicos. Esto permitirá que nuestros escolares y universitarios tengan un acceso libre para estudiar, y que los vecinos estén siempre comunicados.
-          <br /><br />
-          <strong>Digitalizaremos los servicios municipales a través de una aplicación y plataforma web amigable,</strong> donde podrás realizar trámites, reportar incidencias de seguridad o limpieza, y consultar tus pagos desde tu celular. La tecnología estará, por fin, al servicio real del ciudadano.
+          <strong>Mi compromiso es total:</strong> implementaremos un sistema de apoyo integral que no solo fortalezca las escuelas del distrito, sino que dote a las familias de las herramientas necesarias para que ningún estudiante abandone las aulas por falta de recursos. Vamos a potenciar los espacios comunales, transformándolos en centros de estudio modernos y equipados.
+          <br />
+          Una comunidad que estudia es una comunidad que progresa y se defiende. Por eso, desde el primer día de gestión, nos enfocaremos en que cada rincón de nuestro distrito respire cultura, valores y superación académica para asegurar el futuro de nuestras familias.
         </p>
       </article>
 

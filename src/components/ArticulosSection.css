@@ -148,7 +148,9 @@
   left: 149px;
   width: 347px;
   height: 210px;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .articulos-analisis {

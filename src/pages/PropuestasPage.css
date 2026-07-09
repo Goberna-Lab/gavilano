@@ -18,6 +18,7 @@
 .propuestas-detail-nav {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
+  align-self: stretch;
   width: 100%;
   min-height: 770px;
   background: var(--propuestas-orange);
@@ -44,6 +45,10 @@
   cursor: pointer;
 }
 
+.propuestas-detail-nav-item:last-child {
+  border-bottom: none;
+}
+
 .propuestas-detail-nav-item--active {
   background: var(--propuestas-orange-active);
   color: #ffffff;
@@ -64,6 +69,7 @@
   width: 100%;
   margin: 0;
   padding-top: 42px;
+  padding-bottom: 48px;
 }
 
 .propuestas-detail-title {
@@ -123,8 +129,14 @@
 
 @media (min-width: 1025px) and (max-width: 1440px) {
   .propuestas-detail {
-    grid-template-columns: 548px minmax(0, 538px) 484px;
-    column-gap: 65px;
+    grid-template-columns: minmax(0, 34%) minmax(0, 1fr) minmax(300px, 26%);
+    column-gap: 40px;
+  }
+
+  .propuestas-detail-nav-item {
+    gap: 22px;
+    padding: 0 40px 0 56px;
+    font-size: 24px;
   }
 
   .propuestas-detail-copy {
@@ -133,11 +145,13 @@
 
   .propuestas-detail-lead,
   .propuestas-detail-body {
+    width: 100%;
     font-size: 16px;
     line-height: 28px;
   }
 
   .propuestas-detail-image {
+    width: 100%;
     height: 580px;
     margin-top: 42px;
   }
