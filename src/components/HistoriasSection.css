@@ -106,6 +106,9 @@
 
 .historias-text {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: min(100%, 970px);
   height: 146px;
   text-align: center;
@@ -124,8 +127,8 @@
 
 @media (max-width: 1440px) and (min-width: 1025px) {
   .historias-section {
-    padding: 26px 64px 0;
-    gap: 18px;
+    padding: 42px 64px 0;
+    gap: 10px;
   }
 
   .historias-text {
