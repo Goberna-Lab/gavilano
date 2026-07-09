@@ -236,7 +236,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .articles-card-label {
@@ -308,6 +308,17 @@
   height: 14px;
   background: #c0c1c7;
   flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .articles-card-content {
+    gap: 16px;
+  }
+
+  .articles-card-label,
+  .articles-card-meta {
+    display: none;
+  }
 }
 
 .articles-card-excerpt {

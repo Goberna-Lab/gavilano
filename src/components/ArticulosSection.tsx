@@ -7,7 +7,7 @@ const cardGap = 250
 const cardBases = [520, 520 + cardGap, 520 + cardGap * 2]
 const dividerStart = cardBases[0] - 20
 const dividerGap = cardGap
-const descOffsets = [95, 98, 89]
+const descOffsets = [49, 66, 72]
 const featuredArticles = displayArticles.slice(0, cardBases.length)
 
 function ArticulosSection() {
@@ -37,7 +37,6 @@ function ArticulosSection() {
         const base = cardBases[i]
         const dividerTop = dividerStart + i * dividerGap
         const nextDividerTop = dividerStart + (i + 1) * dividerGap
-        const stackedTitle = article.titleBefore.trim().length > 0
         const image = article.source === 'local' && i === 0 ? asset('capturita.png') : coverSrc(article)
         return (
           <div key={i} className={`articulos-card-wrapper ${i > 0 ? 'articulos-card-hidden-mobile' : ''}`}>
@@ -46,8 +45,6 @@ function ArticulosSection() {
             <div className={`articulos-image ${i === 0 ? 'articulos-image-first' : ''}`} style={{ top: base, backgroundImage: `url(${image})` }} />
             <p className="articulos-analisis" style={{ top: base + 92 }}>ANÁLISIS</p>
             <p className={`articulos-title ${i === 0 ? 'articulos-title-first' : ''}`} style={{ top: base + (i === 0 ? 5 : i === 1 ? -6 : 0) }}>
-              <span className="articulos-title-red">{article.titleBefore}</span>
-              {stackedTitle ? <br /> : null}
               <strong className="articulos-title-bold-dark">{article.titleBold}</strong>
             </p>
             <p className="articulos-date" style={{ top: base + (i >= 1 ? 14 : 0) }}>

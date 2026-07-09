@@ -16,7 +16,6 @@ function renderArticleCard(article: DisplayArticle) {
       <div className="articles-card-content">
         <p className="articles-card-label">{article.category || 'ANÁLISIS'}</p>
         <h2 className="articles-card-title">
-          <span className="articles-card-title-before">{article.titleBefore}</span>
           <span className="articles-card-title-bold">{article.titleBold}</span>
         </h2>
         <div className="articles-card-meta">
