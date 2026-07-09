@@ -1,7 +1,68 @@
+import { useState } from 'react'
+import type { FormEvent } from 'react'
 import './SumateSection.css'
 import { asset } from '../utils/asset'
 
+const BRAVO_CONTACT_URL = 'https://bravo.goberna.us/v1/public/contact'
+
+type SubmitStatus = 'idle' | 'submitting' | 'success' | 'error'
+
 function SumateSection() {
+  const [status, setStatus] = useState<SubmitStatus>('idle')
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    const form = event.currentTarget
+    const data = new FormData(form)
+
+    // Honeypot: bots fill this hidden field, humans never see it.
+    if (String(data.get('website') ?? '').length > 0) {
+      form.reset()
+      setStatus('success')
+      return
+    }
+
+    const name = [data.get('nombres'), data.get('apellidos')]
+      .map((value) => String(value ?? '').trim())
+      .filter(Boolean)
+      .join(' ')
+    const email = String(data.get('correo') ?? '').trim()
+    const phone = String(data.get('telefono') ?? '').trim()
+    const motivo = String(data.get('motivo') ?? '').trim()
+    const message = String(data.get('mensaje') ?? '').trim()
+
+    if (!name || (!email && !phone)) {
+      setStatus('error')
+      return
+    }
+
+    setStatus('submitting')
+
+    try {
+      const response = await fetch(BRAVO_CONTACT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tenant: 'gavilano',
+          name,
+          email,
+          phone,
+          message,
+          motivo,
+        }),
+        signal: AbortSignal.timeout(15_000),
+      })
+
+      if (!response.ok) throw new Error(`bravo contact failed: ${response.status}`)
+
+      form.reset()
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
+  }
+
   return (
     <section className="sumate-section">
       <div className="sumate-parallax" aria-hidden="true" />
@@ -19,11 +80,11 @@ function SumateSection() {
           </div>
         </div>
 
-        <form className="sumate-white-box" aria-label="Formulario de contacto" onSubmit={(event) => event.preventDefault()}>
+        <form className="sumate-white-box" aria-label="Formulario de contacto" onSubmit={handleSubmit}>
           <div className="sumate-grid">
             <div className="sumate-field">
               <label className="sumate-field-label" htmlFor="sumate-nombres">NOMBRES</label>
-              <input id="sumate-nombres" name="nombres" className="sumate-field-input" placeholder="Tu nombre" type="text" autoComplete="given-name" />
+              <input id="sumate-nombres" name="nombres" className="sumate-field-input" placeholder="Tu nombre" type="text" autoComplete="given-name" required />
             </div>
             <div className="sumate-field">
               <label className="sumate-field-label" htmlFor="sumate-apellidos">APELLIDOS</label>
@@ -54,7 +115,32 @@ function SumateSection() {
               <textarea id="sumate-mensaje" name="mensaje" className="sumate-field-input sumate-field-textarea" placeholder="Cuéntanos cómo te gustaría sumarte" />
             </div>
           </div>
-          <button className="sumate-box-button" type="submit">QUIERO SUMARME <img src={asset('Trazado88.png')} alt="" className="sumate-box-button-icon" /></button>
+
+          {/* Honeypot — hidden from real visitors, invisible to screen readers. */}
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="sumate-field-honeypot"
+          />
+
+          {status === 'error' ? (
+            <p className="sumate-form-message sumate-form-message--error" role="alert">
+              No pudimos enviar tu mensaje. Intenta de nuevo en unos minutos.
+            </p>
+          ) : null}
+          {status === 'success' ? (
+            <p className="sumate-form-message sumate-form-message--success" role="status">
+              ¡Gracias! Recibimos tu mensaje.
+            </p>
+          ) : null}
+
+          <button className="sumate-box-button" type="submit" disabled={status === 'submitting'}>
+            {status === 'submitting' ? 'ENVIANDO…' : 'QUIERO SUMARME'}
+            <img src={asset('Trazado88.png')} alt="" className="sumate-box-button-icon" />
+          </button>
         </form>
       </div>
     </section>
