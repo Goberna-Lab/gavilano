@@ -36,3 +36,17 @@ Antes de un PR que toque varios archivos, pedile al agente `worktree-merge-super
 ## Hotspots (coordiná si dos ramas los tocan)
 `vite.config.ts` · `eslint.config.js` · `tsconfig*.json` · `index.html` · CSS global en `src/` ·
 `package.json` + `package-lock.json`.
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues del repo (via gh CLI). Ver `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Los 5 labels canónicos por defecto. Ver `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `CONTEXT.md` + `docs/adr/` en la raíz. Ver `docs/agents/domain.md`.
