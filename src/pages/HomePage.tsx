@@ -7,6 +7,7 @@ import HistoriasSection from '../components/HistoriasSection'
 import PropuestasSection from '../components/PropuestasSection'
 
 import ArticulosSection from '../components/ArticulosSection'
+import SimulacroSection from '../components/SimulacroSection'
 import SumateSection from '../components/SumateSection'
 
 function HomePage() {
@@ -20,6 +21,7 @@ function HomePage() {
       <HistoriasSection />
       <PropuestasSection />
       <ArticulosSection />
+      <SimulacroSection />
       <SumateSection />
     </>
   )

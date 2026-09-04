@@ -25,6 +25,7 @@ section[id] {
 .aporte-heading::before,
 .propuestas-text::before,
 .articulos-heading::before,
+.simulacro-heading::before,
 .sumate-heading::before {
   content: '';
   position: absolute;
@@ -85,6 +86,7 @@ body {
   .aporte-heading::before,
   .propuestas-text::before,
   .articulos-heading::before,
+  .simulacro-heading::before,
   .sumate-heading::before {
     display: none;
   }
