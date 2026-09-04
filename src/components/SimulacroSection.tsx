@@ -60,7 +60,7 @@ function SimulacroSection() {
   const navRef = useRef<HTMLElement>(null)
   const carruselRef = useRef<HTMLDivElement>(null)
   const columnaRefs = useRef<(HTMLFieldSetElement | null)[]>([])
-  const verificarRef = useRef<HTMLButtonElement>(null)
+  const accionesRef = useRef<HTMLDivElement>(null)
   const temporizador = useRef<number | null>(null)
   // De dónde vino ESTA interacción. El auto-avance existe para ahorrarle
   // scroll al pulgar; con teclado solo alejaría el viewport del foco (WCAG
@@ -101,23 +101,31 @@ function SimulacroSection() {
     }
   }
 
-  /** Tras marcar: siguiente columna, o el botón de verificar si era la última. */
-  function programarAvance(indice: number) {
+  /** Deja ver el aspa recién puesta antes de mover nada. */
+  function programarTrasVerLaMarca(accion: () => void) {
     cancelarAvance()
     temporizador.current = window.setTimeout(() => {
       temporizador.current = null
-      if (indice < columnas.length - 1) {
-        irAColumna(indice + 1)
-        // La columna nueva entra a la misma altura de scroll que la anterior:
-        // sin esto el usuario aterriza a mitad de la tabla. Subimos hasta la
-        // navegación (no hasta el carrusel) para que el rótulo "Columna N de 4"
-        // y los puntos queden a la vista junto con la cabecera de la columna.
-        const anclaArriba = navRef.current ?? carruselRef.current
-        anclaArriba?.scrollIntoView({ behavior: comportamientoScroll(), block: 'start' })
-      } else {
-        verificarRef.current?.scrollIntoView({ behavior: comportamientoScroll(), block: 'center' })
-      }
+      accion()
     }, RETARDO_AVANCE)
+  }
+
+  /** Móvil: pasa a la columna siguiente del carrusel. */
+  function avanzarDeColumna(indice: number) {
+    irAColumna(indice + 1)
+    // La columna nueva entra a la misma altura de scroll que la anterior: sin
+    // esto el usuario aterriza a mitad de la tabla. Subimos hasta la navegación
+    // (no hasta el carrusel) para que el rótulo "Columna N de 4" y los puntos
+    // queden a la vista junto con la cabecera de la columna.
+    const anclaArriba = navRef.current ?? carruselRef.current
+    anclaArriba?.scrollIntoView({ behavior: comportamientoScroll(), block: 'start' })
+  }
+
+  /** Con las 4 columnas marcadas, el bloque de acciones está arriba de la
+   *  cédula: hay que subir hasta él o el usuario no ve el botón ni el
+   *  resultado. Vale para desktop y para móvil. */
+  function revelarAcciones() {
+    accionesRef.current?.scrollIntoView({ behavior: comportamientoScroll(), block: 'center' })
   }
 
   /** El usuario deslizó con el dedo: sincronizamos el rótulo y los puntos. */
@@ -135,12 +143,20 @@ function SimulacroSection() {
     // Si la columna ya tenía marca, el usuario está corrigiendo: no lo
     // catapultamos hacia adelante otra vez.
     const esPrimeraMarca = !marcas[columnaId]
+    const marcasNuevas = { ...marcas, [columnaId]: filaId }
 
-    setMarcas((previas) => ({ ...previas, [columnaId]: filaId }))
+    setMarcas(marcasNuevas)
     setResultado(null)
 
-    if (esMovil && esPrimeraMarca && vinoDePuntero.current) programarAvance(indice)
+    const desdePuntero = vinoDePuntero.current
     vinoDePuntero.current = false
+    if (!desdePuntero || !esPrimeraMarca) return
+
+    if (columnas.every((columna) => marcasNuevas[columna.id])) {
+      programarTrasVerLaMarca(revelarAcciones)
+    } else if (esMovil && indice < columnas.length - 1) {
+      programarTrasVerLaMarca(() => avanzarDeColumna(indice))
+    }
   }
 
   function verificar() {
@@ -170,6 +186,46 @@ function SimulacroSection() {
           Marca una casilla en cada una de las cuatro columnas, igual que el día de la elección.
           Cuando tengas las cuatro, verificá tu voto.
         </p>
+
+        <div className="simulacro-acciones" ref={accionesRef}>
+          <p className="simulacro-progreso">
+            Marcaste <strong>{marcadas}</strong> de {columnas.length} columnas
+          </p>
+
+          <div className="simulacro-botones">
+            <button
+              type="button"
+              className="simulacro-boton"
+              onClick={verificar}
+              disabled={!completo}
+            >
+              Verificar mi voto
+            </button>
+            {marcadas > 0 ? (
+              <button
+                type="button"
+                className="simulacro-boton simulacro-boton-secundario"
+                onClick={reiniciar}
+              >
+                {resultado === 'exito' ? 'Jugar de nuevo' : 'Reiniciar'}
+              </button>
+            ) : null}
+          </div>
+
+          <div className="simulacro-resultado" role="status" aria-live="polite">
+            {resultado === 'exito' ? (
+              <p className="simulacro-resultado-exito">
+                ¡Objetivo cumplido!{' '}
+                <a className="simulacro-resultado-cta" href="#sumate">
+                  Ahora sumate a la campaña
+                </a>
+              </p>
+            ) : null}
+            {resultado === 'fallo' ? (
+              <p className="simulacro-resultado-fallo">¡Fallaste! Inténtalo de nuevo</p>
+            ) : null}
+          </div>
+        </div>
 
         <div className="simulacro-cedula">
           <p className="simulacro-cedula-titulo">{CEDULA_TITULO}</p>
@@ -295,47 +351,6 @@ function SimulacroSection() {
           </div>
 
           <p className="simulacro-cedula-pie">Material didáctico, fuente: ONPE</p>
-        </div>
-
-        <div className="simulacro-acciones">
-          <p className="simulacro-progreso">
-            Marcaste <strong>{marcadas}</strong> de {columnas.length} columnas
-          </p>
-
-          <div className="simulacro-botones">
-            <button
-              type="button"
-              className="simulacro-boton"
-              onClick={verificar}
-              disabled={!completo}
-              ref={verificarRef}
-            >
-              Verificar mi voto
-            </button>
-            {marcadas > 0 ? (
-              <button
-                type="button"
-                className="simulacro-boton simulacro-boton-secundario"
-                onClick={reiniciar}
-              >
-                {resultado === 'exito' ? 'Jugar de nuevo' : 'Reiniciar'}
-              </button>
-            ) : null}
-          </div>
-
-          <div className="simulacro-resultado" role="status" aria-live="polite">
-            {resultado === 'exito' ? (
-              <p className="simulacro-resultado-exito">
-                ¡Objetivo cumplido!{' '}
-                <a className="simulacro-resultado-cta" href="#sumate">
-                  Ahora sumate a la campaña
-                </a>
-              </p>
-            ) : null}
-            {resultado === 'fallo' ? (
-              <p className="simulacro-resultado-fallo">¡Fallaste! Inténtalo de nuevo</p>
-            ) : null}
-          </div>
         </div>
       </div>
     </section>

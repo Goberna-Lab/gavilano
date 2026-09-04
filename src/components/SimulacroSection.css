@@ -257,8 +257,10 @@
 
 /* ---------- Acciones y resultado ---------- */
 
+/* Va ARRIBA de la cédula: al final quedaba enterrado (con la última marca en
+   una fila alta, el botón caía 553px por debajo del fold). */
 .simulacro-acciones {
-  margin-top: 40px;
+  margin: 0 0 40px 0;
 }
 
 .simulacro-progreso {
@@ -322,8 +324,11 @@
   outline-offset: 2px;
 }
 
+/* El hueco del mensaje se reserva desde el vamos: el resultado está encima de
+   la cédula, y si creciera al aparecer empujaría la tabla justo cuando el
+   usuario está mirando el resultado. min-height = alto de una línea de mensaje. */
 .simulacro-resultado {
-  min-height: 44px;
+  min-height: 40px;
   margin-top: 28px;
 }
 
@@ -587,7 +592,14 @@
   }
 
   .simulacro-acciones {
-    margin-top: 28px;
+    margin: 0 0 28px 0;
+  }
+
+  /* En móvil el mensaje de éxito entra en dos líneas (titular + el enlace a
+     Súmate), así que el hueco reservado es más alto que en desktop. */
+  .simulacro-resultado {
+    min-height: 62px;
+    margin-top: 20px;
   }
 
   .simulacro-progreso {
