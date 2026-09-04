@@ -941,6 +941,7 @@
   .aporte-heading,
   .propuestas-text,
   .articulos-heading,
+  .simulacro-heading,
   .sumate-heading {
     position: relative;
     top: auto;
@@ -961,6 +962,7 @@
   .aporte-heading::before,
   .propuestas-text::before,
   .articulos-heading::before,
+  .simulacro-heading::before,
   .sumate-heading::before {
     display: block;
     content: '';
