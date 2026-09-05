@@ -8,6 +8,7 @@ import {
   FILA_CORRECTA,
   INSTRUCCION_COLUMNA,
 } from '../data/cedula'
+import type { ContenidoSimulacro, PropsSeccion } from '../lib/contenido'
 
 type Resultado = 'exito' | 'fallo'
 
@@ -51,7 +52,7 @@ function comportamientoScroll(): ScrollBehavior {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
 }
 
-function SimulacroSection() {
+function SimulacroSection({ content, anchor }: PropsSeccion<ContenidoSimulacro>) {
   const [marcas, setMarcas] = useState<Record<string, string>>({})
   const [resultado, setResultado] = useState<Resultado | null>(null)
   const [columnaActiva, setColumnaActiva] = useState(0)
@@ -173,19 +174,16 @@ function SimulacroSection() {
   }
 
   return (
-    <section className="simulacro-section" id="simulacro">
+    <section className="simulacro-section" id={anchor}>
       <div className="simulacro-inner">
-        <p className="simulacro-heading">SIMULACRO DE VOTO</p>
+        <p className="simulacro-heading">{content.encabezado}</p>
 
         <div className="simulacro-title-block">
-          <p className="simulacro-title-line">PRACTICA TU VOTO</p>
-          <p className="simulacro-title-italic">SIN ERRORES</p>
+          <p className="simulacro-title-line">{content.tituloLinea}</p>
+          <p className="simulacro-title-italic">{content.tituloItalica}</p>
         </div>
 
-        <p className="simulacro-intro">
-          Marca una casilla en cada una de las cuatro columnas, igual que el día de la elección.
-          Cuando tengas las cuatro, verificá tu voto.
-        </p>
+        <p className="simulacro-intro">{content.intro}</p>
 
         <div className="simulacro-acciones" ref={accionesRef}>
           <p className="simulacro-progreso">

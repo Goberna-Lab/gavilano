@@ -1,238 +1,176 @@
 import { useState } from "react";
 import "./AporteSection.css";
-import { asset } from "../utils/asset";
+import type { ContenidoMiAporte, PropsSeccion } from "../lib/contenido";
 
-type AporteSectionProps = {
+type AporteSectionProps = PropsSeccion<ContenidoMiAporte> & {
   className?: string;
 };
 
-type Proyecto = {
-  id: number;
-  nombre: string;
-  titulo: string;
-  descripcion?: string;
-  descripcionBold?: boolean;
-  imagen: string;
-  navClass: string;
-  tituloCompleto?: string;
-  tituloPrefix?: string;
-  tituloSuffix?: string;
-  tituloSuffixLines?: string[];
-  tituloBreakAfterPrefix?: boolean;
-  ocultarDescripcion?: boolean;
-};
+type Proyecto = ContenidoMiAporte["proyectos"][number];
 
-const proyectos: Proyecto[] = [
-  {
-    id: 1,
-    nombre: "Casa del Adulto Mayor",
-    titulo: "",
-    tituloCompleto:
-      "Un espacio digno para cuidar, acompañar y reconocer a quienes hicieron historia en Carmen.",
-    imagen: asset("personas/casa-adulto.png"),
-    navClass: "aporte-projects-nav-item-casa",
-  },
-  {
-    id: 2,
-    nombre: "Skate Park",
-    titulo: "",
-    tituloPrefix: "Un lugar para que los jóvenes",
-    tituloSuffixLines: [
-      "practiquen deporte, se expresen",
-      "y usen mejor su tiempo libre.",
-    ],
-    tituloBreakAfterPrefix: true,
-    descripcion: "",
-    imagen: asset("SKATE.png"),
-    navClass: "aporte-projects-nav-item-skate",
-  },
-  {
-    id: 3,
-    nombre: "FestiRock",
-    titulo: "",
-    tituloPrefix: "Arte, música y cultura",
-    tituloSuffix: " para promover el talento de nuestros jóvenes.",
-    descripcion: "",
-    imagen: asset("Imagen 876.png"),
-    navClass: "aporte-projects-nav-item-festirock",
-  },
-  {
-    id: 4,
-    nombre: "Boulevard Morales Duárez",
-    titulo: "",
-    tituloPrefix: "Espacios públicos recuperados",
-    tituloSuffix: " para caminar, encontrarnos y vivir mejor el distrito.",
-    descripcion: "",
-    imagen: asset("Imagen 007.png"),
-    navClass: "aporte-projects-nav-item-boulevard",
-  },
-  {
-    id: 5,
-    nombre: "Carmen Digital",
-    titulo: "Tecnología y modernización",
-    descripcion:
-      "Para acercar la municipalidad al vecino y simplificar cada trámite.",
-    imagen: asset("Imagen 1022.png"),
-    navClass: "aporte-projects-nav-item-digital",
-  },
+/* La FORMA en que cada proyecto parte su bajada es del diseño, no del contenido:
+   son cuatro maquetaciones distintas que el Figma dibujó así. Viven acá indexadas
+   por la misma posición que `content.proyectos`, igual que la pestaña de cada uno.
+
+   - `completo`      el destacado lleva coma y la bajada baja de renglón
+   - `multilinea`    la bajada va partida en renglones, cada uno en su <span>
+   - `prefijo`       el destacado y la bajada van seguidos, en el mismo renglón
+   - `titulo`        el destacado va solo y la bajada en un párrafo aparte */
+type Forma = "completo" | "multilinea" | "prefijo" | "titulo";
+
+const FORMAS: Forma[] = ["completo", "multilinea", "prefijo", "prefijo", "titulo"];
+
+const CLASES_NAV = [
+  "aporte-projects-nav-item-casa",
+  "aporte-projects-nav-item-skate",
+  "aporte-projects-nav-item-festirock",
+  "aporte-projects-nav-item-boulevard",
+  "aporte-projects-nav-item-digital",
 ];
 
-function ProyectoDescripcion({ proyecto }: { proyecto: Proyecto }) {
+function ProyectoDescripcion({
+  proyecto,
+  forma,
+}: {
+  proyecto: Proyecto;
+  forma: Forma;
+}) {
   return (
     <>
       <p
-        className={`aporte-project-description-text ${proyecto.tituloPrefix || proyecto.tituloCompleto ? "aporte-project-description-text-normal" : ""}`}
+        className={`aporte-project-description-text ${forma !== "titulo" ? "aporte-project-description-text-normal" : ""}`}
       >
-        {proyecto.tituloCompleto ? (
+        {forma === "completo" ? (
           <>
             <span className="aporte-project-description-title-strong">
-              {proyecto.tituloCompleto.split(",")[0]},
+              {proyecto.destacado},
             </span>{" "}
             <br className="aporte-project-break" />
-            {proyecto.tituloCompleto
-              .slice(proyecto.tituloCompleto.indexOf(",") + 1)
-              .trim()}
+            {proyecto.resto}
           </>
-        ) : proyecto.tituloPrefix ? (
+        ) : forma === "multilinea" ? (
           <>
             <span className="aporte-project-description-title-strong">
-              {proyecto.tituloPrefix}
+              {proyecto.destacado}
             </span>
-            {proyecto.tituloBreakAfterPrefix ? (
-              <>
-                {" "}
-                <br className="aporte-project-break" />
-              </>
-            ) : null}
-            {proyecto.tituloSuffixLines
-              ? proyecto.tituloSuffixLines.map((line, index) => (
-                  <span key={line}>
-                    {index > 0 ? (
-                      <>
-                        {" "}
-                        <br className="aporte-project-break" />
-                      </>
-                    ) : null}
-                    {line}
-                  </span>
-                ))
-              : proyecto.tituloSuffix}
+            {" "}
+            <br className="aporte-project-break" />
+            {proyecto.resto.split("\n").map((linea, index) => (
+              <span key={linea}>
+                {index > 0 ? (
+                  <>
+                    {" "}
+                    <br className="aporte-project-break" />
+                  </>
+                ) : null}
+                {linea}
+              </span>
+            ))}
           </>
-        ) : proyecto.titulo ? (
-          <strong>{proyecto.titulo}</strong>
-        ) : null}
+        ) : forma === "prefijo" ? (
+          <>
+            <span className="aporte-project-description-title-strong">
+              {proyecto.destacado}
+            </span>
+            {/* El espacio va DENTRO del mismo nodo de texto que la bajada, que es
+                como lo tenía el original: partirlo en {' '}{resto} crearía dos
+                nodos y el navegador no lleva el kerning de uno al otro (P7b). */}
+            {` ${proyecto.resto}`}
+          </>
+        ) : (
+          <strong>{proyecto.destacado}</strong>
+        )}
       </p>
-      {proyecto.descripcion ? (
-        <p className="aporte-project-description-subtext">
-          {proyecto.descripcionBold ? (
-            <strong>{proyecto.descripcion}</strong>
-          ) : (
-            proyecto.descripcion
-          )}
-        </p>
+      {forma === "titulo" && proyecto.resto ? (
+        <p className="aporte-project-description-subtext">{proyecto.resto}</p>
       ) : null}
     </>
   );
 }
 
-function AporteSection({ className = "" }: AporteSectionProps) {
-  const [proyectoActivo, setProyectoActivo] = useState(proyectos[0]);
-  const [proyectoAbiertoId, setProyectoAbiertoId] = useState<number | null>(
-    proyectos[0].id,
-  );
+function AporteSection({ content, anchor, className = "" }: AporteSectionProps) {
+  const { proyectos } = content;
+  const [indiceActivo, setIndiceActivo] = useState(0);
+  const [indiceAbierto, setIndiceAbierto] = useState<number | null>(0);
 
-  const irAlProyecto = (proyectoId: number) => {
-    const proyecto = proyectos.find((item) => item.id === proyectoId);
-    if (proyecto) {
-      setProyectoActivo(proyecto);
-      setProyectoAbiertoId(proyecto.id);
-    }
+  const proyectoActivo = proyectos[indiceActivo];
+
+  const irAlProyecto = (indice: number) => {
+    setIndiceActivo(indice);
+    setIndiceAbierto(indice);
   };
 
-  const alternarProyectoMobile = (proyectoId: number) => {
-    const proyecto = proyectos.find((item) => item.id === proyectoId);
-    if (!proyecto) return;
-
-    setProyectoActivo(proyecto);
-    setProyectoAbiertoId((actual) =>
-      actual === proyectoId ? null : proyectoId,
-    );
+  const alternarProyectoMobile = (indice: number) => {
+    setIndiceActivo(indice);
+    setIndiceAbierto((actual) => (actual === indice ? null : indice));
   };
 
   const irAnterior = () => {
-    const index = proyectos.findIndex((item) => item.id === proyectoActivo.id);
-    const proyecto =
-      proyectos[(index - 1 + proyectos.length) % proyectos.length];
-
-    setProyectoActivo(proyecto);
-    setProyectoAbiertoId(proyecto.id);
+    irAlProyecto((indiceActivo - 1 + proyectos.length) % proyectos.length);
   };
 
   const irSiguiente = () => {
-    const index = proyectos.findIndex((item) => item.id === proyectoActivo.id);
-    const proyecto = proyectos[(index + 1) % proyectos.length];
-
-    setProyectoActivo(proyecto);
-    setProyectoAbiertoId(proyecto.id);
+    irAlProyecto((indiceActivo + 1) % proyectos.length);
   };
 
   return (
     <section
       className={`aporte-section${className ? ` ${className}` : ""}`}
-      id="mi-aporte"
+      id={anchor}
     >
-      <p className="aporte-heading">MI APORTE AL DISTRITO</p>
+      <p className="aporte-heading">{content.encabezado}</p>
       <div className="aporte-subtitle-block">
         <p className="aporte-subtitle-line aporte-subtitle-line-first">
-          PROYECTOS QUE
+          {content.subtituloLinea1}
         </p>
         <div className="aporte-subtitle-second-row">
           <p className="aporte-subtitle-line aporte-subtitle-line-second">
-            DEJARON
+            {content.subtituloLinea2}
           </p>
-          <p className="aporte-subtitle-italic">HUELLA.</p>
+          <p className="aporte-subtitle-italic">{content.subtituloItalica}</p>
         </div>
       </div>
       <div className="aporte-description-group">
         <div className="aporte-description-desktop">
           <div className="aporte-description-first-row">
-            <p className="aporte-description">
-              Durante mi gestión, impulsamos espacios
+            <p className="aporte-description">{content.descEscritorio1}</p>
+            <p className="aporte-description-connector">
+              {content.descEscritorioConector}
             </p>
-            <p className="aporte-description-connector">y</p>
           </div>
           <p className="aporte-description-text">
-            programas que dejaron huella en Carmen de{" "}
+            {content.descEscritorio2a}{" "}
             <br className="aporte-description-mobile-break" />
-            la Legua Reynoso.
+            {content.descEscritorio2b}
           </p>
-          <p className="aporte-description-note">Estos son solo algunos,</p>
+          <p className="aporte-description-note">{content.descEscritorioNota}</p>
         </div>
         <div className="aporte-description-mobile-only">
           <p className="aporte-description-line">
-            <strong>Durante mi gestiòn, impulsamos</strong>
+            <strong>{content.descMovil1}</strong>
           </p>
           <p className="aporte-description-line">
-            <strong>espacios y</strong> programas que dejaron huella en
+            <strong>{content.descMovil2Destacado}</strong>
+            {` ${content.descMovil2Resto}`}
           </p>
           <p className="aporte-description-line aporte-description-line-last">
-            Carmen de la Legua Reynoso.
+            {content.descMovil3}
           </p>
           <p className="aporte-description-line aporte-description-line-note">
-            Estos son solo algunos,
+            {content.descMovilNota}
           </p>
         </div>
       </div>
       <nav className="aporte-projects-nav" aria-label="Proyectos destacados">
-        {proyectos.map((proyecto) => {
-          const isActive = proyectoActivo.id === proyecto.id;
+        {proyectos.map((proyecto, indice) => {
+          const isActive = indiceActivo === indice;
 
           return (
             <button
-              key={proyecto.id}
-              className={`aporte-projects-nav-item ${proyecto.navClass} ${isActive ? "aporte-projects-nav-item-active" : ""}`}
+              key={proyecto.nombre}
+              className={`aporte-projects-nav-item ${CLASES_NAV[indice]} ${isActive ? "aporte-projects-nav-item-active" : ""}`}
               type="button"
-              onClick={() => irAlProyecto(proyecto.id)}
+              onClick={() => irAlProyecto(indice)}
               aria-pressed={isActive}
             >
               {proyecto.nombre}
@@ -242,14 +180,15 @@ function AporteSection({ className = "" }: AporteSectionProps) {
         <div className="aporte-projects-nav-baseline" />
       </nav>
       <div className="aporte-projects-content">
-        {!proyectoActivo.ocultarDescripcion ? (
-          <div
-            className="aporte-project-description aporte-project-content-transition"
-            key={`description-${proyectoActivo.id}`}
-          >
-            <ProyectoDescripcion proyecto={proyectoActivo} />
-          </div>
-        ) : null}
+        <div
+          className="aporte-project-description aporte-project-content-transition"
+          key={`description-${indiceActivo}`}
+        >
+          <ProyectoDescripcion
+            proyecto={proyectoActivo}
+            forma={FORMAS[indiceActivo]}
+          />
+        </div>
         <button
           className="aporte-project-arrow aporte-project-arrow-left"
           type="button"
@@ -260,12 +199,12 @@ function AporteSection({ className = "" }: AporteSectionProps) {
         </button>
         <div
           className="aporte-project-image aporte-project-content-transition"
-          key={`image-${proyectoActivo.id}`}
+          key={`image-${indiceActivo}`}
           style={{ backgroundImage: `url("${proyectoActivo.imagen}")` }}
         />
         <img
           className="aporte-project-image-mobile aporte-project-content-transition"
-          key={`image-mobile-${proyectoActivo.id}`}
+          key={`image-mobile-${indiceActivo}`}
           src={proyectoActivo.imagen}
           alt={proyectoActivo.nombre}
           loading="lazy"
@@ -282,34 +221,35 @@ function AporteSection({ className = "" }: AporteSectionProps) {
 
       {/* Mobile: acordeón desplegable (una imagen por proyecto) */}
       <div className="aporte-accordion">
-        {proyectos.map((proyecto) => {
-          const isOpen = proyectoAbiertoId === proyecto.id;
+        {proyectos.map((proyecto, indice) => {
+          const isOpen = indiceAbierto === indice;
 
           return (
             <div
               className={`aporte-accordion-item ${isOpen ? "aporte-accordion-item-open" : ""}`}
-              key={proyecto.id}
+              key={proyecto.nombre}
             >
               <button
                 type="button"
                 className={`aporte-accordion-trigger ${isOpen ? "aporte-accordion-trigger-active" : ""}`}
-                onClick={() => alternarProyectoMobile(proyecto.id)}
+                onClick={() => alternarProyectoMobile(indice)}
                 aria-expanded={isOpen}
-                aria-controls={`aporte-panel-${proyecto.id}`}
+                aria-controls={`aporte-panel-${indice}`}
               >
                 <span>{proyecto.nombre}</span>
               </button>
               {isOpen ? (
                 <div
-                  id={`aporte-panel-${proyecto.id}`}
+                  id={`aporte-panel-${indice}`}
                   className="aporte-accordion-panel aporte-project-content-transition"
-                  key={`panel-${proyecto.id}`}
+                  key={`panel-${indice}`}
                 >
-                  {!proyecto.ocultarDescripcion ? (
-                    <div className="aporte-accordion-desc">
-                      <ProyectoDescripcion proyecto={proyecto} />
-                    </div>
-                  ) : null}
+                  <div className="aporte-accordion-desc">
+                    <ProyectoDescripcion
+                      proyecto={proyecto}
+                      forma={FORMAS[indice]}
+                    />
+                  </div>
                   <div className="aporte-accordion-media">
                     <button
                       type="button"

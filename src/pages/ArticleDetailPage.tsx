@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
-import SumateSection from '../components/SumateSection'
+import { SeccionSuelta } from '../components/SeccionSuelta'
 import {
   getDisplayArticleBySlug,
   coverSrc,
@@ -96,7 +96,7 @@ function ArticleDetailPage() {
           </div>
         </div>
       </div>
-      <SumateSection />
+      <SeccionSuelta tipo="sumate" />
     </>
   )
 }

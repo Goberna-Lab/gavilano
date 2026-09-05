@@ -1,0 +1,781 @@
+{
+  "pages": [
+    {
+      "id": "06f35890-bb87-5a1c-95c9-f8e2f00a1fbe",
+      "slug": "",
+      "title": "Portada",
+      "sort": 0,
+      "sections": [
+        {
+          "id": "57306c55-a84a-51d8-b058-207ea0b11a3a",
+          "type": "hero",
+          "content": {
+            "titulo": "EXPERIENCIA",
+            "subtitulo": "PARA",
+            "subtitulo2": "SERVIR",
+            "botonEtiqueta": "CONOCE MI HISTORIA",
+            "botonDestino": "/biografia/",
+            "imagenFondo": "/images/PT_WEB_01.png"
+          }
+        },
+        {
+          "id": "ece6a6b3-c491-519c-9e8b-51103a73cb41",
+          "type": "conoceme",
+          "anchor": "biografia",
+          "content": {
+            "encabezado": "CONÓCEME",
+            "nombreLinea1": "JUAN DE DIOS",
+            "nombreLinea2": "GAVILANO",
+            "descripcionLinea1": "Vecino chalaco, abogado y servidor público.",
+            "descripcionLinea2a": "He dedicado mi vida a trabajar por Carmen de la Legua Reynoso y",
+            "descripcionLinea2b": "el Perú.",
+            "pilares": [
+              {
+                "titulo": "Más obras",
+                "descripcion": "para mejorar\nnuestra ciudad"
+              },
+              {
+                "titulo": "Más seguridad",
+                "descripcion": "para vivir con tranquilidad"
+              },
+              {
+                "titulo": "Más oportunidades",
+                "descripcion": "para nuestros jóvenes\n y familias"
+              },
+              {
+                "titulo": "Más salud",
+                "descripcion": "para una vida\ndigna"
+              }
+            ],
+            "botonEtiqueta": "CONOCE MI HISTORIA",
+            "botonDestino": "/biografia/",
+            "imagenEscritorio": "/images/IMG_0040.png?v=hq-3ca2fa9",
+            "imagenMovil": "/images/IMG_0040-mobile.png"
+          }
+        },
+        {
+          "id": "30875e3a-f017-5ae1-a06f-821fc962c61c",
+          "type": "una-vida-de-servicio",
+          "anchor": "experiencia",
+          "content": {
+            "encabezado": "UNA VIDA DE SERVICIO",
+            "subtitulo": "NO VENGO A",
+            "subtituloItalica": "IMPROVISAR.",
+            "citaEscritorio": "Gobernar no es solo prometer. Gobernar es escuchar, tomar decisiones y cumplir.",
+            "citaMovil": "Gobernar no es solo prometer. Gobernar es\nescuchar, tomar decisiones y cumplir.",
+            "tituloDerecha": "Conozco la gestión municipal desde adentro.",
+            "textoDerecha": "Mi trayectoria como Alcalde en Carmen de la Legua Reynoso, asesor en municipalidades y diferentes entidades del Estado me permite saber cómo funciona la administración pública y desde dónde empezar a ordenar nuestro distrito desde el primer día.",
+            "cifras": [
+              {
+                "numero": "22",
+                "etiqueta": "AÑOS DE SERVICIO\nPÚBLICO"
+              },
+              {
+                "numero": "30",
+                "etiqueta": "OBRAS DE\nIMPACTO"
+              },
+              {
+                "numero": "03",
+                "etiqueta": "GESTIONES\nEXITOSAS"
+              }
+            ]
+          }
+        },
+        {
+          "id": "e9dfb92b-dda7-5f23-b30f-ceb2f0ffdd1b",
+          "type": "experiencia-destacada",
+          "content": {
+            "rotulo": "Experiencia que construye",
+            "tituloPrimario": "Más de dos",
+            "tituloSecundario": "décadas de\nexperiencia",
+            "tituloSubtitulo": "En gestión municipal",
+            "botonEtiqueta": "EXPERIENCIA",
+            "botonDestino": "/experiencia/",
+            "imagenEscritorio": "/images/gavilanoo.png",
+            "imagenMovil": "/images/IMG_0049.png",
+            "imagenAlt": "Gavilano"
+          }
+        },
+        {
+          "id": "ba9256c5-e804-575b-af38-7b1291279e77",
+          "type": "mi-aporte",
+          "anchor": "mi-aporte",
+          "content": {
+            "encabezado": "MI APORTE AL DISTRITO",
+            "subtituloLinea1": "PROYECTOS QUE",
+            "subtituloLinea2": "DEJARON",
+            "subtituloItalica": "HUELLA.",
+            "descEscritorio1": "Durante mi gestión, impulsamos espacios",
+            "descEscritorioConector": "y",
+            "descEscritorio2a": "programas que dejaron huella en Carmen de",
+            "descEscritorio2b": "la Legua Reynoso.",
+            "descEscritorioNota": "Estos son solo algunos,",
+            "descMovil1": "Durante mi gestión, impulsamos",
+            "descMovil2Destacado": "espacios y",
+            "descMovil2Resto": "programas que dejaron huella en",
+            "descMovil3": "Carmen de la Legua Reynoso.",
+            "descMovilNota": "Estos son solo algunos,",
+            "proyectos": [
+              {
+                "nombre": "Casa del Adulto Mayor",
+                "destacado": "Un espacio digno para cuidar",
+                "resto": "acompañar y reconocer a quienes hicieron historia en Carmen.",
+                "imagen": "/images/personas/casa-adulto.png"
+              },
+              {
+                "nombre": "Skate Park",
+                "destacado": "Un lugar para que los jóvenes",
+                "resto": "practiquen deporte, se expresen\ny usen mejor su tiempo libre.",
+                "imagen": "/images/SKATE.png"
+              },
+              {
+                "nombre": "FestiRock",
+                "destacado": "Arte, música y cultura",
+                "resto": "para promover el talento de nuestros jóvenes.",
+                "imagen": "/images/Imagen 876.png"
+              },
+              {
+                "nombre": "Boulevard Morales Duárez",
+                "destacado": "Espacios públicos recuperados",
+                "resto": "para caminar, encontrarnos y vivir mejor el distrito.",
+                "imagen": "/images/Imagen 007.png"
+              },
+              {
+                "nombre": "Carmen Digital",
+                "destacado": "Tecnología y modernización",
+                "resto": "Para acercar la municipalidad al vecino y simplificar cada trámite.",
+                "imagen": "/images/Imagen 1022.png"
+              }
+            ]
+          }
+        },
+        {
+          "id": "1d95d0e6-6f92-5dd4-85a6-8e42f28beb69",
+          "type": "historias",
+          "content": {
+            "textoLinea1": "HISTORIAS QUE CONSTRUYEN",
+            "textoLinea2": "FUTURO",
+            "videoId": "ZsJY9RuoX_M",
+            "videoTitulo": "Historias que construyen futuro"
+          }
+        },
+        {
+          "id": "5f30f4a8-ea4d-50ad-b9d6-a5765da2eb43",
+          "type": "propuestas-intro",
+          "anchor": "propuestas",
+          "content": {
+            "encabezado": "MIS PROPUESTAS 2026 — 2030",
+            "subtituloLinea1": "ORDEN Y",
+            "subtituloLinea2": "OPORTUNIDADES",
+            "subtituloLinea3": "PARA LOS",
+            "subtituloItalica": "CARMELINOS",
+            "descripcionDestacado": "Quiero un distrito donde los vecinos vivan tranquilos,",
+            "descripcionResto": "donde la\nmunicipalidad funcione, llegue y\nproteja a cada familia. Un distrito que\nvuelva al camino del desarrollo."
+          }
+        },
+        {
+          "id": "f05639d6-2968-53a9-a4a1-a27bb2ceef47",
+          "type": "articulos",
+          "anchor": "articulos",
+          "content": {
+            "encabezado": "MIS ARTÍCULOS",
+            "subtituloLinea": "IDEAS PARA LEVANTAR",
+            "subtituloItalica": "NUESTRO DISTRITO",
+            "intro": [
+              {
+                "destacado": "Quiero una Carmen donde los vecinos",
+                "resto": ""
+              },
+              {
+                "destacado": "vivan",
+                "resto": "tranquilos, donde la municipalidad"
+              },
+              {
+                "destacado": "",
+                "resto": "funcione y donde cada familia sienta que"
+              },
+              {
+                "destacado": "",
+                "resto": "el distrito vuelve a avanzar."
+              }
+            ],
+            "verTodosEtiqueta": "VER TODOS",
+            "verTodosDestino": "/articulos/"
+          }
+        },
+        {
+          "id": "c3f3924f-e356-5368-84a3-3d095c1f2297",
+          "type": "simulacro",
+          "anchor": "simulacro",
+          "content": {
+            "encabezado": "SIMULACRO DE VOTO",
+            "tituloLinea": "PRACTICA TU VOTO",
+            "tituloItalica": "SIN ERRORES",
+            "intro": "Marca una casilla en cada una de las cuatro columnas, igual que el día de la elección. Cuando tengas las cuatro, verifica tu voto."
+          }
+        },
+        {
+          "id": "5265c0af-f2d2-5726-89b9-17a5f3a7144d",
+          "type": "sumate",
+          "anchor": "sumate",
+          "content": {
+            "encabezado": "SÚMATE",
+            "subtituloLinea1": "EL DISTRITO SE ",
+            "subtituloLinea2": "CONSTRUYE",
+            "subtituloItalica": "CONTIGO.",
+            "descTitulo": "Tu voz también importa.",
+            "descTexto": "Escríbeme, comparte tu propuesta o súmate a este camino por Carmen de la Legua Reynoso.",
+            "campos": [
+              {
+                "etiqueta": "NOMBRES",
+                "marcador": "Tu nombre"
+              },
+              {
+                "etiqueta": "APELLIDOS",
+                "marcador": "Tus apellidos"
+              },
+              {
+                "etiqueta": "CORREO",
+                "marcador": "tu@correo.com"
+              },
+              {
+                "etiqueta": "TELÉFONO",
+                "marcador": "+51 000 000 000"
+              },
+              {
+                "etiqueta": "MOTIVO DEL MENSAJE",
+                "marcador": "Seleccione"
+              },
+              {
+                "etiqueta": "MENSAJE OPCIONAL",
+                "marcador": "Cuéntanos cómo te gustaría sumarte"
+              }
+            ],
+            "motivoOpciones": [
+              {
+                "texto": "Quiero sumarme"
+              },
+              {
+                "texto": "Deseo más información"
+              },
+              {
+                "texto": "Tengo una propuesta"
+              },
+              {
+                "texto": "Otro"
+              }
+            ],
+            "enviarEtiqueta": "QUIERO SUMARME",
+            "enviandoEtiqueta": "ENVIANDO…",
+            "errorTexto": "No pudimos enviar tu mensaje. Intenta de nuevo en unos minutos.",
+            "exitoTexto": "¡Gracias! Recibimos tu mensaje."
+          }
+        }
+      ],
+      "seo_title": "Juan de Dios Gavilano — Alcalde de Carmen de la Legua Reynoso 2026",
+      "seo_description": "Juan de Dios Gavilano, candidato a la Alcaldía de Carmen de la Legua Reynoso 2026. Experiencia, propuestas y trabajo por el distrito.",
+      "og_image_url": null,
+      "noindex": false,
+      "published_at": null
+    },
+    {
+      "id": "323538bf-db19-5ed9-bccf-a50335fe61bb",
+      "slug": "biografia",
+      "title": "Biografía",
+      "sort": 1,
+      "sections": [
+        {
+          "id": "e4aad77a-0b66-5dfa-90d0-f93fe17b0d9e",
+          "type": "biografia-hero",
+          "content": {
+            "titulo": "UNA VIDA DEDICADA A",
+            "subtituloLinea1": "CARMEN DE LA",
+            "subtituloLinea2": "LEGUA REYNOSO",
+            "imagen": "/images/grupo325.png"
+          }
+        },
+        {
+          "id": "64a9135d-94e2-51ce-bec9-01b03b358466",
+          "type": "biografia-raices",
+          "content": {
+            "icono": "/images/Grupo 28338.png",
+            "tituloLinea1": "MI VIDA Y RAÍCES EN",
+            "tituloLinea2": "CARMEN DE LA LEGUA",
+            "textoDestacado": "Nací el 15 de enero de 1964.",
+            "texto": "Crecí como el penúltimo de once hermanos en un hogar donde el respeto y la humildad eran la base de todo. Un carmelino autóctono; los vecinos me ven caminar por el Jirón Mariano Melgar, mi casa de toda la vida, donde he pasado más de 50 años compartiendo sueños y desafíos con nuestra gente.",
+            "imagen": "/images/Enmascarargrupo36.png",
+            "imagenAlt": "Juan de Dios Gavilano"
+          }
+        },
+        {
+          "id": "3ddb0010-3efb-594e-97ae-1d644f668406",
+          "type": "biografia-formacion",
+          "content": {
+            "icono": "/images/Grupo 28340.png",
+            "tituloLinea1": "FORMACIÓN Y COMPROMISO",
+            "tituloLinea2": "CON LA JUVENTUD",
+            "textoDestacado": "Mis primeros pasos los di en las aulas del Colegio 5030",
+            "texto": "y, más tarde, en el histórico Colegio Nacional Mixto Raúl Porras Barrenechea. Desde muy joven, sentí que mi vocación estaba en el servicio comunitario. Por eso, en 1984, fundé el Club Deportivo y Cultural Bémfica para ofrecer a nuestros niños un camino sano a través del deporte. Esa misma pasión me llevó a ser cofundador de la Liga de Menores del distrito y de la Asociación Deportiva de la Unidad Vecinal N° 3, convencido de que el deporte es la mejor herramienta de transformación social.",
+            "imagen": "/images/02.png",
+            "imagenAlt": "Formación y compromiso con la juventud"
+          }
+        },
+        {
+          "id": "25d866f5-4751-5924-8107-e0db79735805",
+          "type": "biografia-trayectoria",
+          "content": {
+            "icono": "/images/Grupo 28342.png",
+            "tituloLinea1": "TRAYECTORIA POLÍTICA Y",
+            "tituloLinea2": "VOCACIÓN DE SERVICIO",
+            "textoDestacado": "La confianza de mis vecinos me permitió el altísimo honor",
+            "texto": "de ser elegido Alcalde de nuestro distrito en tres oportunidades. Además, he servido como Regidor y como Consejero Regional del Callao. Estudié Derecho en la Universidad Inca Garcilaso de la Vega, titulándome como abogado en 2014 para seguir defendiendo los intereses de mi pueblo, en apoyo a las herramientas legales.",
+            "imagen": "/images/03.png",
+            "imagenAlt": "Trayectoria política y vocación de servicio"
+          }
+        },
+        {
+          "id": "22272f06-f876-5cb5-9c4f-ff16d6cfc2f2",
+          "type": "biografia-resultados",
+          "content": {
+            "icono": "/images/Grupo 28344.png",
+            "tituloLinea1": "UNA VISIÓN DE RESULTADOS",
+            "tituloLinea2": "PARA EL FUTURO",
+            "tramos": [
+              {
+                "destacado": "A lo largo de estos años, he aprendido",
+                "texto": "que la política sólo tiene valor cuando se traduce en bienestar para cada familia carmelina. Mi trayectoria no es solo una lista de cargos, sino una vida dedicada a escuchar y actuar por el distrito que me vio nacer. Hoy, mi"
+              },
+              {
+                "destacado": "COMPROMISO",
+                "texto": "con ustedes sigue intacto, con la firme convicción de que el trabajo constante es la única vía para seguir entregando los"
+              },
+              {
+                "destacado": "RESULTADOS",
+                "texto": "que nuestra comunidad merece."
+              }
+            ],
+            "imagen": "/images/04.png",
+            "imagenAlt": "Una visión de resultados para el futuro"
+          }
+        },
+        {
+          "id": "5741e765-9451-50dc-ae36-1a5f1551eeee",
+          "type": "sumate",
+          "anchor": "sumate",
+          "content": {
+            "encabezado": "SÚMATE",
+            "subtituloLinea1": "EL DISTRITO SE ",
+            "subtituloLinea2": "CONSTRUYE",
+            "subtituloItalica": "CONTIGO.",
+            "descTitulo": "Tu voz también importa.",
+            "descTexto": "Escríbeme, comparte tu propuesta o súmate a este camino por Carmen de la Legua Reynoso.",
+            "campos": [
+              {
+                "etiqueta": "NOMBRES",
+                "marcador": "Tu nombre"
+              },
+              {
+                "etiqueta": "APELLIDOS",
+                "marcador": "Tus apellidos"
+              },
+              {
+                "etiqueta": "CORREO",
+                "marcador": "tu@correo.com"
+              },
+              {
+                "etiqueta": "TELÉFONO",
+                "marcador": "+51 000 000 000"
+              },
+              {
+                "etiqueta": "MOTIVO DEL MENSAJE",
+                "marcador": "Seleccione"
+              },
+              {
+                "etiqueta": "MENSAJE OPCIONAL",
+                "marcador": "Cuéntanos cómo te gustaría sumarte"
+              }
+            ],
+            "motivoOpciones": [
+              {
+                "texto": "Quiero sumarme"
+              },
+              {
+                "texto": "Deseo más información"
+              },
+              {
+                "texto": "Tengo una propuesta"
+              },
+              {
+                "texto": "Otro"
+              }
+            ],
+            "enviarEtiqueta": "QUIERO SUMARME",
+            "enviandoEtiqueta": "ENVIANDO…",
+            "errorTexto": "No pudimos enviar tu mensaje. Intenta de nuevo en unos minutos.",
+            "exitoTexto": "¡Gracias! Recibimos tu mensaje."
+          }
+        }
+      ],
+      "seo_title": "Biografía — Juan de Dios Gavilano",
+      "seo_description": "Conoce la trayectoria de Juan de Dios Gavilano: vecino chalaco, abogado y servidor público al servicio de Carmen de la Legua Reynoso.",
+      "og_image_url": null,
+      "noindex": false,
+      "published_at": null
+    },
+    {
+      "id": "00bdfd92-05ed-5707-a257-3098447f84d9",
+      "slug": "experiencia",
+      "title": "Experiencia",
+      "sort": 2,
+      "sections": [
+        {
+          "id": "08f90157-f654-57b4-acb5-db4dcb754c5d",
+          "type": "experiencia-linea-de-tiempo",
+          "content": {
+            "introTexto": "Toda una vida recorriendo\nnuestras calles,\ntrabajando codo a codo",
+            "introDestacado": "contigo por el bienestar\nde nuestra comunidad.",
+            "introImagen": "/images/19990--2002.png",
+            "introImagenAlt": "Juan de Dios Gavilano sosteniendo un diploma",
+            "hitos": [
+              {
+                "anio": "2022",
+                "rotulo": "ACTUALIDAD",
+                "cargo": "Abogado.",
+                "detalle": "",
+                "imagen": "/images/componente14-2.png",
+                "imagenAlt": "Experiencia profesional como abogado"
+              },
+              {
+                "anio": "2015 – 2017",
+                "rotulo": "ASESORÍA",
+                "cargo": "Asesor jurídico",
+                "detalle": "En gestión pública e instituciones del Estado.",
+                "imagen": "/images/2015--2017.png",
+                "imagenAlt": "Reunión de trabajo en instituciones del Estado"
+              },
+              {
+                "anio": "2011 – 2014",
+                "rotulo": "CONSEJERO",
+                "cargo": "Consejero regional del Callao.",
+                "detalle": "",
+                "imagen": "/images/2011--2014.png",
+                "imagenAlt": "Consejero regional del Callao"
+              },
+              {
+                "anio": "2007 – 2010",
+                "rotulo": "GESTIÓN",
+                "cargo": "Alcalde distrital de Carmen de la Legua Reynoso.",
+                "detalle": "",
+                "imagen": "/images/2007--2010.png",
+                "imagenAlt": "Gestión como alcalde distrital de Carmen de la Legua Reynoso"
+              },
+              {
+                "anio": "2003 – 2006",
+                "rotulo": "FISCALIZACIÓN",
+                "cargo": "Regidor distrital de Carmen de la Legua Reynoso.",
+                "detalle": "",
+                "imagen": "/images/2003--2006.png",
+                "imagenAlt": "Fiscalización como regidor distrital de Carmen de la Legua Reynoso"
+              },
+              {
+                "anio": "1999 – 2002",
+                "rotulo": "ASESOR",
+                "cargo": "Experiencia como gestor público municipal - Los Olivos",
+                "detalle": "Asesor de alcaldía y jefe de Participación Vecinal.",
+                "imagen": "/images/componente15--.png",
+                "imagenAlt": "Experiencia como gestor público municipal en Los Olivos"
+              },
+              {
+                "anio": "1996 – 1998",
+                "rotulo": "LIDERAZGO",
+                "cargo": "Alcalde distrital de Carmen de la Legua Reynoso.",
+                "detalle": "",
+                "imagen": "/images/1996--1998.png",
+                "imagenAlt": "Liderazgo como alcalde distrital de Carmen de la Legua Reynoso"
+              },
+              {
+                "anio": "1994 – 1995",
+                "rotulo": "ALCALDÍA",
+                "cargo": "Alcalde distrital de Carmen de la Legua Reynoso.",
+                "detalle": "Asesor de alcaldía y jefe de Participación Vecinal.",
+                "imagen": "/images/1994--1995.png",
+                "imagenAlt": "Alcaldía distrital de Carmen de la Legua Reynoso"
+              },
+              {
+                "anio": "1993 – 1994",
+                "rotulo": "INICIO",
+                "cargo": "Teniente alcalde de Carmen de la Legua Reynoso.",
+                "detalle": "Asesor de alcaldía y jefe de Participación Vecinal.",
+                "imagen": "/images/1993--1994.png",
+                "imagenAlt": "Inicio como teniente alcalde de Carmen de la Legua Reynoso"
+              }
+            ],
+            "resumenTitulo": "Más de dos décadas de experiencia en gestión municipal,",
+            "resumenTexto": "Representación regional, asesoría pública y ejercicio profesional como abogado. Una trayectoria construida desde el trabajo local, la administración pública y el contacto directo con los vecinos."
+          }
+        },
+        {
+          "id": "369f8c91-6b03-56ac-9bf8-110fd6a88d92",
+          "type": "sumate",
+          "anchor": "sumate",
+          "content": {
+            "encabezado": "SÚMATE",
+            "subtituloLinea1": "EL DISTRITO SE ",
+            "subtituloLinea2": "CONSTRUYE",
+            "subtituloItalica": "CONTIGO.",
+            "descTitulo": "Tu voz también importa.",
+            "descTexto": "Escríbeme, comparte tu propuesta o súmate a este camino por Carmen de la Legua Reynoso.",
+            "campos": [
+              {
+                "etiqueta": "NOMBRES",
+                "marcador": "Tu nombre"
+              },
+              {
+                "etiqueta": "APELLIDOS",
+                "marcador": "Tus apellidos"
+              },
+              {
+                "etiqueta": "CORREO",
+                "marcador": "tu@correo.com"
+              },
+              {
+                "etiqueta": "TELÉFONO",
+                "marcador": "+51 000 000 000"
+              },
+              {
+                "etiqueta": "MOTIVO DEL MENSAJE",
+                "marcador": "Seleccione"
+              },
+              {
+                "etiqueta": "MENSAJE OPCIONAL",
+                "marcador": "Cuéntanos cómo te gustaría sumarte"
+              }
+            ],
+            "motivoOpciones": [
+              {
+                "texto": "Quiero sumarme"
+              },
+              {
+                "texto": "Deseo más información"
+              },
+              {
+                "texto": "Tengo una propuesta"
+              },
+              {
+                "texto": "Otro"
+              }
+            ],
+            "enviarEtiqueta": "QUIERO SUMARME",
+            "enviandoEtiqueta": "ENVIANDO…",
+            "errorTexto": "No pudimos enviar tu mensaje. Intenta de nuevo en unos minutos.",
+            "exitoTexto": "¡Gracias! Recibimos tu mensaje."
+          }
+        }
+      ],
+      "seo_title": "Experiencia — Juan de Dios Gavilano",
+      "seo_description": "La experiencia de gestión municipal de Juan de Dios Gavilano en Carmen de la Legua Reynoso.",
+      "og_image_url": null,
+      "noindex": false,
+      "published_at": null
+    },
+    {
+      "id": "07d17c80-9d0a-5063-83f2-700826a0a1f9",
+      "slug": "mi-aporte",
+      "title": "Mi Aporte",
+      "sort": 3,
+      "sections": [
+        {
+          "id": "95f1edb9-5f00-56b4-91c3-1f1e3fb52a03",
+          "type": "mi-aporte-pagina",
+          "anchor": "mi-aporte",
+          "content": {
+            "encabezado": "MI APORTE AL DISTRITO",
+            "subtituloLinea1": "PROYECTOS QUE",
+            "subtituloLinea2": "DEJARON",
+            "subtituloItalica": "HUELLA.",
+            "descEscritorio1": "Durante mi gestión, impulsamos espacios",
+            "descEscritorioConector": "y",
+            "descEscritorio2a": "programas que dejaron huella en Carmen de",
+            "descEscritorio2b": "la Legua Reynoso.",
+            "descEscritorioNota": "Estos son solo algunos,",
+            "descMovil1": "Durante mi gestión, impulsamos",
+            "descMovil2Destacado": "espacios y",
+            "descMovil2Resto": "programas que dejaron huella en",
+            "descMovil3": "Carmen de la Legua Reynoso.",
+            "descMovilNota": "Estos son solo algunos,",
+            "proyectos": [
+              {
+                "nombre": "Casa del Adulto Mayor",
+                "destacado": "Un espacio digno para cuidar",
+                "resto": "acompañar y reconocer a quienes hicieron historia en Carmen.",
+                "imagen": "/images/personas/casa-adulto.png"
+              },
+              {
+                "nombre": "Skate Park",
+                "destacado": "Un lugar para que los jóvenes",
+                "resto": "practiquen deporte, se expresen\ny usen mejor su tiempo libre.",
+                "imagen": "/images/SKATE.png"
+              },
+              {
+                "nombre": "FestiRock",
+                "destacado": "Arte, música y cultura",
+                "resto": "para promover el talento de nuestros jóvenes.",
+                "imagen": "/images/Imagen 876.png"
+              },
+              {
+                "nombre": "Boulevard Morales Duárez",
+                "destacado": "Espacios públicos recuperados",
+                "resto": "para caminar, encontrarnos y vivir mejor el distrito.",
+                "imagen": "/images/Imagen 007.png"
+              },
+              {
+                "nombre": "Carmen Digital",
+                "destacado": "Tecnología y modernización",
+                "resto": "Para acercar la municipalidad al vecino y simplificar cada trámite.",
+                "imagen": "/images/Imagen 1022.png"
+              }
+            ]
+          }
+        }
+      ],
+      "seo_title": "Mi Aporte — Juan de Dios Gavilano",
+      "seo_description": "Las obras y aportes de Juan de Dios Gavilano al distrito de Carmen de la Legua Reynoso.",
+      "og_image_url": null,
+      "noindex": false,
+      "published_at": null
+    },
+    {
+      "id": "c2b5068d-b21b-5475-beb5-30abb66c3a75",
+      "slug": "propuestas",
+      "title": "Propuestas",
+      "sort": 4,
+      "sections": [
+        {
+          "id": "f867aeb2-e266-535b-ba6c-2d5fb3157cfe",
+          "type": "propuestas-detalle",
+          "content": {
+            "categorias": [
+              {
+                "etiqueta": "EDUCACIÓN Y DESARROLLO"
+              },
+              {
+                "etiqueta": "JUVENTUD Y OPORTUNIDADES"
+              },
+              {
+                "etiqueta": "SEGURIDAD CIUDADANA"
+              },
+              {
+                "etiqueta": "DESARROLLO SOCIAL"
+              },
+              {
+                "etiqueta": "MODERNIZACIÓN TECNOLÓGICA"
+              }
+            ],
+            "titulo": "EDUCACIÓN Y DESARROLLO",
+            "entradaDestacado": "Estoy convencido de que la educación es la herramienta más poderosa",
+            "entradaResto": "para transformar nuestro distrito. Impulsaré el acceso formativo integral para que ningún niño ni joven carmelino se quede sin la oportunidad de superarse.",
+            "parrafos": [
+              {
+                "destacado": "Durante mis años de servicio, he aprendido que el verdadero cemento de un distrito no está solo en las pistas,",
+                "texto": "sino en la mente y el corazón de sus niños y jóvenes. La educación no puede ser un privilegio en Carmen de la Legua Reynoso; tiene que ser el motor que rompa los círculos de la pobreza y abra puertas que antes parecían cerradas."
+              },
+              {
+                "destacado": "Mi compromiso es total:",
+                "texto": "implementaremos un sistema de apoyo integral que no solo fortalezca las escuelas del distrito, sino que dote a las familias de las herramientas necesarias para que ningún estudiante abandone las aulas por falta de recursos. Vamos a potenciar los espacios comunales, transformándolos en centros de estudio modernos y equipados."
+              },
+              {
+                "destacado": "",
+                "texto": "Una comunidad que estudia es una comunidad que progresa y se defiende. Por eso, desde el primer día de gestión, nos enfocaremos en que cada rincón de nuestro distrito respire cultura, valores y superación académica para asegurar el futuro de nuestras familias."
+              }
+            ],
+            "imagen": "/images/WhatsApp Image 2026-07-08 at 10.46.25.jpeg",
+            "imagenAlt": "Equipo de seguridad ciudadana de Carmen de la Legua Reynoso"
+          }
+        }
+      ],
+      "seo_title": "Propuestas — Juan de Dios Gavilano",
+      "seo_description": "Educación, seguridad, juventud, desarrollo social y modernización: las propuestas para Carmen de la Legua Reynoso.",
+      "og_image_url": null,
+      "noindex": false,
+      "published_at": null
+    }
+  ],
+  "menus": {
+    "principal": [
+      {
+        "id": "a0646fb9-a547-5411-a70d-f7f1e91be6a8",
+        "label": "BIOGRAFIA",
+        "target": {
+          "kind": "page",
+          "slug": "biografia"
+        }
+      },
+      {
+        "id": "23528739-c9fa-5782-8eba-cd351c397c88",
+        "label": "EXPERIENCIA",
+        "target": {
+          "kind": "page",
+          "slug": "experiencia"
+        }
+      },
+      {
+        "id": "ebdde56f-502e-520f-a351-6fd8eaaff283",
+        "label": "MI APORTE",
+        "target": {
+          "kind": "page",
+          "slug": "mi-aporte"
+        }
+      },
+      {
+        "id": "44648c7f-a80f-517e-9417-65c825acca5c",
+        "label": "PROPUESTAS",
+        "target": {
+          "kind": "page",
+          "slug": "propuestas"
+        }
+      },
+      {
+        "id": "74ecb817-5483-5a0c-a615-1121237361ae",
+        "label": "ARTICULOS",
+        "target": {
+          "kind": "route",
+          "path": "/articulos/"
+        }
+      }
+    ],
+    "pie": [
+      {
+        "id": "28e6edce-05e9-54de-a948-1a1afdb5166a",
+        "label": "biografía",
+        "target": {
+          "kind": "page",
+          "slug": "biografia"
+        }
+      },
+      {
+        "id": "31b54f65-fcff-5c3c-8c08-4e44f9376c1e",
+        "label": "experiencia",
+        "target": {
+          "kind": "page",
+          "slug": "experiencia"
+        }
+      },
+      {
+        "id": "9ea837d1-ea14-50e2-b575-4b4151a028e9",
+        "label": "propuestas",
+        "target": {
+          "kind": "page",
+          "slug": "propuestas"
+        }
+      },
+      {
+        "id": "3b15b7aa-34e0-5d53-8dcb-b439908db6de",
+        "label": "artículos",
+        "target": {
+          "kind": "route",
+          "path": "/articulos/"
+        }
+      }
+    ]
+  }
+}

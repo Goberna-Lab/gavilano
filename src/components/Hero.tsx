@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Hero.css'
 import { asset } from '../utils/asset'
+import type { ContenidoHero, PropsSeccion } from '../lib/contenido'
 
-function Hero() {
+function Hero({ content, anchor }: PropsSeccion<ContenidoHero>) {
   const [fontReady, setFontReady] = useState(() => {
     if (typeof document === 'undefined' || !document.fonts) return true
     return document.fonts.check('800 1em "Bebas Neue"')
@@ -45,22 +46,24 @@ function Hero() {
   }, [fontReady])
 
   return (
-    <section className={`hero ${fontReady ? 'hero--font-ready' : ''}`}>
+    <section className={`hero ${fontReady ? 'hero--font-ready' : ''}`} id={anchor}>
       <img
         className="hero-bg-image"
-        src={asset('PT_WEB_01.png')}
+        src={content.imagenFondo}
         alt=""
         fetchPriority="high"
         decoding="async"
       />
+      {/* La foto de móvil vive en la hoja de estilos, no acá: es un fondo CSS y
+          moverla a un <img> para poder editarla cambiaría la maquetación. */}
       <div className="hero-mobile-portrait" aria-hidden="true" />
       <div className="hero-content">
-        <h1 className="hero-title">EXPERIENCIA</h1>
-        <p className="hero-subtitle">PARA</p>
+        <h1 className="hero-title">{content.titulo}</h1>
+        <p className="hero-subtitle">{content.subtitulo}</p>
         <div className="hero-serve-group">
-          <p className="hero-subtitle2">SERVIR</p>
-          <Link className="hero-button" to="/biografia">
-            <span className="hero-button-text">CONOCE MI HISTORIA</span>
+          <p className="hero-subtitle2">{content.subtitulo2}</p>
+          <Link className="hero-button" to={content.botonDestino}>
+            <span className="hero-button-text">{content.botonEtiqueta}</span>
             <img src={asset('Trazado88.png')} alt="" className="hero-button-icon" />
           </Link>
         </div>
