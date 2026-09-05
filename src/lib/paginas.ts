@@ -1,12 +1,26 @@
 /* Estructura del sitio — páginas, secciones y menús.
  *
- * Por ahora salen SÓLO de `content/seed.json`: el contenido de hoy, como dato. La
- * fase siguiente le pone delante lo publicado en Bravo y deja al seed de respaldo,
- * y para eso este archivo es el único lugar que hay que tocar — las vistas ya
- * preguntan acá y no saben de dónde sale.
+ * Salen de Bravo, HORNEADAS EN EL BUILD: el plugin `bravo-contenido` de
+ * `vite.config.ts` pregunta por `/v1/public/pages` y `/v1/public/menus` mientras
+ * compila y deja el resultado en el módulo virtual que se importa abajo. Por eso
+ * estas funciones son síncronas y el contenido viaja dentro del bundle.
+ *
+ * No se piden desde el NAVEGADOR a propósito, aunque los artículos sí: sin eso
+ * habría un parpadeo de carga en la portada y el sitio dependería de que la API esté
+ * viva en cada visita. El precio es que un cambio publicado se ve recién después del
+ * rebuild — que es justo lo que dispara el rebuild-on-publish.
+ *
+ * FALLBACK: si Bravo contesta bien pero todavía no tiene páginas para este tenant
+ * (la ventana real entre deployar el tema y cargar el seed), el sitio se arma con
+ * `content/seed.json` y NUNCA queda vacío. Si Bravo NO contesta, el build ya se
+ * abortó antes de llegar acá — el porqué está en `vite.config.ts`.
+ *
+ * Este archivo es sólo cableado. La decisión de qué fuente gana está en `fuente.ts`,
+ * que es donde se puede testear sin montar el módulo virtual.
  */
+import deBravo from 'virtual:bravo/contenido'
 import semilla from '../../content/seed.json'
-import { resolverMenu } from './menu.ts'
+import { elegirMenu, elegirPaginas } from './fuente.ts'
 import type { Page, PublicMenuItem, SectionInstance, SeedFile } from './manifest.ts'
 
 /* El JSON entra sin tipar (TypeScript no puede saber que `target.kind` es la unión y
@@ -16,7 +30,7 @@ const SEMILLA = semilla as unknown as SeedFile
 
 /** Las páginas publicadas, en el orden que manda el dato. Nunca vacío. */
 export function getPaginas(): Page[] {
-  return SEMILLA.pages
+  return elegirPaginas(deBravo, SEMILLA)
 }
 
 /** La página de un slug (`''` = portada), o `undefined` si no existe. */
@@ -26,7 +40,7 @@ export function paginaPorSlug(slug: string): Page | undefined {
 
 /** Un menú por su key, con el `href` ya resuelto. */
 export function getMenu(key: string): PublicMenuItem[] {
-  return resolverMenu(SEMILLA.menus[key] ?? [])
+  return elegirMenu(key, deBravo, SEMILLA)
 }
 
 /**

@@ -7,5 +7,6 @@ export default defineConfig({
   test: {
     environment: 'node',
     include: ['src/**/*.test.ts'],
+    /* Los .mjs de scripts/ se importan desde src/lib/prerender.test.ts. */
   },
 })
