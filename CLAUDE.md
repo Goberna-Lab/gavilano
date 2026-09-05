@@ -57,8 +57,25 @@ su portada y no la podemos leer»: armar el `dist/` con el seed le revertiría l
 silencio, y el `rsync --delete` del deploy se llevaría del docroot las carpetas de las páginas que
 él haya creado. Un deploy que falla se reintenta; una portada que volvió sola hay que descubrirla.
 
+Y un tercer caso que parece el primero y no lo es: **200 con otra forma** (Bravo cambia el sobre de
+la respuesta, un proxy contesta `200 {"error":…}`, `BRAVO_API_URL` apunta a otro servicio que
+también habla JSON). Eso **aborta**, porque «no encontré una lista `pages`» no es «el tenant no
+tiene páginas» y avisar lo segundo sería afirmar una causa que nadie comprobó.
+
+⚠️ **Al correr la fase 5, poner `SEED_YA_CARGADO_EN_PRODUCCION = true`** en `vite.config.ts`, en el
+mismo PR. Mientras es `false`, cero páginas es esperable y se usa el seed. Una vez cargado el seed,
+un cero deja de ser válido —significa que se despublicaron las páginas o que se perdió la versión
+publicada— y seguir con el seed le revertiría el contenido al cliente con el deploy en verde. La
+bandera está versionada y no en la caché del build anterior porque `npm ci` borra `node_modules/`
+en los runners.
+
 Para trabajar sin red: en `dev` **no** corta (avisa y usa el seed). `BRAVO_API_URL` y `BRAVO_TENANT`
 apuntan a otro lado si hace falta.
+
+⚠️ **CI lee el tenant VIVO del cliente.** `ci.yml` corre `npm run build` sin override, así que un PR
+se pone rojo cuando `bravo.goberna.us` no contesta y se presenta como «tu PR rompió el build». Es
+consistente con la política de arriba —no conviene deployar el tema con Bravo caído— pero conviene
+saberlo antes de salir a buscar el error en el diff.
 
 ### ⚠️ Asimetría conocida: los ARTÍCULOS no cortan el build (issue #46)
 
@@ -136,6 +153,27 @@ Es la promesa de N2 y conviene demostrarla, no asumirla. Se levanta una Bravo de
 devuelva una página que **no existe ni en el código ni en el seed**, se compila apuntándole, y tiene
 que aparecer `dist/<slug>/index.html` con su `<title>` propio, su `canonical` y su línea en el
 `sitemap.xml`. Si eso sale, el cliente puede crear páginas sin que nadie toque el repo.
+
+### Tres cosas que el modelo N2 hace y conviene saber antes de que sorprendan
+
+**«Súmate» son TRES instancias, no una.** Está en la portada, en biografía y en experiencia, hoy con
+el mismo texto. Son independientes: el cliente edita la de la portada y las otras dos siguen
+diciendo lo de antes. Además `SeccionSuelta` —la que dibuja el formulario en `/articulos` y en cada
+nota— toma siempre **la primera**, que es la de la portada. Es inherente a que cada página tenga sus
+propias secciones; vale decírselo al cliente en el traspaso.
+
+**El fallback de páginas es todo-o-nada y el de menús es por clave.** O sea que puede pasar:
+páginas de Bravo + menú del seed (si el cliente todavía no configuró el menú). Si además renombró un
+slug, el menú del seed apunta a una página que ya no existe y el sitio manda al home —
+`PaginaDeBravo` hace `<Navigate to="/">`— sin error en ningún lado. Nadie comprueba hoy que las dos
+fuentes hablen de los mismos slugs.
+
+**Las imágenes de contenido ya no pasan por `asset()`.** El seed guarda `/images/…` y el componente
+lo usa tal cual, mientras los iconos y flechas de marca siguen usando `asset()` (que prefija
+`BASE_URL`). No es un descuido: una imagen que el cliente suba desde el panel llega como URL de
+Bravo, y prefijarle el base-path la rompería. La consecuencia es que con un `VITE_BASE_PATH`
+distinto de `/` el sitio quedaría a medio romper — una razón más para lo que ya dice el bloque de
+Deploy: **no setear `VITE_BASE_PATH`**.
 
 ### Código muerto
 

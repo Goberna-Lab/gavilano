@@ -49,12 +49,14 @@ describe('resolverHref — la tabla del Contrato 3', () => {
     /* Un patrón mal cargado mandaría TODAS las notas a la misma URL. */
     expect(
       resolverHref({ kind: 'article', slug: 'una-nota' }, { patronArticulo: 'https://x.pe/notas' }),
-    ).toBe('/articulos/una-nota/')
+    ).toBe('/articulos/una-nota')
   })
 
   it('article sin patrón cae a la ruta de este sitio, no a /blog/', () => {
-    /* El fallback genérico de Bravo es `/blog/<slug>/` y este sitio no tiene /blog. */
-    expect(resolverHref({ kind: 'article', slug: 'una-nota' })).toBe('/articulos/una-nota/')
+    /* El fallback genérico de Bravo es `/blog/<slug>/` y este sitio no tiene /blog.
+       Y va SIN barra, igual que el `article_url_pattern` del tenant: dos formas
+       distintas para la misma nota en el mismo menú sería peor que el 301. */
+    expect(resolverHref({ kind: 'article', slug: 'una-nota' })).toBe('/articulos/una-nota')
   })
 
   it('un destino que no se puede resolver devuelve null', () => {

@@ -234,13 +234,16 @@ function AporteSection({ content, anchor, className = "" }: AporteSectionProps) 
                 className={`aporte-accordion-trigger ${isOpen ? "aporte-accordion-trigger-active" : ""}`}
                 onClick={() => alternarProyectoMobile(indice)}
                 aria-expanded={isOpen}
-                aria-controls={`aporte-panel-${indice}`}
+                /* +1 para conservar los ids que el sitio ya tenía: venían del
+                   `id` del proyecto, que arrancaba en 1. No cambia un píxel, pero
+                   un deep link o un selector de analítica externo sí lo notaría. */
+                aria-controls={`aporte-panel-${indice + 1}`}
               >
                 <span>{proyecto.nombre}</span>
               </button>
               {isOpen ? (
                 <div
-                  id={`aporte-panel-${indice}`}
+                  id={`aporte-panel-${indice + 1}`}
                   className="aporte-accordion-panel aporte-project-content-transition"
                   key={`panel-${indice}`}
                 >

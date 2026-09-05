@@ -54,10 +54,14 @@ export function resolverHref(target: MenuTarget, opciones: Opciones = {}): strin
         return opciones.patronArticulo.replace('{slug}', target.slug)
       }
       /* El fallback genérico de Bravo es `/blog/<slug>/`, pero este sitio no tiene
-         /blog: sus notas viven en /articulos/<slug>, que es lo que crea el
-         prerender. Con barra final, que es la forma que contesta 200 en este
-         hosting (sin ella hay un 301). */
-      return `/articulos/${target.slug}/`
+         /blog: sus notas viven en /articulos/<slug>.
+         SIN barra final a propósito, aunque las PÁGINAS sí la lleven: el
+         `article_url_pattern` del tenant tampoco la tiene, así que ésta es la forma
+         que va a devolver Bravo por el camino normal. Inventar acá una tercera forma
+         haría que el mismo menú mezclara dos URLs distintas para la misma nota según
+         de dónde saliera el ítem. Que las notas redirijan (301) es un problema real
+         pero es de las 36, no de este fallback: va por el issue #50. */
+      return `/articulos/${target.slug}`
     }
     default:
       /* Un `kind` que este tema no conoce: lo trae una versión más nueva del

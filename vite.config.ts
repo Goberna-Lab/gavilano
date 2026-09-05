@@ -67,6 +67,21 @@ const BRAVO = {
   tenant: process.env.BRAVO_TENANT ?? 'gavilano',
 }
 
+/**
+ * ¿El seed ya se cargó en la base de PRODUCCIÓN de este tenant (fase 5 de la guía)?
+ *
+ * Mientras es `false`, que la API devuelva cero páginas es esperable y el sitio se
+ * arma con `content/seed.json`. Una vez cargado el seed, un cero deja de ser un
+ * estado válido y pasa a ser una alarma: significa que se despublicaron las páginas
+ * o que la versión publicada se perdió, y seguir adelante con el seed le revertiría
+ * el contenido al cliente con el deploy en verde.
+ *
+ * ⚠️ Se pone en `true` en el MISMO PR que corre la fase 5. Está acá, versionado, y
+ * no en el archivo de caché del build anterior, porque `npm ci` borra
+ * `node_modules/` en los runners y esa memoria no sobreviviría.
+ */
+const SEED_YA_CARGADO_EN_PRODUCCION = false
+
 const ID_CONTENIDO = 'virtual:bravo/contenido'
 const ID_RESUELTO = '\0' + ID_CONTENIDO
 
@@ -133,11 +148,79 @@ async function contenidoPublicado(estricto: boolean) {
     )
   }
 
-  if (!Array.isArray(paginas.pages) || paginas.pages.length === 0) {
+  /* Un 200 con la FORMA equivocada no es «no hay páginas»: es un fallo, y de los
+     que más engañan. Puede ser que Bravo haya cambiado el sobre de la respuesta,
+     que un proxy conteste 200 con un `{error:…}`, o que BRAVO_API_URL apunte a otro
+     servicio que también habla JSON. Antes esto caía en la misma rama que «el
+     tenant no cargó nada» y el aviso afirmaba una causa que nadie había
+     comprobado — el mismo modo de fallar que el aborto existe para evitar, pero
+     disfrazado de caso normal y con el deploy en verde. */
+  if (!Array.isArray(paginas.pages)) {
+    const recibido = JSON.stringify(paginas).slice(0, 200)
+    throw new Error(
+      `[bravo] ${BRAVO.apiUrl} contestó 200 pero sin una lista \`pages\`. ` +
+        'No es «el tenant todavía no tiene páginas»: es una respuesta con otra forma, ' +
+        'así que se aborta el build igual que con un fallo de red. ' +
+        `Recibido: ${recibido}`,
+    )
+  }
+
+  if (paginas.pages.length === 0) {
+    /* Cero páginas es legítimo SÓLO mientras el seed no esté cargado en la base del
+       cliente (la fase 5 de la guía). Después, un cero significa que algo se
+       despublicó o que una migración se llevó puesta la versión publicada, y armar
+       el sitio con el seed de julio le revertiría el contenido con el deploy en
+       verde. Por eso la bandera de abajo, y por eso se cambia en el MISMO PR que
+       corre la fase 5. */
+    if (SEED_YA_CARGADO_EN_PRODUCCION) {
+      throw new Error(
+        `[bravo] el tenant '${BRAVO.tenant}' devolvió CERO páginas y el seed ya está cargado en producción. ` +
+          'Eso no es un tenant sin migrar: algo se despublicó o la versión publicada desapareció. ' +
+          'Se aborta antes de que el rsync --delete se lleve las carpetas de las páginas vivas. ' +
+          `Comprobar: curl -s "${BRAVO.apiUrl}/v1/public/pages?tenant=${BRAVO.tenant}"`,
+      )
+    }
     console.warn(
-      `[bravo] ⚠️  el tenant '${BRAVO.tenant}' no tiene páginas publicadas; se usa content/seed.json`,
+      `[bravo] ⚠️  el tenant '${BRAVO.tenant}' no tiene páginas publicadas todavía; se usa content/seed.json`,
     )
     return null
+  }
+
+  /* El módulo virtual se declara como `Page[]` (`lib/bravo-contenido.d.ts`) sobre lo
+     que en realidad es `unknown[]`: ese `.d.ts` es una promesa, no una comprobación.
+     El camino del SEED sí está validado contra el catálogo (`seed.test.ts`), así que
+     sin esto el único camino sin validar sería justo el que corre en producción.
+     No se valida el contenido de cada sección —eso es del panel contra el catálogo—
+     sino lo mínimo que rompe fuera del render: una página sin `slug` hace que el
+     prerender escriba `dist/undefined/index.html`, y una con `sections` que no es
+     lista revienta al dibujar. */
+  const malas = paginas.pages
+    .map((p, i) => {
+      const pagina = p as { slug?: unknown; sections?: unknown }
+      if (typeof pagina.slug !== 'string') return `#${i}: sin \`slug\` de texto`
+      if (!Array.isArray(pagina.sections)) return `'${pagina.slug}': \`sections\` no es una lista`
+      return null
+    })
+    .filter(Boolean)
+
+  if (malas.length > 0) {
+    throw new Error(
+      `[bravo] ${BRAVO.apiUrl} devolvió páginas con una forma que este tema no sabe dibujar: ` +
+        `${malas.join(' · ')}. Se aborta el build en vez de hornear un sitio roto.`,
+    )
+  }
+
+  /* Una página cuyo slug pisa una ruta del código no se dibuja nunca: el enrutador
+     prefiere el segmento literal. El cliente la crea desde el panel y no pasa nada,
+     sin ningún error. Avisar es lo único que se puede hacer desde acá. */
+  const rutasFijas = new Set((MANIFEST.fixedRoutes ?? []).map((r) => r.path.replace(/^\/|\/$/g, '')))
+  for (const p of paginas.pages as { slug: string }[]) {
+    if (rutasFijas.has(p.slug)) {
+      console.warn(
+        `[bravo] ⚠️  la página '${p.slug}' tiene el mismo slug que una ruta fija del tema: ` +
+          'el sitio va a dibujar la del código y la del panel no se va a ver nunca.',
+      )
+    }
   }
 
   console.log(
@@ -147,7 +230,9 @@ async function contenidoPublicado(estricto: boolean) {
 }
 
 function contenidoDeBravo(): Plugin {
-  let estricto = false
+  /* Arranca en `true`: si alguna vez `configResolved` dejara de correr, el fallo
+     seguro es cortar el build, no armar el sitio con el seed sin avisar. */
+  let estricto = true
   return {
     name: 'bravo-contenido',
     configResolved(config) {
