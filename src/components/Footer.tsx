@@ -1,20 +1,11 @@
-import { Link } from 'react-router-dom'
 import './Footer.css'
 import { asset } from '../utils/asset'
-
-type FooterLink =
-  | { label: string; to: string; preventNavigation?: boolean }
-
-const linkColumns: FooterLink[][] = [
-  [
-    { label: 'biografía', to: '/biografia' },
-    { label: 'experiencia', to: '/experiencia' },
-    { label: 'propuestas', to: '/propuestas' },
-    { label: 'artículos', to: '/articulos' },
-  ],
-]
+import { EnlaceDeMenu } from './EnlaceDeMenu'
+import { getMenu } from '../lib/paginas'
 
 function Footer() {
+  const items = getMenu('pie')
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -25,32 +16,15 @@ function Footer() {
         <div className="footer-group-icon" aria-hidden="true" />
         <p className="footer-contact-label" aria-hidden="true">Contacto</p>
 
-        {linkColumns.map((column, index) => (
-          <div
-            className="footer-links footer-links--primary"
-            key={`footer-column-${index}`}
-          >
-            {column.map((item) => (
-              item.preventNavigation ? (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                  onClick={(event) => event.preventDefault()}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                >
-                  {item.label}
-                </Link>
-              )
-            ))}
-          </div>
-        ))}
+        <div className="footer-links footer-links--primary">
+          {items.map((item) => (
+            <EnlaceDeMenu key={item.id} item={item} />
+          ))}
+        </div>
 
+        {/* El teléfono y el correo NO son editables desde el panel: son enlaces
+            `tel:` y `mailto:` con su icono dibujado en SVG al lado. Ponerlos en el
+            contrato pediría un tipo de campo que v1 no tiene. */}
         <div className="footer-contact">
           <a href="tel:+51997091206">
             <svg width="16" height="16" viewBox="0 0 16 16" stroke="currentColor" fill="none" strokeWidth="1.8" aria-hidden="true">

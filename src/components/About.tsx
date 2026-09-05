@@ -1,65 +1,74 @@
 import { Link } from 'react-router-dom'
 import './About.css'
 import { asset } from '../utils/asset'
+import { Renglones } from '../lib/texto'
+import type { ContenidoConoceme, PropsSeccion } from '../lib/contenido'
 
-const iconSizes = [
+/* El icono de cada pilar y su medida son del DISEÑO, no del contenido: no cambian
+   el mensaje del sitio y el Figma los dibujó de ese tamaño. Viven acá, indexados
+   por la misma posición que `content.pilares` — si el catálogo declarara cinco
+   entradas y esta lista tuviera cuatro, el sitio se rompería en runtime con un
+   `undefined` y no en el build. Por eso la cantidad está escrita en un test. */
+const ICONOS = [
+  asset('Trazado 14386.png'),
+  asset('Trazado 14387.png'),
+  asset('Trazado 14388.png'),
+  asset('Trazado 14389.png'),
+]
+
+const MEDIDAS = [
   { width: 41, height: 30 },
   { width: 29, height: 30 },
   { width: 34, height: 30 },
   { width: 39, height: 30 },
 ]
 
-const stats = [
-  { title: 'Más obras', desc: 'para mejorar<br />nuestra ciudad', icon: asset('Trazado 14386.png') },
-  { title: 'Más seguridad', desc: 'para vivir con tranquilidad', icon: asset('Trazado 14387.png') },
-  { title: 'Más oportunidades', desc: 'para nuestros jovenes<br /> y familias', icon: asset('Trazado 14388.png') },
-  { title: 'Más salud', desc: 'para una vida<br />digna', icon: asset('Trazado 14389.png') },
-]
+function About({ content, anchor }: PropsSeccion<ContenidoConoceme>) {
+  const { pilares } = content
 
-function About() {
   return (
-    <section className="about" id="biografia">
+    <section className="about" id={anchor}>
       <div className="about-content">
-        <h2 className="about-heading">CONÓCEME</h2>
-        <p className="about-name-first">JUAN DE DIOS</p>
-        <p className="about-name-last">GAVILANO</p>
-        <p className="about-desc-line1">Vecino chalaco, abogado y servidor público.</p>
+        <h2 className="about-heading">{content.encabezado}</h2>
+        <p className="about-name-first">{content.nombreLinea1}</p>
+        <p className="about-name-last">{content.nombreLinea2}</p>
+        <p className="about-desc-line1">{content.descripcionLinea1}</p>
         <p className="about-desc-line2">
-          <span>He dedicado mi vida a trabajar por Carmen de la Legua Reynoso y</span>
-          <span>el Perú.</span>
+          <span>{content.descripcionLinea2a}</span>
+          <span>{content.descripcionLinea2b}</span>
         </p>
         <div className="about-stats">
-          {stats.map((stat, i) => (
-            <img key={`icon-${i}`} src={stat.icon} alt="" className="about-stat-icon" style={{ gridRow: 1, gridColumn: i * 2 + 1, width: iconSizes[i].width, height: iconSizes[i].height }} />
+          {pilares.map((_, i) => (
+            <img key={`icon-${i}`} src={ICONOS[i]} alt="" className="about-stat-icon" style={{ gridRow: 1, gridColumn: i * 2 + 1, width: MEDIDAS[i].width, height: MEDIDAS[i].height }} />
           ))}
-          {stats.slice(0, -1).map((_, i) => (
+          {pilares.slice(0, -1).map((_, i) => (
             <div key={`div-${i}`} className="about-stat-divider" style={{ gridRow: '1 / -1', gridColumn: i * 2 + 2 }} />
           ))}
-          {stats.map((stat, i) => (
-            <p key={`title-${i}`} className="about-stat-title" style={{ gridRow: 2, gridColumn: i * 2 + 1 }}>{stat.title}</p>
+          {pilares.map((pilar, i) => (
+            <p key={`title-${i}`} className="about-stat-title" style={{ gridRow: 2, gridColumn: i * 2 + 1 }}>{pilar.titulo}</p>
           ))}
-          {stats.map((stat, i) => (
+          {pilares.map((pilar, i) => (
             <div key={`descwrap-${i}`} className="about-stat-desc-wrap" style={{ gridRow: 3, gridColumn: i * 2 + 1 }}>
-              <p className="about-stat-desc" dangerouslySetInnerHTML={{ __html: stat.desc }} />
+              <p className="about-stat-desc"><Renglones texto={pilar.descripcion} /></p>
             </div>
           ))}
         </div>
         <div className="about-stats-mobile" aria-label="Resumen de experiencia">
-          {stats.map((stat, i) => (
-            <div key={`mobile-stat-${stat.title}`} className="about-stat-mobile-card">
-              <img src={stat.icon} alt="" className="about-stat-mobile-icon" style={{ width: iconSizes[i].width, height: iconSizes[i].height }} />
-              <p className="about-stat-mobile-title">{stat.title}</p>
-              <p className="about-stat-mobile-desc" dangerouslySetInnerHTML={{ __html: stat.desc }} />
+          {pilares.map((pilar, i) => (
+            <div key={`mobile-stat-${pilar.titulo}`} className="about-stat-mobile-card">
+              <img src={ICONOS[i]} alt="" className="about-stat-mobile-icon" style={{ width: MEDIDAS[i].width, height: MEDIDAS[i].height }} />
+              <p className="about-stat-mobile-title">{pilar.titulo}</p>
+              <p className="about-stat-mobile-desc"><Renglones texto={pilar.descripcion} /></p>
             </div>
           ))}
         </div>
-        <Link className="about-button" to="/biografia">
-          <span className="about-button-text">CONOCE MI HISTORIA</span>
+        <Link className="about-button" to={content.botonDestino}>
+          <span className="about-button-text">{content.botonEtiqueta}</span>
           <img src={asset('Trazado88.png')} alt="" className="about-button-icon" />
         </Link>
-        <img src={asset('IMG_0040-mobile.png')} alt="" className="about-mobile-image" loading="lazy" />
+        <img src={content.imagenMovil} alt="" className="about-mobile-image" loading="lazy" />
       </div>
-      <img src={asset('IMG_0040.png?v=hq-3ca2fa9')} alt="" className="about-image" loading="lazy" />
+      <img src={content.imagenEscritorio} alt="" className="about-image" loading="lazy" />
     </section>
   )
 }

@@ -1,23 +1,23 @@
 import { useState } from 'react'
 import './HistoriasSection.css'
+import type { ContenidoHistorias, PropsSeccion } from '../lib/contenido'
 
-const VIDEO_ID = 'ZsJY9RuoX_M'
-
-function HistoriasSection() {
+function HistoriasSection({ content, anchor }: PropsSeccion<ContenidoHistorias>) {
   const [playing, setPlaying] = useState(false)
+  const { videoId } = content
 
   return (
-    <section className="historias-section">
+    <section className="historias-section" id={anchor}>
       <p className="historias-text">
-        <span>HISTORIAS QUE CONSTRUYEN</span>
-        <span>FUTURO</span>
+        <span>{content.textoLinea1}</span>
+        <span>{content.textoLinea2}</span>
       </p>
       <div className="historias-video">
         {playing ? (
           <iframe
             className="historias-video-frame"
-            src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
-            title="Historias que construyen futuro"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+            title={content.videoTitulo}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
@@ -28,7 +28,7 @@ function HistoriasSection() {
             onClick={() => setPlaying(true)}
             aria-label="Reproducir video"
             style={{
-              backgroundImage: `url("https://img.youtube.com/vi/${VIDEO_ID}/maxresdefault.jpg")`,
+              backgroundImage: `url("https://img.youtube.com/vi/${videoId}/maxresdefault.jpg")`,
             }}
           >
             <span className="historias-video-overlay" />

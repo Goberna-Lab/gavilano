@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import SumateSection from '../components/SumateSection'
+import { SeccionSuelta } from '../components/SeccionSuelta'
 import { displayArticles, coverSrc, formatDate, readingMinutes } from '../data/articleSource'
 import { asset } from '../utils/asset'
 import './ArticlesPage.css'
@@ -81,7 +81,7 @@ function ArticlesPage() {
           </div>
         ) : null}
       </div>
-      <SumateSection />
+      <SeccionSuelta tipo="sumate" />
     </>
   )
 }

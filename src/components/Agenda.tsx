@@ -1,41 +1,48 @@
+import { Fragment } from 'react'
 import './Agenda.css'
+import { Renglones } from '../lib/texto'
+import type { ContenidoUnaVidaDeServicio, PropsSeccion } from '../lib/contenido'
 
-function Agenda() {
+/* El `+` delante de la cifra del medio es del diseño: va en su propio `<span>`
+   dentro de una fila aparte, así que no puede viajar pegado al número. */
+const LLEVA_MAS = [false, true, false]
+
+function Agenda({ content, anchor }: PropsSeccion<ContenidoUnaVidaDeServicio>) {
   return (
-    <section className="agenda" id="experiencia">
+    <section className="agenda" id={anchor}>
       <div className="agenda-content">
-        <h2 className="agenda-heading">UNA VIDA DE SERVICIO</h2>
-        <p className="agenda-subtitle">NO VENGO A</p>
-        <p className="agenda-subtitle-italic">IMPROVISAR.</p>
+        <h2 className="agenda-heading">{content.encabezado}</h2>
+        <p className="agenda-subtitle">{content.subtitulo}</p>
+        <p className="agenda-subtitle-italic">{content.subtituloItalica}</p>
       </div>
       <div className="agenda-bar" />
-      <p className="agenda-quote agenda-quote-desktop">Gobernar no es solo prometer. Gobernar es escuchar, tomar decisiones y cumplir.</p>
+      <p className="agenda-quote agenda-quote-desktop">{content.citaEscritorio}</p>
       <p className="agenda-quote agenda-quote-mobile">
-        <span>Gobernar no es solo prometer. Gobernar es</span>
-        <span>escuchar, tomar decisiones y cumplir.</span>
+        {content.citaMovil.split('\n').map((linea, i) => (
+          <span key={i}>{linea}</span>
+        ))}
       </p>
       <div className="agenda-right-text-block"> 
-        <p className="agenda-right-title">Conozco la gestión municipal desde adentro.</p>
-        <p className="agenda-right-text">Mi trayectoria como Alcalde en Carmen de la Legua Reynoso, asesor en municipalidades y diferentes entidades del Estado me permite saber cómo funciona la administración pública y desde dónde empezar a ordenar nuestro distrito desde el primer día.</p>
+        <p className="agenda-right-title">{content.tituloDerecha}</p>
+        <p className="agenda-right-text">{content.textoDerecha}</p>
       </div>
       <div className="agenda-stats-container">
-        <div className="agenda-stats-col">
-          <span className="agenda-stat-number">22</span>
-          <span className="agenda-stat-label">AÑOS DE SERVICIO<br />PÚBLICO</span>
-        </div>
-        <div className="agenda-stats-divider" />
-        <div className="agenda-stats-col">
-          <div className="agenda-stat-number-row">
-            <span className="agenda-stat-plus">+</span>
-            <span className="agenda-stat-number">30</span>
-          </div>
-          <span className="agenda-stat-label">OBRAS DE<br />IMPACTO</span>
-        </div>
-        <div className="agenda-stats-divider" />
-        <div className="agenda-stats-col">
-          <span className="agenda-stat-number">03</span>
-          <span className="agenda-stat-label">GESTIONES<br />EXITOSAS</span>
-        </div>
+        {content.cifras.map((cifra, i) => (
+          <Fragment key={i}>
+            {i > 0 && <div className="agenda-stats-divider" />}
+            <div className="agenda-stats-col">
+              {LLEVA_MAS[i] ? (
+                <div className="agenda-stat-number-row">
+                  <span className="agenda-stat-plus">+</span>
+                  <span className="agenda-stat-number">{cifra.numero}</span>
+                </div>
+              ) : (
+                <span className="agenda-stat-number">{cifra.numero}</span>
+              )}
+              <span className="agenda-stat-label"><Renglones texto={cifra.etiqueta} /></span>
+            </div>
+          </Fragment>
+        ))}
       </div>
     </section>
   )
