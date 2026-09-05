@@ -30,5 +30,12 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      # El catálogo de secciones que el sitio le promete a Bravo en
+      # /site-manifest.json, y (desde la fase 3) el seed contra ese catálogo. Un
+      # error ahí no rompe ningún build: rompe el panel del cliente en silencio,
+      # que edita un campo y no ve cambiar nada. Por eso la red tiene que estar acá.
+      - name: Test (vitest)
+        run: npm test
+
       - name: Build (tsc + vite)
         run: npm run build
