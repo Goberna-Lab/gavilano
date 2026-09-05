@@ -17,6 +17,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
 const DIST = join(ROOT, 'dist')
 const GENERATED = join(ROOT, 'src/data/bravo-articles.generated.ts')
+// Lo que el plugin `bravo-contenido` de vite.config.ts dejó al compilar: las páginas
+// y menús que Bravo tenía EN ESE MOMENTO, o `null` si el sitio se armó con el seed.
+// Se LEE ese archivo en vez de volver a preguntarle a la API: si alguien publica
+// entre las dos consultas, el bundle tendría una página que este script no conoce y
+// esa página saldría servida con el <head> del home (P16b).
+const CACHE_PAGINAS = join(ROOT, 'node_modules/.tmp/bravo-contenido.json')
+const SEED = join(ROOT, 'content/seed.json')
 
 const SITE = 'https://juandediosgavilano.com'
 const NAME = 'Juan de Dios Gavilano'
@@ -24,15 +31,59 @@ const DEFAULT_OG = `${SITE}/images/og-gavilano-2027.jpg`
 const DEFAULT_DESC =
   'Juan de Dios Gavilano, candidato a la Alcaldía de Carmen de la Legua Reynoso 2026. Experiencia, propuestas y trabajo por el distrito.'
 
-// ─── Rutas estáticas (las secciones del SPA) ───────────────────────────────────
-const STATIC_ROUTES = [
-  { path: '/', title: `${NAME} — Alcalde de Carmen de la Legua Reynoso 2026`, description: DEFAULT_DESC, type: 'website' },
-  { path: '/biografia', title: `Biografía — ${NAME}`, description: `Conoce la trayectoria de ${NAME}: vecino chalaco, abogado y servidor público al servicio de Carmen de la Legua Reynoso.` },
-  { path: '/experiencia', title: `Experiencia — ${NAME}`, description: `La experiencia de gestión municipal de ${NAME} en Carmen de la Legua Reynoso.` },
-  { path: '/mi-aporte', title: `Mi Aporte — ${NAME}`, description: `Las obras y aportes de ${NAME} al distrito de Carmen de la Legua Reynoso.` },
-  { path: '/propuestas', title: `Propuestas — ${NAME}`, description: 'Educación, seguridad, juventud, desarrollo social y modernización: las propuestas para Carmen de la Legua Reynoso.' },
-  { path: '/articulos', title: `Artículos — ${NAME}`, description: 'Ideas y análisis para levantar nuestro distrito. Infórmate sobre lo que pasa en Carmen de la Legua Reynoso.' },
+// ─── Rutas de las páginas ─────────────────────────────────────────────────────
+// Ya NO están escritas a mano acá. Salen de las páginas de Bravo (o del seed), con
+// el `seo_title`, la `seo_description`, la imagen para compartir y el `noindex` que
+// el cliente carga desde su panel. Es lo que convierte esta migración en algo que se
+// nota: hasta ahora, cambiar el título con el que el sitio aparece en Google o en
+// WhatsApp era un cambio de código.
+//
+// Las rutas llevan barra final porque es la forma que este hosting sirve con 200:
+// `/biografia` responde 301 a `/biografia/` (medido en producción el 2026-09-05), y
+// un `canonical` que apunta a una redirección es una señal floja para un buscador.
+const CODE_ROUTES = [
+  {
+    path: '/articulos/',
+    title: `Artículos — ${NAME}`,
+    description:
+      'Ideas y análisis para levantar nuestro distrito. Infórmate sobre lo que pasa en Carmen de la Legua Reynoso.',
+  },
 ]
+
+function readJson(path) {
+  try {
+    return JSON.parse(readFileSync(path, 'utf8'))
+  } catch {
+    return null
+  }
+}
+
+/** Las páginas con las que se compiló el bundle: las de Bravo, o las del seed. */
+function paginasDelBuild() {
+  const deBravo = readJson(CACHE_PAGINAS)
+  if (deBravo?.pages?.length) return { pages: deBravo.pages, fuente: 'Bravo' }
+  // Misma regla que `lib/fuente.ts` del lado del bundle, escrita una vez de cada
+  // lado porque son dos procesos. Si se separan, el sitio y su <head> hablarían de
+  // páginas distintas.
+  const semilla = readJson(SEED)
+  if (!semilla?.pages?.length) {
+    console.error('[seo-prerender] no hay páginas ni en Bravo ni en content/seed.json')
+    process.exit(1)
+  }
+  return { pages: semilla.pages, fuente: 'content/seed.json' }
+}
+
+function pageRoutes() {
+  const { pages, fuente } = paginasDelBuild()
+  return { fuente, rutas: pages.map((p) => ({
+    path: p.slug === '' ? '/' : `/${p.slug}/`,
+    title: p.seo_title || `${p.title} — ${NAME}`,
+    description: p.seo_description || DEFAULT_DESC,
+    ogImage: isAbsUrl(p.og_image_url) ? p.og_image_url : DEFAULT_OG,
+    noindex: Boolean(p.noindex),
+    type: 'website',
+  })) }
+}
 
 // Fallback de artículos para SEO si Bravo aún no tiene ninguno publicado.
 // Son los 6 artículos semilla de src/data/articles.ts (contenido estático que
@@ -191,7 +242,7 @@ function writeRoute(template, route) {
     writeFileSync(join(DIST, 'index.html'), html)
     return
   }
-  const dir = join(DIST, route.path.replace(/^\//, ''))
+  const dir = join(DIST, route.path.replace(/^\//, '').replace(/\/$/, ''))
   mkdirSync(dir, { recursive: true })
   writeFileSync(join(dir, 'index.html'), html)
 }
@@ -221,7 +272,8 @@ function main() {
     process.exit(1)
   }
   const template = readFileSync(indexPath, 'utf8')
-  const routes = [...STATIC_ROUTES, ...articleRoutes()]
+  const { rutas: paginas, fuente } = pageRoutes()
+  const routes = [...paginas, ...CODE_ROUTES, ...articleRoutes()]
 
   for (const route of routes) writeRoute(template, route)
 
@@ -229,7 +281,10 @@ function main() {
   writeFileSync(join(DIST, 'robots.txt'), buildRobots())
 
   const articleCount = routes.filter((r) => r.type === 'article').length
-  console.log(`[seo-prerender] ${routes.length} rutas con <head> propio (${articleCount} artículos) + sitemap.xml + robots.txt`)
+  console.log(
+    `[seo-prerender] ${routes.length} rutas con <head> propio ` +
+      `(${paginas.length} páginas desde ${fuente}, ${articleCount} artículos) + sitemap.xml + robots.txt`,
+  )
 }
 
 main()
