@@ -147,6 +147,29 @@ BRAVO_API_URL=http://localhost:4080 node scripts/seo-prerender.mjs && node scrip
 Medido así, el sitio armado **desde Bravo** sale con 0 píxeles de diferencia contra el armado desde
 el seed, en las 5 páginas a 1920 y a 430.
 
+### Cargar el seed en producción (fase 5) — los pasos, en orden
+
+Es el único paso irreversible de la migración y **lo autoriza un humano**. El orden importa y es al
+revés de lo que parece:
+
+1. **Ensayarlo local primero** (la sección de arriba). No es opcional.
+2. **Correr el seed en producción, ANTES de mergear el tema a `main`**, dentro del contenedor:
+   ```bash
+   npm run seed-pages -w @goberna/bravo-api -- --tenant gavilano --file <ruta>/content/seed.json
+   ```
+   Es idempotente, hace upsert por `slug`/`key` y **publica**. Cargarlo antes sale gratis: el tema
+   que está vivo hoy ignora las páginas, así que no le cambia un píxel al sitio.
+   ⚠️ Al revés se abre una ventana que puede costar la portada: con el tema nuevo en producción y la
+   base vacía, el cliente entra al panel, ve «Mi sitio» sin páginas y —haciendo exactamente lo que
+   le pedimos— crea una y la publica. Eso dispara el rebuild, la API ya devuelve una página, el
+   fallback deja de aplicar y **la portada real desaparece**.
+3. **Poner `SEED_YA_CARGADO_EN_PRODUCCION = true`** en `vite.config.ts`, en el MISMO PR. Desde ese
+   momento, que la API devuelva cero páginas deja de ser un estado válido y aborta el build (ver el
+   bloque de arriba). Si este paso se olvida, el candado no existe y nadie se entera.
+4. Comprobar que la API pública las sirve:
+   `curl -s "https://bravo.goberna.us/v1/public/pages?tenant=gavilano" | head -c 200`
+5. Recién ahí, mergear la pila del tema a `main`.
+
 ### Comprobar que una página NUEVA de verdad aparece
 
 Es la promesa de N2 y conviene demostrarla, no asumirla. Se levanta una Bravo de mentira que
