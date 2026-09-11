@@ -75,6 +75,8 @@ function ArticleDetailPage() {
               {article.bodyHtml ? (
                 <div
                   className="article-detail-body-html"
+                  // track.js de Bravo mide visitas, clicks y lectura de esta nota.
+                  data-bravo-article={slug}
                   // Contenido de primera parte (CMS del propio cliente), saneado.
                   dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.bodyHtml) }}
                 />
